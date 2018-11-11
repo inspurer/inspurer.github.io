@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[【持续更新】hexo next主题优化手册]]></title>
+    <url>%2F2018%2F11%2F11%2Fhexo-next%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96%2F</url>
+    <content type="text"><![CDATA[1、前言1.1、 开此贴的原因前几天博客崩了，重新搭建了这个博客站点。特开此贴记录next主题优化过程中遇到的问题，希望对大家有所帮助。 1.2、 一些说明前期相关的Hexo安装、本地/远程部署教程可百度在此不再赘述。基于hexo-next v5.1.4,向上兼容,向下兼容性不确定，特此声明。我的博客本地根目录是D:\hexoblog站点配置文件全路径是‪D:\hexoblog\_config.ymlnext主题文件全路径是‪D:\hexoblog\themes\next\_config.yml 1.3、 常见操作hexo new &quot;postName&quot; #新建文章hexo new page &quot;pageName&quot; #新建页面hexo clean #清除部署緩存hexo n == hexo new #新建文章hexo g == hexo generate #生成静态页面至public目录hexo s == hexo server #开启预览访问端口（默认端口4000，可在浏览器输入localhost:4000预览）hexo d == hexo deploy #将.deploy目录部署到GitHubhexo g -d #生成加部署hexo g -s #生成加预览 2、next主题优化2.1、next风格选择next有四种风格,在站点配置文件搜索字段Scheme Settings可以看到， # Scheme Settings # --------------------------------------------------------------- # Schemes #scheme: Muse #scheme: Mist #scheme: Pisces scheme: Gemini 我这里用的是四种：Gemini 2.2、 next菜单设置比如可以看到我的主页有首页、留言、分类、归档、标签等菜单，在站点配置文件下搜索menu:,可以看到 menu: home: / || home about: /about/ || user message: /message/ || comment tags: /tags/ || tags categories: /categories/ || th archives: /archives/ || archive #schedule: /schedule/ || calendar #sitemap: /sitemap.xml || sitemap #commonweal: /404/ || heartbeat home就是首页;message就是留言…一开始只有首页和归档,其余的需要我们手动创建， 在站点根目录下打开命令行,输入hexo new page &quot;about&quot;并在主题配置文件menu:字段下取消对about的注释,重新部署我们就可以看到主页有关于这个菜单了，其他的类似，修改D:\hexoblog\source\about\index.md,就可以修改关于界面了about: /about/ || user中的user是指关于菜单附件的图标用的是图标库里面名为user的图标]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>next</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[2018/06/08生活志]]></title>
     <url>%2F2018%2F11%2F11%2F%E7%94%9F%E6%B4%BB%E5%BF%97180608%2F</url>
     <content type="text"><![CDATA[今天，查哥一本正经地对我说:“你这么文艺，怎么不去读文科？”我顿时陷入了沉思,好像当时分文理的时候就没仔细想，文科和理科水平旗鼓相当,这个社会大势是重理轻文的，一不小心就选了理科想起梁启超先生的一句话：科学和文学是朵双生花，你看那些蜚声世界的大家，比如科学巨匠爱因斯坦同时是个小提琴手，全能天才达芬奇画笔生花，大概我也想成为那样的人呢。]]></content>
