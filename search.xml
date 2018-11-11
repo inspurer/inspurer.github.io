@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[2018/06/08生活志]]></title>
+    <url>%2F2018%2F11%2F11%2F%E7%94%9F%E6%B4%BB%E5%BF%97180608%2F</url>
+    <content type="text"><![CDATA[今天，查哥一本正经地对我说:“你这么文艺，怎么不去读文科？”我顿时陷入了沉思,好像当时分文理的时候就没仔细想，文科和理科水平旗鼓相当,这个社会大势是重理轻文的，一不小心就选了理科想起梁启超先生的一句话：科学和文学是朵双生花，你看那些蜚声世界的大家，比如科学巨匠爱因斯坦同时是个小提琴手，全能天才达芬奇画笔生花，大概我也想成为那样的人呢。]]></content>
+      <categories>
+        <category>生活志</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[Windows下操作POP3]]></title>
+    <url>%2F2018%2F11%2F10%2FWindows%E4%B8%8B%E6%93%8D%E4%BD%9CPOP3%2F</url>
+    <content type="text"><![CDATA[Windows10下开启telnet服务在自学《计算机网络-自顶向下方法》这本书中，telnet这个服务命令出现了好多次， 开始在Ubuntu 12.0终端下输入telnet是有正确响应的，但是在windows 10命令行下输入提示找不到该命令，直到今天我才发现该服务在window 1o下是默认关闭的，需要手动打开开启步骤如下 1.用小娜以关键词功能找到开启和关闭Windows功能其实不一定要这样操作，找到开启和关闭Windows功能即可 2.勾选Telnet客户端并确定然后就可以愉快地在windows10玩耍telnet了 Windows下操作POP3pop3是一个邮件访问协议 1.在cmd下输入telnet pop3.163.com 110登录到qq的POP3服务器的110端口2.依次输入user csu_xiaotao和pass xxxxxxxxx登录到自己的邮箱需要注意的是,xxxxxxxxx是邮箱的授权码，不是登录密码 3.然后是一些常见的pop3命令(大小写敏感）1.list列出所有的收到的邮件，特别的`list n’列出第n封邮件其响应格式如下:n m其中n为第n封邮件，m为第n封邮件的字节大小 2.retr n下载第n封邮件其响应格式如下：采用了特殊的编码格式，我们可能看不懂 3.dele n删除第n封邮件4.uidl n返回第n封邮件的唯一标识5.quit退出注意+OK代表操作成功；-ERR代表操作失败]]></content>
+      <categories>
+        <category>计算机网络</category>
+      </categories>
+      <tags>
+        <tag>pop3</tag>
+        <tag>telnet</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[打卡微信小程序]]></title>
+    <url>%2F2018%2F11%2F07%2F%E6%89%93%E5%8D%A1%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%2F</url>
+    <content type="text"><![CDATA[打卡微信小程序。实现功能1、类似论坛，可发帖、评论、回复。 2、打卡可换算积分，一天只能打卡一次，且有今日打卡排行榜实时展示。3、跑步也可换算积分，换算的规则男女有别。实现效果 核心js代码1 var Bmob = require(&quot;../../utils/bmob.js&quot;); var common = require(&quot;../../utils/common.js&quot;); Bmob.initialize(&quot;*************************&quot;, &quot;**************************&quot;); Page({ /** * 页面的初始数据 */ data: { canIUse: wx.canIUse(&apos;button.open-type.getUserInfo&apos;), hiddenmodalput: true, cname: &apos;&apos;, sexx: &apos;&apos;, iname: &apos;&apos;, }, cancel: function(e){ wx.showToast({ title: &apos;务必输入&apos;, icon: &apos;loading&apos; }) }, cn:function(e){ console.log(e.detail.value) this.setData({ cname: e.detail.value }) }, se: function (e) { console.log(e.detail.value) this.setData({ sexx: e.detail.value }) }, ina: function(e){ this.setData({ iname:e.detail.value }) }, confirm: function (e) { var that = this; if (!(that.data.sexx == &apos;男&apos; || that.data.sexx == &apos;女&apos;)){ wx.showToast({ title: &apos;性别输入有误&apos;, }) return; } if(!that.data.cname){ wx.showToast({ title: &apos;姓名班级有误&apos;, }) return; } if(that.data.iname.length&gt;0) { var User = Bmob.Object.extend(&quot;_User&quot;); var query = new Bmob.Query(User); query.equalTo(&apos;nickname&apos;, that.data.iname) query.find({ success: function (results) { if (results.length == 0) { wx.showToast({ title: &apos;无此邀请人&apos;, icon: &apos;loading&apos; }) return; } var user = Bmob.User.logIn(results[0].get(&apos;username&apos;), results[0].get(&apos;userData&apos;).openid, { success: function (users) { var score = users.get(&apos;score&apos;); score = score + 2; users.set(&apos;score&apos;, score); users.save(null, { success: function (user) { wx.showToast({ title: &apos;被邀请成功&apos;, icon: &apos;success&apos; }) }, error: function (error) { console.log(error) } }); } }); } }) } this.setData({ hiddenmodalput: true, }) wx.getStorage({ key: &apos;my_username&apos;, success: function (ress) { if (ress.data) { var my_username = ress.data; wx.getStorage({ key: &apos;user_openid&apos;, success: function (openid) { var openid = openid.data; var user = Bmob.User.logIn(my_username, openid, { success: function (users) { users.set(&apos;nickname&apos;, that.data.cname); users.set(&apos;sex&apos;,that.data.sexx) users.save(null, { success: function (user) { wx.setStorageSync(&apos;my_nick&apos;, that.data.cname); wx.setStorageSync(&quot;sex&quot;, that.data.sexx); }, error: function (error) { console.log(error) } }); } }); }, function(error) { console.log(error); } }) } } }) wx.switchTab({ url: &apos;../punch/punch&apos;, }); }, /** * 生命周期函数--监听页面加载 */ onLoad: function (options) { }, bindGetUserInfo: function (e) { var that = this; // 查看是否授权 wx.getSetting({ success: function (res) { if (res.authSetting[&apos;scope.userInfo&apos;]) { console.log(&quot;已授权&quot;) // 已经授权，可以直接调用 getUserInfo 获取头像昵称 //调用API从本地缓存中获取数据 try { var value = wx.getStorageSync(&apos;user_openid&apos;) if (value) { console.log(&quot;value不为空&quot;) wx.switchTab({ url: &apos;../punch/punch&apos;, }) } else { console.log(&quot;value为空&quot;) wx.login({ success: function (res) { console.log(&apos;res&apos;, res) if (res.code) { Bmob.User.requestOpenId(res.code, { success: function (userData) { console.log(&apos;uD&apos;,userData) var userInfo = e.detail.userInfo; var nickName = userInfo.nickName; var avatarUrl = userInfo.avatarUrl; Bmob.User.logIn(nickName, userData.openid, { success: function (user) { try { console.log(&apos;sex&apos;+user.get(&apos;sex&apos;)); console.log(&apos;score&apos; + user.get(&apos;score&apos;)); wx.setStorageSync(&quot;newsnum&quot;, user.get(&apos;newsnum&apos;)) wx.setStorageSync(&quot;sex&quot;, user.get(&apos;sex&apos;)); wx.setStorageSync(&quot;score&quot;, user.get(&apos;score&apos;)); wx.setStorageSync(&apos;user_openid&apos;, user.get(&quot;userData&quot;).openid) wx.setStorageSync(&apos;user_id&apos;, user.id); wx.setStorageSync(&apos;my_nick&apos;, user.get(&quot;nickname&quot;)) wx.setStorageSync(&apos;my_username&apos;, user.get(&quot;username&quot;)) wx.setStorageSync(&apos;my_avatar&apos;, user.get(&quot;userPic&quot;)) } catch (e) { } console.log(&quot;登录成功y&quot;); }, error: function (user, error) { console.log(&apos;test&apos;,error) if (error.code == &quot;101&quot;) { that.setData({ hiddenmodalput: false, }) var user = new Bmob.User();//开始注册用户 user.set(&quot;username&quot;, nickName); user.set(&quot;password&quot;, userData.openid);//因为密码必须提供，但是微信直接登录小程序是没有密码的，所以用openId作为唯一密码 user.set(&quot;sex&quot;,&quot;男&quot;); user.set(&quot;score&quot;,0); user.set(&apos;newsnum&apos;,0); user.set(&quot;nickname&quot;, nickName); user.set(&quot;userPic&quot;, avatarUrl); user.set(&quot;userData&quot;, userData); user.signUp(null, { success: function (results) { try {//将返回的3rd_session储存到缓存 wx.setStorageSync(&apos;user_openid&apos;, results.get(&quot;userData&quot;).openid) wx.setStorageSync(&apos;user_id&apos;, results.id); wx.setStorageSync(&apos;my_username&apos;, results.get(&quot;username&quot;)); wx.setStorageSync(&quot;newsnum&quot;, results.get(&apos;newsnum&apos;)); wx.setStorageSync(&quot;score&quot;, 0); wx.setStorageSync(&quot;sex&quot;, &quot;男&quot;); wx.setStorageSync(&apos;my_nick&apos;, results.get(&quot;nickname&quot;)); wx.setStorageSync(&apos;my_avatar&apos;, results.get(&quot;userPic&quot;) ) console.log(&quot;注册成功!&quot;); } catch (e) { } }, error: function (userData, error) { console.log(error) } }); } } }); }, }); } else { console.log(&apos;获取用户登录态失败！&apos; + res.errMsg) } }, }); } } catch (e) { console.log(&quot;登陆失败&quot;) } wx.checkSession({ success: function () { }, fail: function () { //登录态过期 wx.login() } }) } } }) }, /** * 生命周期函数--监听页面初次渲染完成 */ onReady: function () { }, /** * 生命周期函数--监听页面显示 */ onShow: function () { }, /** * 生命周期函数--监听页面隐藏 */ onHide: function () { }, /** * 生命周期函数--监听页面卸载 */ onUnload: function () { }, /** * 页面相关事件处理函数--监听用户下拉动作 */ onPullDownRefresh: function () { wx.stopPullDownRefresh() }, /** * 页面上拉触底事件的处理函数 */ onReachBottom: function () { }, /** * 用户点击右上角分享 */ onShareAppMessage: function () { } }) ``` ` github地址,欢迎star、fork!!!]]></content>
+      <categories>
+        <category>小程序</category>
+      </categories>
+      <tags>
+        <tag>打卡</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[基于opencv人脸识别的员工考勤系统]]></title>
+    <url>%2F2018%2F09%2F25%2F%E5%9F%BA%E4%BA%8Eopencv%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%E7%9A%84%E5%91%98%E5%B7%A5%E8%80%83%E5%8B%A4%E7%B3%BB%E7%BB%9F%2F</url>
+    <content type="text"><![CDATA[WorkAttendanceSystem一个基于opencv人脸识别的员工考勤系统，作者某双一流A类大学里的二流学生，写于2018/09/，python课设期间。 工程简介项目结构是V1.0版本的，V2.0的介绍请看文末更新版块项目结构mainui.py是主界面，调用face_img_register.py和face_recognize_punchcard.py其中face_img_register.py是录入人脸信息，face_recognize_punchcard.py是刷脸考勤face_feature_storage.py属于鸡肋文件，没什么用，舍不得删，毕竟有点参考价值。face_recognize_punchcard_lib.py和face_recognize_punchcard.py本质上差不多，但是前者是给face_img_register.py专有的依赖。防止录入两个同样的人脸建不同数据库的风险。 运行效果1. 主界面 2. 人脸录入 3. 刷脸考勤 其余的就不多做展示了，有什么问题欢迎2391527690@qq.com联系 更新V1.0版本2018/9/23更新mainui.py–&gt;myapp.pyface_recognize_punchcard_lib.py等鸡肋文件放到useless文件夹里运行效率显著提高 2018/9/25更新解决同步性问题，新录入的人脸能立即被识别代码的运行速度少许下降 V2.0版本1. 全新设计的UI,更人性化的操作 2. 数据更加安全，用户不可见人脸数据和签到日志全部保存在inspurer.db数据库文件里，更加安全；而且对人脸数据进行了压缩，更加小巧。 3. 注意事项 打开摄像头时请左右晃动一下人脸，确保人脸识别开始。 人脸识别时做了拒绝处理，多张人脸时，只取距离屏幕最近的人脸。 新建录入时会自动录入十张人脸照片，也可手动点击完成录入立即完成，之后就会计算人脸数据并存储到数据库中，左边的信息栏会有相应的信息打印。 开始签到后，如不点击结束签到,就会一直对屏幕前的人脸进行签到，签到状态分三种,未识别的人脸，签到成功，签到成功但是迟到了(9.00后签到),重复签到(此时签到日志不会写入到数据库。 为确保程序稳定性，每一个菜单里的按钮尽量成对操作。 **Thanks for your attention;can you fork it if helping you? Thanks again**CopyRight 2391527690@qq.com;send me for allowance if you want to transmit it 源代码地址]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>人脸识别</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[数据结构之单链表]]></title>
+    <url>%2F2018%2F09%2F12%2F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E5%8D%95%E9%93%BE%E8%A1%A8%2F</url>
+    <content type="text"><![CDATA[从今天起开始数据结构系列的分享，今天分享的是单链表。单链表大概是大概是每个数据结构初学者的必经之路，下面结合一个小小的工程来深入学习单链表的使用–简易客户管理系统。ps：如果还不清楚单链表是什么的小伙伴自行百度，在此不在赘述 #项目结构如图所示大致了解了项目架构后，下面开始从零编写代码注：增、删、改这三个部分同时包含了将变动后的信息写入到文件中的操作 #代码编写 ##项目基础代码俗话说得好，“万丈高楼平地起”，先来编写项目的预定义代码部分，主要是头文件包含、结构体定义、全局变量定义等 ###头文件包含#include&lt;stdio.h&gt; //C程序基础库#include&lt;stdlib.h&gt; //包含函数exit()#include&lt;string.h&gt; //包含函数strcmp() ###结构体定义 typedef struct item{ char name[20]; //保存客户姓名 char gender[20]; //保存客户性别 int age; //保存客户年龄 char tel[20]; //保存客户号码} guest;结构体定义不要多说了哈，这里typedef...guest是给结构体item起别名的意思，也就是struct item在这个源文件里面等价于guest typedef struct node { guest data; //数据域 struct node next; //指针域} link;这里是给指向结构体node的指针起别名 ###全局变量定义link T;//头指针这个头指针T是整个系统的索引，六个模块共有一个，虽然有尽量少定义全局变量的原则，但这里的全局变量T可以避免各个函数间复杂的参数传递问题，牺牲了空间，换取了运行时间的减少；同时要注意我在后面对T的初始化代码 //初始化头指针T=(link)malloc(sizeof(struct node));T-&gt;next = NULL;这里并没有给T安排数据域，T不是第一个存储客户信息的节点指针，T-&gt;next才是，初始化头指针时还没有存储客户信息的结点加入，所以T-&gt;next=NULL;,这是一个编程者应该养成的好习惯；为什么不给T安排数据域呢，这里主要考虑到后面的删除模块的编写，我们知道，删除一个结点，要先找到这个结点的前驱指针p和后驱指针q，然后p-&gt;next = q-&gt;next；,如果给T安排数据域的话，T的前驱是什么呢？就算不用上面我说的那套删除逻辑，用if...else...语句和另外一套逻辑完成对T的删除，代码明显复杂些。 ##项目核心代码 ###一、加载文件代码如下 void init() { link p,s; FILE *fp; int i = 0; s = p=(link)malloc(sizeof(struct node)); p-&gt;next = NULL; if((fp=fopen(“1.txt”,”r”))==NULL) { printf(“load error!”); exit(1); } while(!feof(fp)) { fscanf(fp,”%s\t%s\t%d\t%s\t\n”,p-&gt;data.name,p-&gt;data.gender,&amp;p-&gt;data.age,p-&gt;data.tel); i++; if(i!=1) { s-&gt;next = p; s=p; } else{ T-&gt;next = p; } p=(link)malloc(sizeof(struct node)); p-&gt;next = NULL; } printf(“总人数i=====%d\n”,i); if(fclose(fp)) { printf(“Can’t close the file!\n”); exit(1); }}介绍下代码逻辑，新开辟内存空间，并使s、p指向它，打开文件，如果文件指针没有到文件尾，将从文件读取到的一个客户信息赋给p的数据域，如果是读取第一个客户信息，将p指向的结点连在头指针T后面，否则，将p连在s后面，因为这个时候s是p的前驱指针，连接成功后将p赋值给s，p又指向一个新开辟的结点…图示： ###二、增加客户代码如下： //添加void create() { link p,s; FILE *fp; int yn; s=T; while(s-&gt;next!=NULL) { s=s-&gt;next; } do { p=(link)malloc(sizeof(struct node)); printf(“请输入客户姓名：\n”); scanf(“%s”,p-&gt;data.name); printf(“请输入客户性别：\n”); scanf(“%s”,p-&gt;data.gender); printf(“请输入客户年龄：\n”); scanf(“%d”,&amp;p-&gt;data.age); printf(“请输入客户联系方式：\n”); scanf(“%s”,p-&gt;data.tel); p-&gt;next=NULL; s-&gt;next=p; s=p; if((fp=fopen(“1.txt”,”at”))==NULL) { printf(“write error!\n”); exit(0); } printf(“写了一次\n”); fprintf(fp,”%s\t%s\t%d\t%s\n”,p-&gt;data.name,p-&gt;data.gender,p-&gt;data.age,p-&gt;data.tel); if(fclose(fp)) { printf(“can’t close the file!\n”); exit(0); } printf(“添加成功!\n”); printf(“是否继续添加请输入0或1:”); scanf(“%d”,&amp;yn); } while(yn);}代码逻辑很简单，新增结点，并连在尾节点后面，同时写入文件，如果前一片代码看懂了，这不是什么大问题… ###三、删除客户代码如下 //删除int del() { link p,q; FILE *fp; char mod[25]; printf(“请输入需要删除的客户名称:\n”); scanf(“%s”,mod); p=T; while(p-&gt;next!=NULL&amp;&amp;strcmp(p-&gt;next-&gt;data.name,mod)!=0) p=p-&gt;next; if(p-&gt;next==NULL) { printf(“并无此人！\n”); return 0; } q = p; p = p-&gt;next; q-&gt;next = p-&gt;next; delete(p); printf(“删除成功！\n”); if((fp=fopen(“1.txt”,”wt”))==NULL) { printf(“error!\n”); exit(0); } p=T-&gt;next; while(p!=NULL) { printf(“%s”,p-&gt;data.name); fprintf(fp,”%s\t%s\t%d\t%s\t\n”,p-&gt;data.name,p-&gt;data.gender,p-&gt;data.age,p-&gt;data.tel); p = p-&gt;next; } if(fclose(fp)) { printf(“can’t close the file!\n”); exit(1); }}模块三、四、五、六道理类似，不再赘述附上代码地址：github 欢迎star如有疑问，欢迎进群讨论：如链接失效，扫二维码：]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>单链表</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[前端入门第二天]]></title>
+    <url>%2F2018%2F08%2F17%2F%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E7%AC%AC%E4%BA%8C%E5%A4%A9%2F</url>
+    <content type="text"><![CDATA[#前言许久未更新了，今天七夕，为了逃避现实，重启博客。本博客主要记录一些前端学习中的入门级问题。 Q1：HTML标签、元素、属性都是什么概念？ A1:HTML标签：HTML标签标记了HTML文档和HTML元素，HTML标签由开始标签和结束标签组成.开始标签为尖括号包围的元素名,结束标签为尖括号包围的斜杠和元素名。例如:&lt;h2&gt; My First Heading&lt;/h2&gt; HTML元素：HTML文档是由html元素定义的.HTML的元素是指从开始标签到结束标签的所有代码..例如:&lt;p&gt;我是一个段落&lt;/p&gt;表示一个html元素.可以看出,html元素主要包括html标签和纯文本.标签定义网页显示的格式,文本表示网页的内容.故此,网页 = html文档,而html文档则是由html元素定义的. HTML属性：HTML属性为HTML元素提供附件信息,例如在超链接标签&lt;a href = “https://inspurer.github.io&gt;月小水长的个人博客&lt;/a&gt;使用了href属性来指定超链接的地址.属性总是以名称/值的形式出现,例如:name = “value”属性总是在开始标签中定义. Q2：meta标签都用来做什么的？ A2： 元素可提供有关页面的元信息（meta-information），比如针对搜索引擎和更新频度的描述和关键词。 标签位于文档的头部，不包含任何内容。 标签的属性定义了与文档相关联的名称/值对。 Q3： Web语义化是什么，是为了解决什么问题？A3:简言之，web语义化的目的是提高计算机和人对web代码的可读性。 网上的解释很多，个人总结分三个阶段比较容易理解。1、原始的一些有实际含义的标签定义。浏览器和W3C组织推出的如h1~h6、thead、ul、ol的HTML标签用于在Web页面中组织对应的内容，如网页标题、表头、无序、有序列表，以达到更方便的协作及传播互联网内容的目的。搜索引擎很好的利用了这些语义化标签抓取内容，又鉴于搜索引擎的巨大流量推荐，Web前端不得不考虑SEO，从而两者实现有益的循环，共同推进着语义化标签的使用。 2、前端开发人员自定义的标签。但Web的发展超乎想象，起初定义的HTML语义化标签，不足以实现对Web页面各个部分的功能或位置描述，所以Web前端人员利用HTML标签的id和class属性，进一步对HTML标签进行描述，如对页脚HTML标签添加如id=”footer“或者class=”footer”的属性（值），以“无声”的方式 在不同的前端程序员或者前后端程序员间实现交流。 3、在第二步的推动下结合新技术出现的一些标签。W3C组织意识到了之前HTML版本的不足，推出的HTML5进一步推进了Web语义化发展，采用了诸如footer、section等语义化标签，弥补了采用id=”footer”或者class=”footer”形式的不足，以更好的推动Web的发展。正所谓：世上本没有路，走的人多了，也便成了路。 Q4: 表单标签都有哪些，对应着什么功能，都有哪些属性? A4: 还是W3School的这篇教程经典：HTML表单标签之input Q5: ol, ul, li, dl, dd, dt等这些标签都适合用在什么地方?举个例子.A5: 1.无序列表 无序列表是一个项目的列表，此列项目使用粗体圆点（典型的小黑圆圈）进行标记。无序列表始于 &lt;ul&gt;标签。每个列表项始于 &lt;li&gt;。 2.有序列表 同样，有序列表也是一列项目，列表项目使用数字进行标记。有序列表始于 &lt;ol&gt;标签。每个列表项始于&lt;li&gt; 标签。 ` Coffee Milk ` 浏览器显示如下 3.定义列表 自定义列表不仅仅是一列项目，而是项目及其注释的组合。自定义列表以 &lt;dl&gt;标签开始。每个自定义列表项以 &lt;dt&gt; 开始。每个自定义列表项的定义以&lt;dd&gt; 开始。]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>前端基础知识</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[前端入门杂记]]></title>
+    <url>%2F2018%2F06%2F12%2F%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E6%9D%82%E8%AE%B0%2F</url>
+    <content type="text"><![CDATA[#前言:从今天开始在本教程上纪录当日学到的知识点，不追求百科全书式的纪录只记录那些我比较陌生的或者觉得比较容易混淆的 #笔记正文 先来纪录一个坑，用notepad++写出第一个html文档时，代码如下保存为html文件，在火狐浏览器打开，发现文档的内容这几个字是乱码不是utf-8/cp36的问题，而是必须这个html文档必须要BOM头 太累了，后续更新…2018/6/13深夜]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[前端入门第一天]]></title>
+    <url>%2F2018%2F06%2F11%2F%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E7%AC%AC%E4%B8%80%E5%A4%A9%2F</url>
+    <content type="text"><![CDATA[前言前不久在网上看到一篇Hexo建站的教程，顺手给自己建了个个人博客 有还算扎实的c++/java/python/andorid基础，整个建站过程还算顺利从此沉迷web编程,但是我感觉用现成的框架,总有点那啥受制于人的感觉打算好好学一下前端，由于在实验室跟着老师做项目一直没有时间但是万万没想到，心心念念的前端，开始正式开始系统学习居然是在忙到炸的期末考试周在此要先pick一下百度前端技术学院,可以说是我的前端入门导师了哈哈哈，不bb了，正式开始。 首先我们要知道访问网站的具体过程 比如，输入http://www.zhihu.com/question/22689579访问过程如下图所示浏览器和服务器交流，服务器和数据库交流（有时候数据库就在服务器那台机子上）浏览器给服务器发一个请求，服务器不是一看就知道怎么响应的。首先这些请求和响应要有一个通用的写法，也就是要有一个协议，常用的是HTTP协议。像最前面的图，服务器的响应写了一个状态码200 OK,是HTTP协议里约定俗成的一个东西，服务器写200 OK在响应里，表示“你请求的这个东西我有”，如果是404 Not Found，就是“你请求的这个东西我这里没有”。HTTP响应里还包括很多东西，比如Content-type表示服务器发过来的文件类型是什么（文本？动画？图片？音频？）形象化Http响应，大概这样： 然后我们来了解前端三剑客 html 接上图，服务器返回html（就是上图HTTP响应的body里的内容)文件 后,电脑拿到html后，浏览器就会对它进行解析渲染，html是一种文本标记语言，举个栗子： css 浏览器拿到这些代码之后，分析一下给你渲染好页面显示出来，但是如果没有用css，效果是这样的，按照浏览器默认的样式显示出列表、图片、超链接、输入框、按钮等等：是不是觉得默认样式有点看瞎狗眼呢……所以很多时候我们需要自定义样式，现行通用的规定样式的语言是CSS，我们可以用它写一些定义样式的代码，在 html 文件里用一个标签把这些规定样式的CSS代码与表达内容语义的HTML代码关联起来，然后你就能看到一个符合人类正常审美的页面了:插一句：CSS 代码的格式基本是属性 : 值 javascipt(js)有了表示内容和语义的 HTML，规定样式的 CSS，得到的是一个静态的页面，没什么动画（其实用 CSS 还是可以有一些动画的,不过这个跑题了),按 F5 才会刷新数据，于是我们有了 Javascript(js)来给页面添加一些动态的效果浏览器都会帮你实现一些 JS 可以用的工具（函数，对象什么的），你只要写一些js的代码，保存在xxx.js 里，在html文件中用 &lt;script&gt;关联进来就可以用了 在前端三剑客bb了怎么多，可以用一句很形象的话来归纳之：前台三剑客，html是名词，css是形容词，javascript是动词。三个互相配合才是一句子就问形不形象 立个Flag 考虑到三周的期末周，就立一个这样的flag吧：暑假每天至少学习前端两个小时，争取下学期开始学完！ 致谢最后实名pick一下小姐姐张秋怡,感谢她的精彩回答我只是个搬运工只不过经过自己的理解稍作了修改2018/6/12 00:31初稿欢迎评论啊]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[”月小水长“和“inspurer”的由来]]></title>
+    <url>%2F2018%2F06%2F07%2F%E6%9C%88%E5%B0%8F%E6%B0%B4%E9%95%BF%E7%9A%84%E7%94%B1%E6%9D%A5%2F</url>
+    <content type="text"><![CDATA[非凭空臆想,其有典故；宋苏轼在后赤壁赋有云：山高月小，水落石出曾日月之几何，而江山不可复识矣在此我引申出月小水长句，一为不怕贻笑大方而附庸风雅，二为吾全名肖涛之字析，月小为肖，水即三点水，长寿为涛，还算是能够自圆其说。至于inspurer,大一的时候了解到一家很厉害的中国企业inspur浪潮想不到中国除了华为还有在高新技术领域耕耘了这么深的企业，遂起名inspurer，寓意弄潮儿，想成为那种站在技术潮头的人儿呐~]]></content>
+      <categories>
+        <category>生活志</category>
+      </categories>
+  </entry>
+</search>

@@ -91,6 +91,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="月小水长的个人博客" type="application/atom+xml">
+
 
 
 
@@ -103,7 +105,7 @@
 <meta property="og:site_name" content="月小水长的个人博客">
 <meta property="og:description" content="欢迎来到我的个人博客网站  My name is xiaotao,signed by inspurer or 月小水长 湖南衡阳人士，就读于中南大学信息科学与工程学院通信工程系,目前大二(2018/06/09) 自学了c/c++/java/python/matlab/javascript/kotlin等计算机语言以及css/html等伪计算机语言 专注于安卓/C++开发，目前在学习python大数">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-10T18:24:34.674Z">
+<meta property="og:updated_time" content="2018-11-11T04:08:03.532Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于">
 <meta name="twitter:description" content="欢迎来到我的个人博客网站  My name is xiaotao,signed by inspurer or 月小水长 湖南衡阳人士，就读于中南大学信息科学与工程学院通信工程系,目前大二(2018/06/09) 自学了c/c++/java/python/matlab/javascript/kotlin等计算机语言以及css/html等伪计算机语言 专注于安卓/C++开发，目前在学习python大数">
@@ -116,7 +118,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -356,9 +358,7 @@
 2. 在我的某一篇文章下评论，我也会收到邮件的(不过貌似这个服务器经常GG...)
 3. 左下角有个邮件的图标，点一下，就可以发送邮件了。
 4. 在首页的留言板留言，我会定期查看。
-5. 本站免费提供QQ空间背景音乐外链,需要哪些音乐请点击链接
-</code></pre><p><strong><a href="https://inspurer.github.io/2018/06/10/免费快速设置QQZone背景音乐/">QQ空间背景音乐免费设置</a></strong></p>
-<hr>
+</code></pre><hr>
 <h2 id="最后是更新日志"><a href="#最后是更新日志" class="headerlink" title="最后是更新日志  "></a>最后是更新日志  </h2><pre><code>2018/06/09才启用该版块,之前请自动忽略
 
 * 2018/06/09 23:48新增了Rss订阅功能,在主页上有个类似wifi一样的东西,点击就可以订阅本站点了
@@ -438,7 +438,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -449,7 +449,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -460,7 +460,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -468,6 +468,13 @@
 
           </nav>
 
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
           
 
           
@@ -508,7 +515,7 @@
             <div class="links-of-blogroll motion-element links-of-blogroll-block">
               <div class="links-of-blogroll-title">
                 <i class="fa  fa-fw fa-link"></i>
-                Links
+                友情链接
               </div>
               <ul class="links-of-blogroll-list">
                 
@@ -548,6 +555,13 @@
       
 
       
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
 
     </div>
   </aside>
@@ -580,7 +594,7 @@
     
       <span class="post-meta-item-text">总字数:</span>
     
-    <span title="Site words total count">6.2k</span>
+    <span title="Site words total count">6.1k</span>
   
 
 
@@ -631,13 +645,6 @@
       </div>
     </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-          <span id="scrollpercent"><span>0</span>%</span>
-        
-      </div>
     
 
     
@@ -1235,6 +1242,31 @@
   
 
   
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
   
 
   
