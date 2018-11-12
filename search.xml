@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[【持续更新】hexo next主题优化手册]]></title>
     <url>%2F2018%2F11%2F11%2Fhexo-next%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96%2F</url>
-    <content type="text"><![CDATA[1、前言1.1、 开此贴的原因前几天博客崩了，重新搭建了这个博客站点。特开此贴记录next主题优化过程中遇到的问题，希望对大家有所帮助。 1.2、 一些说明前期相关的Hexo安装、本地/远程部署教程可百度在此不再赘述。基于hexo-next v5.1.4,向上兼容,向下兼容性不确定，特此声明。我的博客本地根目录是D:\hexoblog站点配置文件全路径是‪D:\hexoblog\_config.ymlnext主题文件全路径是‪D:\hexoblog\themes\next\_config.yml 1.3、 常见操作hexo new &quot;postName&quot; #新建文章hexo new page &quot;pageName&quot; #新建页面hexo clean #清除部署緩存hexo n == hexo new #新建文章hexo g == hexo generate #生成静态页面至public目录hexo s == hexo server #开启预览访问端口（默认端口4000，可在浏览器输入localhost:4000预览）hexo d == hexo deploy #将.deploy目录部署到GitHubhexo g -d #生成加部署hexo g -s #生成加预览 2、next主题优化2.1、next风格选择next有四种风格,在站点配置文件搜索字段Scheme Settings可以看到， # Scheme Settings # --------------------------------------------------------------- # Schemes #scheme: Muse #scheme: Mist #scheme: Pisces scheme: Gemini 我这里用的是四种：Gemini 2.2、 next菜单设置比如可以看到我的主页有首页、留言、分类、归档、标签等菜单，在站点配置文件下搜索menu:,可以看到 menu: home: / || home about: /about/ || user message: /message/ || comment tags: /tags/ || tags categories: /categories/ || th archives: /archives/ || archive #schedule: /schedule/ || calendar #sitemap: /sitemap.xml || sitemap #commonweal: /404/ || heartbeat home就是首页;message就是留言…一开始只有首页和归档,其余的需要我们手动创建， 在站点根目录下打开命令行,输入hexo new page &quot;about&quot;并在主题配置文件menu:字段下取消对about的注释,重新部署我们就可以看到主页有关于这个菜单了，其他的类似，修改D:\hexoblog\source\about\index.md,就可以修改关于界面了about: /about/ || user中的user是指关于菜单附件的图标用的是图标库里面名为user的图标]]></content>
+    <content type="text"><![CDATA[1、前言1.1、 开此贴的原因前几天博客崩了，重新搭建了这个博客站点。特开此贴记录next主题优化过程中遇到的问题，希望对大家有所帮助。 1.2、 一些说明前期相关的Hexo安装、本地/远程部署教程可百度在此不再赘述。基于hexo-next v5.1.4,向上兼容,向下兼容性不确定，特此声明。我的博客本地根目录是D:\hexoblog站点配置文件全路径是‪D:\hexoblog\_config.ymlnext主题文件全路径是‪D:\hexoblog\themes\next\_config.yml 1.3、 常见操作hexo new &quot;postName&quot; #新建文章hexo new page &quot;pageName&quot; #新建页面hexo clean #清除部署緩存hexo n == hexo new #新建文章hexo g == hexo generate #生成静态页面至public目录hexo s == hexo server #开启预览访问端口（默认端口4000，可在浏览器输入localhost:4000预览）hexo d == hexo deploy #将.deploy目录部署到GitHubhexo g -d #生成加部署hexo g -s #生成加预览 2、next主题优化2.1、next风格选择next有四种风格,在站点配置文件搜索字段Scheme Settings可以看到， # Scheme Settings # --------------------------------------------------------------- # Schemes #scheme: Muse #scheme: Mist #scheme: Pisces scheme: Gemini 我这里用的是四种：Gemini 2.2、 next菜单设置比如可以看到我的主页有首页、留言、分类、归档、标签等菜单，在站点配置文件下搜索menu:,可以看到 menu: home: / || home about: /about/ || user message: /message/ || comment tags: /tags/ || tags categories: /categories/ || th archives: /archives/ || archive #schedule: /schedule/ || calendar #sitemap: /sitemap.xml || sitemap #commonweal: /404/ || heartbeat home就是首页;message就是留言…一开始只有首页和归档,其余的需要我们手动创建，在站点根目录下打开命令行,输入hexo new page &quot;about&quot;并在主题配置文件menu:字段处取消对about的注释重新部署我们就可以看到主页有关于这个菜单了，其他的类似，修改D:\hexoblog\source\about\index.md,就可以修改关于界面了about: /about/ || user中的user是指关于菜单附件的图标用的是图标库里面名为user的图标]]></content>
       <categories>
         <category>hexo</category>
       </categories>
@@ -11,14 +11,6 @@
         <tag>hexo</tag>
         <tag>next</tag>
       </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[2018/06/08生活志]]></title>
-    <url>%2F2018%2F11%2F11%2F%E7%94%9F%E6%B4%BB%E5%BF%97180608%2F</url>
-    <content type="text"><![CDATA[今天，查哥一本正经地对我说:“你这么文艺，怎么不去读文科？”我顿时陷入了沉思,好像当时分文理的时候就没仔细想，文科和理科水平旗鼓相当,这个社会大势是重理轻文的，一不小心就选了理科想起梁启超先生的一句话：科学和文学是朵双生花，你看那些蜚声世界的大家，比如科学巨匠爱因斯坦同时是个小提琴手，全能天才达芬奇画笔生花，大概我也想成为那样的人呢。]]></content>
-      <categories>
-        <category>生活志</category>
-      </categories>
   </entry>
   <entry>
     <title><![CDATA[Windows下操作POP3]]></title>
@@ -46,7 +38,7 @@
   <entry>
     <title><![CDATA[基于opencv人脸识别的员工考勤系统]]></title>
     <url>%2F2018%2F09%2F25%2F%E5%9F%BA%E4%BA%8Eopencv%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%E7%9A%84%E5%91%98%E5%B7%A5%E8%80%83%E5%8B%A4%E7%B3%BB%E7%BB%9F%2F</url>
-    <content type="text"><![CDATA[WorkAttendanceSystem一个基于opencv人脸识别的员工考勤系统，作者某双一流A类大学里的二流学生，写于2018/09/，python课设期间。 工程简介项目结构是V1.0版本的，V2.0的介绍请看文末更新版块项目结构mainui.py是主界面，调用face_img_register.py和face_recognize_punchcard.py其中face_img_register.py是录入人脸信息，face_recognize_punchcard.py是刷脸考勤face_feature_storage.py属于鸡肋文件，没什么用，舍不得删，毕竟有点参考价值。face_recognize_punchcard_lib.py和face_recognize_punchcard.py本质上差不多，但是前者是给face_img_register.py专有的依赖。防止录入两个同样的人脸建不同数据库的风险。 运行效果1. 主界面 2. 人脸录入 3. 刷脸考勤 其余的就不多做展示了，有什么问题欢迎2391527690@qq.com联系 更新V1.0版本2018/9/23更新mainui.py–&gt;myapp.pyface_recognize_punchcard_lib.py等鸡肋文件放到useless文件夹里运行效率显著提高 2018/9/25更新解决同步性问题，新录入的人脸能立即被识别代码的运行速度少许下降 V2.0版本1. 全新设计的UI,更人性化的操作 2. 数据更加安全，用户不可见人脸数据和签到日志全部保存在inspurer.db数据库文件里，更加安全；而且对人脸数据进行了压缩，更加小巧。 3. 注意事项 打开摄像头时请左右晃动一下人脸，确保人脸识别开始。 人脸识别时做了拒绝处理，多张人脸时，只取距离屏幕最近的人脸。 新建录入时会自动录入十张人脸照片，也可手动点击完成录入立即完成，之后就会计算人脸数据并存储到数据库中，左边的信息栏会有相应的信息打印。 开始签到后，如不点击结束签到,就会一直对屏幕前的人脸进行签到，签到状态分三种,未识别的人脸，签到成功，签到成功但是迟到了(9.00后签到),重复签到(此时签到日志不会写入到数据库。 为确保程序稳定性，每一个菜单里的按钮尽量成对操作。 **Thanks for your attention;can you fork it if helping you? Thanks again**CopyRight 2391527690@qq.com;send me for allowance if you want to transmit it 源代码地址]]></content>
+    <content type="text"><![CDATA[WorkAttendanceSystem一个基于opencv人脸识别的员工考勤系统，作者某双一流A类大学里的二流学生，写于2018/09/，python课设期间。 工程简介项目结构是V1.0版本的，V2.0的介绍请看文末更新版块项目结构mainui.py是主界面，调用face_img_register.py和face_recognize_punchcard.py其中face_img_register.py是录入人脸信息，face_recognize_punchcard.py是刷脸考勤face_feature_storage.py属于鸡肋文件，没什么用，舍不得删，毕竟有点参考价值。face_recognize_punchcard_lib.py和face_recognize_punchcard.py本质上差不多，但是前者是给face_img_register.py专有的依赖。防止录入两个同样的人脸建不同数据库的风险。 运行效果1. 主界面 2. 人脸录入 3. 刷脸考勤 其余的就不多做展示了，有什么问题欢迎2391527690@qq.com联系 更新V1.0版本2018/9/23更新mainui.py–&gt;myapp.pyface_recognize_punchcard_lib.py等鸡肋文件放到useless文件夹里运行效率显著提高 2018/9/25更新解决同步性问题，新录入的人脸能立即被识别代码的运行速度少许下降 V2.0版本1. 全新设计的UI,更人性化的操作 2. 数据更加安全，用户不可见人脸数据和签到日志全部保存在inspurer.db数据库文件里，更加安全；而且对人脸数据进行了压缩，更加小巧。 3. 注意事项 打开摄像头时请左右晃动一下人脸，确保人脸识别开始。 人脸识别时做了拒绝处理，多张人脸时，只取距离屏幕最近的人脸。 新建录入时会自动录入十张人脸照片，也可手动点击完成录入立即完成，之后就会计算人脸数据并存储到数据库中，左边的信息栏会有相应的信息打印。 开始签到后，如不点击结束签到,就会一直对屏幕前的人脸进行签到，签到状态分三种,未识别的人脸，签到成功，签到成功但是迟到了(9.00后签到),重复签到(此时签到日志不会写入到数据库。 为确保程序稳定性，每一个菜单里的按钮尽量成对操作。 Thanks for your attention;can you fork it if helping you? Thanks again！CopyRight 2391527690@qq.com;send me for allowance if you want to transmit it 源代码地址github]]></content>
       <categories>
         <category>python</category>
       </categories>
