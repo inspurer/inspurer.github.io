@@ -2016,7 +2016,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #2f26c1;
+  background: #04ffff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3355,10 +3355,10 @@ pre .javascript .function {
   border-bottom: 1px solid #fa5b5b;
 }
 ::selection {
-  background: #fff;
-  color: #f70909;
+  background: #1e90ff;
+  color: #fff;
 }
 ::-moz-selection {
-  background: #fff;
-  color: #f70909;
+  background: #1e90ff;
+  color: #fff;
 }
