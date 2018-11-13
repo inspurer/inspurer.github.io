@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://inspurer.github.io/2018/06/12/%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E6%9D%82%E8%AE%B0/</loc>
+    <lastmod>2018-11-13T14:42:56.094Z</lastmod>
+  </url>  <url>
+    <loc>https://inspurer.github.io/2018/08/17/%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E7%AC%AC%E4%BA%8C%E5%A4%A9/</loc>
+    <lastmod>2018-11-13T14:42:44.591Z</lastmod>
+  </url>  <url>
     <loc>https://inspurer.github.io/2018/06/11/%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E7%AC%AC%E4%B8%80%E5%A4%A9/</loc>
-    <lastmod>2018-11-13T11:42:59.037Z</lastmod>
+    <lastmod>2018-11-13T14:42:22.098Z</lastmod>
   </url>  <url>
     <loc>https://inspurer.github.io/2018/11/11/hexo-next%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/</loc>
     <lastmod>2018-11-13T02:56:46.562Z</lastmod>
@@ -21,11 +27,5 @@
   </url>  <url>
     <loc>https://inspurer.github.io/2018/09/12/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E5%8D%95%E9%93%BE%E8%A1%A8/</loc>
     <lastmod>2018-11-10T06:59:51.117Z</lastmod>
-  </url>  <url>
-    <loc>https://inspurer.github.io/2018/08/17/%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E7%AC%AC%E4%BA%8C%E5%A4%A9/</loc>
-    <lastmod>2018-11-10T06:58:21.478Z</lastmod>
-  </url>  <url>
-    <loc>https://inspurer.github.io/2018/06/12/%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E6%9D%82%E8%AE%B0/</loc>
-    <lastmod>2018-11-10T04:18:40.872Z</lastmod>
   </url>
 </urlset>
