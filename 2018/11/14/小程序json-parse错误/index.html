@@ -105,18 +105,18 @@
 
 
 
-<meta name="description" content="错误详情今天查看上线的微信小程序后台，发现了一个这样的错误:Unexpected token in JSON at position 52; at pages/send/send onShow function; at api request success callback function    于是我打开调试工具查看源代码并且调试:VM792:1 thirdScriptError Unexp">
+<meta name="description" content="错误详情今天查看上线的微信小程序后台，发现了一个这样的错误:">
 <meta name="keywords" content="小程序,json">
 <meta property="og:type" content="article">
 <meta property="og:title" content="小程序json.parse错误">
 <meta property="og:url" content="https://inspurer.github.io/2018/11/14/小程序json-parse错误/index.html">
 <meta property="og:site_name" content="月小水长的个人博客">
-<meta property="og:description" content="错误详情今天查看上线的微信小程序后台，发现了一个这样的错误:Unexpected token in JSON at position 52; at pages/send/send onShow function; at api request success callback function    于是我打开调试工具查看源代码并且调试:VM792:1 thirdScriptError Unexp">
+<meta property="og:description" content="错误详情今天查看上线的微信小程序后台，发现了一个这样的错误:">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-14T06:29:39.130Z">
+<meta property="og:updated_time" content="2018-11-14T06:51:30.695Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小程序json.parse错误">
-<meta name="twitter:description" content="错误详情今天查看上线的微信小程序后台，发现了一个这样的错误:Unexpected token in JSON at position 52; at pages/send/send onShow function; at api request success callback function    于是我打开调试工具查看源代码并且调试:VM792:1 thirdScriptError Unexp">
+<meta name="twitter:description" content="错误详情今天查看上线的微信小程序后台，发现了一个这样的错误:">
 
 
 
@@ -420,7 +420,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-11-14T14:29:39+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-14T14:51:30+08:00">
                 2018-11-14
               </time>
             
@@ -494,7 +494,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  491字
+                  519字
                 </span>
               
 
@@ -531,7 +531,8 @@
       
 
       
-        <h1 id="错误详情"><a href="#错误详情" class="headerlink" title="错误详情"></a>错误详情</h1><h2 id="今天查看上线的微信小程序后台，发现了一个这样的错误"><a href="#今天查看上线的微信小程序后台，发现了一个这样的错误" class="headerlink" title="今天查看上线的微信小程序后台，发现了一个这样的错误:"></a>今天查看上线的微信小程序后台，发现了一个这样的错误:</h2><pre><code>Unexpected token in JSON at position 52;
+        <h1 id="错误详情"><a href="#错误详情" class="headerlink" title="错误详情"></a>错误详情</h1><h2 id="今天查看上线的微信小程序后台，发现了一个这样的错误"><a href="#今天查看上线的微信小程序后台，发现了一个这样的错误" class="headerlink" title="今天查看上线的微信小程序后台，发现了一个这样的错误:"></a>今天查看上线的微信小程序后台，发现了一个这样的错误:</h2><a id="more"></a>
+<pre><code>Unexpected token in JSON at position 52;
 at pages/send/send onShow function;
 at api request success callback function   
 </code></pre><h2 id="于是我打开调试工具查看源代码并且调试"><a href="#于是我打开调试工具查看源代码并且调试" class="headerlink" title="于是我打开调试工具查看源代码并且调试:"></a>于是我打开调试工具查看源代码并且调试:</h2><pre><code>VM792:1 thirdScriptError
@@ -560,7 +561,8 @@ at Object._.each._.forEach [as _arrayEach] (http://127.0.0.1:60162/appservice/ut
 53 &quot;2&quot;
 </code></pre><p>等等,换行符确是是个特殊字符(ps,在js里面<code>\r</code>是回车符,<code>\n</code>是换行符,)<br>(在小程序中,我这个jsonA是包含用户的键盘输入信息的)   </p>
 <h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><pre><code>jsonA = jsonA.replace(&apos;\n&apos;,&apos;&apos;)
-</code></pre>
+</code></pre><h1 id="后话"><a href="#后话" class="headerlink" title="后话"></a>后话</h1><p>小程序的预览可以查看: <a href="https://inspurer.github.io/2018/11/07/%E6%89%93%E5%8D%A1%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/#more">点击查看</a><br>小程序的所有源代码: <a href="https://github.com/inspurer/CampusPunchcard" target="_blank" rel="noopener">github地址</a></p>
+
       
     </div>
     
@@ -923,7 +925,7 @@ at Object._.each._.forEach [as _arrayEach] (http://127.0.0.1:60162/appservice/ut
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#错误详情"><span class="nav-number">1.</span> <span class="nav-text">错误详情</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#今天查看上线的微信小程序后台，发现了一个这样的错误"><span class="nav-number">1.1.</span> <span class="nav-text">今天查看上线的微信小程序后台，发现了一个这样的错误:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#于是我打开调试工具查看源代码并且调试"><span class="nav-number">1.2.</span> <span class="nav-text">于是我打开调试工具查看源代码并且调试:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#调试过程"><span class="nav-number">2.</span> <span class="nav-text">调试过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#通过错误信息定位到出错的代码"><span class="nav-number">2.1.</span> <span class="nav-text">通过错误信息定位到出错的代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上网浏览查询相关资料"><span class="nav-number">2.2.</span> <span class="nav-text">上网浏览查询相关资料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定位原因"><span class="nav-number">2.3.</span> <span class="nav-text">定位原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决办法"><span class="nav-number">2.4.</span> <span class="nav-text">解决办法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#错误详情"><span class="nav-number">1.</span> <span class="nav-text">错误详情</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#今天查看上线的微信小程序后台，发现了一个这样的错误"><span class="nav-number">1.1.</span> <span class="nav-text">今天查看上线的微信小程序后台，发现了一个这样的错误:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#于是我打开调试工具查看源代码并且调试"><span class="nav-number">1.2.</span> <span class="nav-text">于是我打开调试工具查看源代码并且调试:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#调试过程"><span class="nav-number">2.</span> <span class="nav-text">调试过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#通过错误信息定位到出错的代码"><span class="nav-number">2.1.</span> <span class="nav-text">通过错误信息定位到出错的代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上网浏览查询相关资料"><span class="nav-number">2.2.</span> <span class="nav-text">上网浏览查询相关资料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定位原因"><span class="nav-number">2.3.</span> <span class="nav-text">定位原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决办法"><span class="nav-number">2.4.</span> <span class="nav-text">解决办法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后话"><span class="nav-number">3.</span> <span class="nav-text">后话</span></a></li></ol></div>
             
 
           </div>
