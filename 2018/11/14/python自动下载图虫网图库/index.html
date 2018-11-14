@@ -92,7 +92,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="python,爬虫,">
 
 
 
@@ -105,16 +105,20 @@
 
 
 
-<meta name="description" content="饮冰室主人">
-<meta property="og:type" content="website">
-<meta property="og:title" content="月小水长的个人博客">
-<meta property="og:url" content="https://inspurer.github.io/tags/json/index.html">
+<meta name="description" content="如何使用下载工程源码点击下载     或者git bash;git clone git@github.com:inspurer/PythonSpider.git     下载相关依赖在命令行下依此输入    pip install requests    pip install pyquery    打开图虫网选择你喜欢的图库链接,比如https://tuchong.com/4293835/238">
+<meta name="keywords" content="python,爬虫">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python自动下载图虫网图库">
+<meta property="og:url" content="https://inspurer.github.io/2018/11/14/python自动下载图虫网图库/index.html">
 <meta property="og:site_name" content="月小水长的个人博客">
-<meta property="og:description" content="饮冰室主人">
+<meta property="og:description" content="如何使用下载工程源码点击下载     或者git bash;git clone git@github.com:inspurer/PythonSpider.git     下载相关依赖在命令行下依此输入    pip install requests    pip install pyquery    打开图虫网选择你喜欢的图库链接,比如https://tuchong.com/4293835/238">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.imgur.com/h4ynWcx.png">
+<meta property="og:updated_time" content="2018-11-14T13:47:34.317Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="月小水长的个人博客">
-<meta name="twitter:description" content="饮冰室主人">
+<meta name="twitter:title" content="python自动下载图虫网图库">
+<meta name="twitter:description" content="如何使用下载工程源码点击下载     或者git bash;git clone git@github.com:inspurer/PythonSpider.git     下载相关依赖在命令行下依此输入    pip install requests    pip install pyquery    打开图虫网选择你喜欢的图库链接,比如https://tuchong.com/4293835/238">
+<meta name="twitter:image" content="https://i.imgur.com/h4ynWcx.png">
 
 
 
@@ -156,13 +160,13 @@
 
 
 
-  <link rel="canonical" href="https://inspurer.github.io/tags/json/">
+  <link rel="canonical" href="https://inspurer.github.io/2018/11/14/python自动下载图虫网图库/">
 
 
 
 
 
-  <title>标签: json | 月小水长的个人博客</title>
+  <title>python自动下载图虫网图库 | 月小水长的个人博客</title>
   
 
 
@@ -183,7 +187,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 	
 	<a href="https://github.com/inspurer" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
@@ -357,52 +361,371 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>json<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://inspurer.github.io/2018/11/14/python自动下载图虫网图库/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="月小水长">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="月小水长的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/11/14/小程序json-parse错误/" itemprop="url">
-              
-                <span itemprop="name">小程序json.parse错误</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">python自动下载图虫网图库</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-11-14T13:53:15+08:00" content="2018-11-14">
-          11-14
-        </time>
-      </div>
+        <div class="post-meta">
+			 
+				<i class="fa fa-thumb-tack"></i> 
+				<font color="7D26CD">已置顶</font> 
+				<span class="post-meta-divider">|</span> 
+			
 
-    </header>
-  </article>
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于&#58;</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-14T20:58:11+08:00">
+                2018-11-14
+              </time>
+            
 
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-14T21:47:34+08:00">
+                2018-11-14
+              </time>
+            
+          </span>
+		  
+		  
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+                               
+                <span class="post-meta-item-text">分类于&#58;</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+				<span class="post-meta-item-text">评论数&#58;</span>
+                <a href="/2018/11/14/python自动下载图虫网图库/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/14/python自动下载图虫网图库/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/11/14/python自动下载图虫网图库/" class="leancloud_visitors" data-flag-title="python自动下载图虫网图库">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  212字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    </div>
+      
 
+      
+        <h1 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h1><h2 id="下载工程源码"><a href="#下载工程源码" class="headerlink" title="下载工程源码"></a>下载工程源码</h2><p><a href="https://github.com/inspurer/PythonSpider/tree/master/tuchong" target="_blank" rel="noopener">点击下载</a>    </p>
+<p>或者git bash;git clone <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:inspurer/PythonSpider.git    </p>
+<h2 id="下载相关依赖"><a href="#下载相关依赖" class="headerlink" title="下载相关依赖"></a>下载相关依赖</h2><p>在命令行下依此输入   </p>
+<pre><code>pip install requests   
+pip install pyquery   
+</code></pre><h2 id="打开图虫网"><a href="#打开图虫网" class="headerlink" title="打开图虫网"></a>打开图虫网</h2><p><img src="https://i.imgur.com/h4ynWcx.png" alt=""><br>选择你喜欢的图库链接,比如<code>https://tuchong.com/4293835/23849565/</code><br>复制并替换到tuchong_gallery.py代码里面的gallery_url,解释一下这个链接的作用,<br>前一个数字串是作者的id,后一个数字串是作者该图库的id<br>注意,在打开这个图库时,复制地址前最好不要左右浏览   </p>
+<h2 id="运行tuchong-gallery-py"><a href="#运行tuchong-gallery-py" class="headerlink" title="运行tuchong_gallery.py"></a>运行tuchong_gallery.py</h2><p>你就可以看到在下载这个图库的图片了<br>图库保存在工程目录下,文件夹名为作者和图库的id<br>每一张图片保存在该文件夹下,格式为:<code>imageid.jpg</code>  </p>
+<h1 id="计划更新"><a href="#计划更新" class="headerlink" title="计划更新"></a>计划更新</h1><h2 id="增加自动搜索"><a href="#增加自动搜索" class="headerlink" title="增加自动搜索"></a>增加自动搜索</h2>
+      
+    </div>
+    
+    
+    
+	<div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/11/14/python自动下载图虫网图库/">python自动下载图虫网图库</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 月小水长 的个人博客">月小水长</a></p>
+  <p><span>发布时间:</span>2018年11月14日 - 20:11</p>
+  <p><span>最后更新:</span>2018年11月14日 - 21:11</p>
+  <p><span>原始链接:</span><a href="https://inspurer.github.io" title="1542200291000python自动下载图虫网图库">https://inspurer.github.io/2018/11/14/python自动下载图虫网图库/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://inspurer.github.io/2018/11/14/python自动下载图虫网图库/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+      
+	</div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>您的赞助将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat.png" alt="月小水长 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="月小水长 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+	<div>
+		
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢阅读-------------</div>
+    
+</div>
+		
+	</div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+          
+            <a href="/tags/爬虫/" rel="tag"><i class="fa fa-tag"></i> 爬虫</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/14/小程序json-parse错误/" rel="next" title="小程序json.parse错误">
+                <i class="fa fa-chevron-left"></i> 小程序json.parse错误
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6877569709040311",
+    enable_page_level_ads: true
+  });
+</script>
+
+    <div class="post-spread">
+      
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -410,6 +733,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -430,8 +760,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -558,6 +897,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#如何使用"><span class="nav-number">1.</span> <span class="nav-text">如何使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载工程源码"><span class="nav-number">1.1.</span> <span class="nav-text">下载工程源码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载相关依赖"><span class="nav-number">1.2.</span> <span class="nav-text">下载相关依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打开图虫网"><span class="nav-number">1.3.</span> <span class="nav-text">打开图虫网</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行tuchong-gallery-py"><span class="nav-number">1.4.</span> <span class="nav-text">运行tuchong_gallery.py</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#计划更新"><span class="nav-number">2.</span> <span class="nav-text">计划更新</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#增加自动搜索"><span class="nav-number">2.1.</span> <span class="nav-text">增加自动搜索</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -748,6 +1103,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
