@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://inspurer.github.io/"/>
-  <updated>2018-11-13T02:56:46.562Z</updated>
+  <updated>2018-11-14T06:29:39.130Z</updated>
   <id>https://inspurer.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>小程序json.parse错误</title>
+    <link href="https://inspurer.github.io/2018/11/14/%E5%B0%8F%E7%A8%8B%E5%BA%8Fjson-parse%E9%94%99%E8%AF%AF/"/>
+    <id>https://inspurer.github.io/2018/11/14/小程序json-parse错误/</id>
+    <published>2018-11-14T05:53:15.000Z</published>
+    <updated>2018-11-14T06:29:39.130Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="错误详情"><a href="#错误详情" class="headerlink" title="错误详情"></a>错误详情</h1><h2 id="今天查看上线的微信小程序后台，发现了一个这样的错误"><a href="#今天查看上线的微信小程序后台，发现了一个这样的错误" class="headerlink" title="今天查看上线的微信小程序后台，发现了一个这样的错误:"></a>今天查看上线的微信小程序后台，发现了一个这样的错误:</h2><pre><code>Unexpected token in JSON at position 52;at pages/send/send onShow function;at api request success callback function   </code></pre><h2 id="于是我打开调试工具查看源代码并且调试"><a href="#于是我打开调试工具查看源代码并且调试" class="headerlink" title="于是我打开调试工具查看源代码并且调试:"></a>于是我打开调试工具查看源代码并且调试:</h2><pre><code>VM792:1 thirdScriptErrorUnexpected token in JSON at position 52;at pages/send/send onShow function;at api request success     callback functionSyntaxError: Unexpected token in JSON at position 52at JSON.parse (&lt;anonymous&gt;)at success (http://127.0.0.1:60162/appservice/pages/send/send.js:130:35)at http://127.0.0.1:60162/appservice/utils/bmob.js:2293:37at wrappedResolvedCallback (http://127.0.0.1:60162/appservice/utils/bmob.js:2219:48)at http://127.0.0.1:60162/appservice/utils/bmob.js:2171:34at Object._.each._.forEach [as _arrayEach] (http://127.0.0.1:60162/appservice/utils/underscore.js:161:17)at Bmob.Promise.resolve (http://127.0.0.1:60162/appservice/utils/bmob.js:2170:18)at wrappedResolvedCallback (http://127.0.0.1:60162/appservice/utils/bmob.js:2228:37)at http://127.0.0.1:60162/appservice/utils/bmob.js:2171:34at Object._.each._.forEach [as _arrayEach] (http://127.0.0.1:60162/appservice/utils/underscore.js:161:17)   </code></pre><p>果不其然,小程序已然上线,这个错误一定不能忍     </p><h1 id="调试过程"><a href="#调试过程" class="headerlink" title="调试过程"></a>调试过程</h1><h2 id="通过错误信息定位到出错的代码"><a href="#通过错误信息定位到出错的代码" class="headerlink" title="通过错误信息定位到出错的代码"></a>通过错误信息定位到出错的代码</h2><p>通过上面的报错信息：<br><code>at success (http://127.0.0.1:60162/appservice/pages/send/send.js:130:35)</code><br>定位到出错的代码是在130行:<br><code>var jsonB = JSON.parse(jsonA);</code>   </p><h2 id="上网浏览查询相关资料"><a href="#上网浏览查询相关资料" class="headerlink" title="上网浏览查询相关资料"></a>上网浏览查询相关资料</h2><p>网上的说法不一而足,实在不知道该听信哪家之言<br>不过都集中在<code>json文件不能有注释</code>、<code>json字符串url有误</code>、<code>json字符串有特殊字符</code>   </p><h2 id="定位原因"><a href="#定位原因" class="headerlink" title="定位原因"></a>定位原因</h2><p>排除了几种错误后还没有解决问题，有点心灰意冷,<br>尝试着输出json字符串中的每一个字符   </p><pre><code>51 &quot;。&quot;52 &quot;&quot;53 &quot;2&quot;</code></pre><p>等等,换行符确是是个特殊字符(ps,在js里面<code>\r</code>是回车符,<code>\n</code>是换行符,)<br>(在小程序中,我这个jsonA是包含用户的键盘输入信息的)   </p><h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><pre><code>jsonA = jsonA.replace(&apos;\n&apos;,&apos;&apos;)</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;错误详情&quot;&gt;&lt;a href=&quot;#错误详情&quot; class=&quot;headerlink&quot; title=&quot;错误详情&quot;&gt;&lt;/a&gt;错误详情&lt;/h1&gt;&lt;h2 id=&quot;今天查看上线的微信小程序后台，发现了一个这样的错误&quot;&gt;&lt;a href=&quot;#今天查看上线的微信小程序后台，发现了一个
+      
+    
+    </summary>
+    
+      <category term="小程序" scheme="https://inspurer.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+    
+      <category term="小程序" scheme="https://inspurer.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+      <category term="json" scheme="https://inspurer.github.io/tags/json/"/>
+    
+  </entry>
   
   <entry>
     <title>【持续更新】hexo next主题优化手册</title>
