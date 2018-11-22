@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://inspurer.github.io/"/>
-  <updated>2018-11-15T08:15:22.458Z</updated>
+  <updated>2018-11-22T12:13:29.966Z</updated>
   <id>https://inspurer.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python函数参数的填坑之路</title>
+    <link href="https://inspurer.github.io/2018/11/22/python%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E7%9A%84%E5%A1%AB%E5%9D%91%E4%B9%8B%E8%B7%AF/"/>
+    <id>https://inspurer.github.io/2018/11/22/python函数参数的填坑之路/</id>
+    <published>2018-11-22T12:08:55.000Z</published>
+    <updated>2018-11-22T12:13:29.966Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近在看<a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431752945034eb82ac80a3e64b9bb4929b16eeed1eb9000" target="_blank" rel="noopener">廖雪峰老师的python3教程之函数的参数</a><br>受益匪浅，但是在实践的过程中，发现了一些不解之谜<a id="more"></a></p><h1 id="两个错误"><a href="#两个错误" class="headerlink" title="两个错误"></a>两个错误</h1><pre><code>import _threadimport timedef func1(x):    while x:        print(x)        x = x -1_thread.start_new_thread(function=func1,args=(5,),kwargs=None)time.sleep(6)</code></pre><p>再看python3中start_new_thread()函数的声明</p><pre><code>def start_new_thread(function, args, kwargs=None):</code></pre><p>按照我们的理论，我们开启多线程的那句代码是完全没有问题的，可是事实上它报错：  </p><pre><code>TypeError: start_new_thread() takes no keyword arguments</code></pre><p>难道我们的理论有问题？带着这个疑问，我又遇到一个问题:</p><pre><code>import threadingdef func1(x):    while x:        print(x)        x = x -1threading.Thread(func1,(5,)).start()</code></pre><p>再看python3中Thread类构造()函数的声明</p><pre><code>def __init__(self, group=None, target=None, name=None,             args=(), kwargs=None, *, daemon=None):</code></pre><p>它居然又报错？</p><pre><code>AssertionError: group argument must be None for now</code></pre><h1 id="探讨过程"><a href="#探讨过程" class="headerlink" title="探讨过程"></a>探讨过程</h1><p>（以下过程针对第二个错误，第一个错误道理类似）<br>带着疑问，我看了Thread类的构造函数</p><pre><code>def __init__(self, group=None, target=None, name=None,     args=(), kwargs=None, *, daemon=None):      &quot;&quot;&quot;This constructor should always be called with keyword arguments. Arguments are:       *group* should be None; reserved for future extension when a ThreadGroup        class is implemented.        *target* is the callable object to be invoked by the run()        method. Defaults to None, meaning nothing is called.        。。。略        assert group is None, &quot;group argument must be None for now&quot;        。。。略</code></pre><p>   我们看到，第三行说明，本函数只接受关键字实参调用，所以我们之前的代码改成</p><pre><code>import threadingdef func1(x):    while x:        print(x)        x = x -1threading.Thread(target=func1,args=(5,)).start()</code></pre><p>就能顺利开启子线程了，那么它是如何实现只能接受关键字参数的呢？<br>我们看到Thread类的构造函数定义中有一句这样的断言</p><pre><code>assert group is None, &quot;group argument must be None for now&quot;</code></pre><p>意思是，如果参数group为空,通过；如果非空，报错，并给出reason<code>group argument must be None for now</code>,如果我们按照之前的位置参数调用的话，由于group是第一个参数，一下在就被赋值，非空，抛出异常，这符合我们之前的实践。同时，我在网上搜集了许多资料，诸如<code>修饰器</code>之类的也能使函数只接受关键字参数 。</p><p>错误一探讨过程道理类似，在此不再赘述。</p><h1 id="验证及结论"><a href="#验证及结论" class="headerlink" title="验证及结论"></a>验证及结论</h1><p>编码</p><pre><code>class MyThread:    def __init__(self, group=None, target=None, name=None,    args=(), kwargs=None, *, daemon=None):        print(&apos;Thread sucess&apos;)    def start_new_thread(function, args, kwargs=None):    print(&apos;_thread sucess&apos;)MyThread()MyThread.start_new_thread(args=2,kwargs=3,function=1)</code></pre><p>输出如下：</p><pre><code>Thread sucess_thread sucess</code></pre><p>显而易见，我们之前所学的理论是正确的，只不过在具体的编码中，我们通过编码<code>修改</code><br>理论，使之看上去似乎和之前的理论相矛盾，千万不要被蒙蔽了。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h1&gt;&lt;p&gt;最近在看&lt;a href=&quot;https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431752945034eb82ac80a3e64b9bb4929b16eeed1eb9000&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;廖雪峰老师的python3教程之函数的参数&lt;/a&gt;&lt;br&gt;受益匪浅，但是在实践的过程中，发现了一些不解之谜
+    
+    </summary>
+    
+      <category term="python" scheme="https://inspurer.github.io/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://inspurer.github.io/tags/python/"/>
+    
+      <category term="函数参数" scheme="https://inspurer.github.io/tags/%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>罗素:我为什么而活</title>
