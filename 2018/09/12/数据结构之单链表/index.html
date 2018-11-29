@@ -7,7 +7,15 @@
 
 <html class="theme-next gemini use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.8.0">
-
+  <!-- Google AdSense start -->
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6877569709040311",
+    enable_page_level_ads: true
+  });
+</script>
+  <!-- Google AdSense end -->
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -357,6 +365,348 @@
             
 
   <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://inspurer.github.io/2018/09/12/数据结构之单链表/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="月小水长">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="月小水长的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">数据结构之单链表</h1>
+        
+
+        <div class="post-meta">
+			
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于&#58;</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-12T14:34:18+08:00">
+                2018-09-12
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-10T14:59:51+08:00">
+                2018-11-10
+              </time>
+            
+          </span>
+		  
+		  
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+                               
+                <span class="post-meta-item-text">分类于&#58;</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+				<span class="post-meta-item-text">评论数&#58;</span>
+                <a href="/2018/09/12/数据结构之单链表/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/12/数据结构之单链表/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/09/12/数据结构之单链表/" class="leancloud_visitors" data-flag-title="数据结构之单链表">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.4k字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>从今天起开始数据结构系列的分享，今天分享的是单链表。<a id="more"></a><br>单链表大概是大概是每个数据结构初学者的必经之路，下面结合一个小小的工程<br>来深入学习单链表的使用–简易客户管理系统。<br>ps：如果还不清楚单链表是什么的小伙伴自行百度，在此不在赘述   </p>
+<hr>
+<p>#项目结构<br>如图所示<br><img src="https://i.imgur.com/ndpa8Mo.png" alt=""><br>大致了解了项目架构后，下面开始从零编写代码<br><strong>注：增、删、改这三个部分同时包含了将变动后的信息写入到文件中的操作</strong>    </p>
+<hr>
+<p>#代码编写</p>
+<p>##项目基础代码<br>俗话说得好，“万丈高楼平地起”，先来编写项目的预定义代码部分，主要是头文件<br>包含、结构体定义、全局变量定义等    </p>
+<p>###头文件包含<br><code>#include&lt;stdio.h&gt;    //C程序基础库</code><br><code>#include&lt;stdlib.h&gt;    //包含函数exit()</code><br><code>#include&lt;string.h&gt; //包含函数strcmp()</code>  </p>
+<p>###结构体定义   </p>
+<p><pre name="code" class="c++"><br>typedef struct item{<br>    char name[20];    //保存客户姓名<br>    char gender[20];  //保存客户性别<br>    int  age;         //保存客户年龄<br>    char tel[20];     //保存客户号码<br>} guest;<br></pre><br>结构体定义不要多说了哈，这里<code>typedef...guest</code>是给<strong>结构体item起别名</strong>的意思，也就是<br><code>struct item</code>在这个源文件里面等价于<code>guest</code>   </p>
+<p><pre name="code" class="c++"><br>typedef struct node {<br>    guest data;         //数据域<br>    struct node <em> next; //指针域<br>}</em> link;<br></pre><br>这里是给<strong>指向结构体node的指针起别名</strong></p>
+<p>###全局变量定义<br><code>link T;//头指针</code><br>这个头指针T是整个系统的索引，六个模块共有一个，虽然有尽量少定义全局变量的原则，但这里<br>的全局变量T可以避免各个函数间复杂的参数传递问题，牺牲了空间，换取了运行时间的减少；<br>同时要注意我在后面对T的初始化代码   </p>
+<p><pre name="code" class="c++"><br>//初始化头指针<br>T=(link)malloc(sizeof(struct node));<br>T-&gt;next = NULL;<br></pre><br>这里并没有给T安排数据域，T不是第一个存储客户信息的节点指针，T-&gt;next才是，初始化头指针<br>时还没有存储客户信息的结点加入，所以<code>T-&gt;next=NULL;</code>,这是一个编程者应该养成的好习惯；为<br>什么不给T安排数据域呢，这里主要考虑到后面的删除模块的编写，我们知道，删除一个结点，要先<br>找到这个结点的前驱指针p和后驱指针q，然后<code>p-&gt;next = q-&gt;next；</code>,如果给T安排数据域的话，<br>T的前驱是什么呢？就算不用上面我说的那套删除逻辑，用<code>if...else...</code>语句和另外一套逻辑<br>完成对T的删除，代码明显复杂些。 </p>
+<p>##项目核心代码   </p>
+<p>###一、加载文件<br>代码如下   </p>
+<p><pre name="code" class="c++"><br>void init() {<br>    link p,s;<br>    FILE *fp;<br>    int i  = 0;<br>    s = p=(link)malloc(sizeof(struct node));<br>    p-&gt;next = NULL;<br>    if((fp=fopen(“1.txt”,”r”))==NULL) {<br>        printf(“load error!”);<br>        exit(1);<br>    }<br>    while(!feof(fp)) {<br>        fscanf(fp,”%s\t%s\t%d\t%s\t\n”,p-&gt;data.name,p-&gt;data.gender,&amp;p-&gt;data.age,p-&gt;data.tel);<br>        i++;<br>        if(i!=1) {<br>            s-&gt;next = p;<br>            s=p;<br>        }<br>        else{<br>            T-&gt;next = p;<br>        }<br>        p=(link)malloc(sizeof(struct node));<br>        p-&gt;next = NULL;<br>    }<br>    printf(“总人数i=====%d\n”,i);<br>    if(fclose(fp)) {<br>        printf(“Can’t close the file!\n”);<br>        exit(1);<br>    }<br>}<br></pre><br>介绍下代码逻辑，新开辟内存空间，并使s、p指向它，打开文件，如果文件指针没有到文件尾，将<br>从文件读取到的一个客户信息赋给p的数据域，如果是读取第一个客户信息，将p指向的结点连在头<br>指针T后面，否则，将p连在s后面，因为这个时候s是p的前驱指针，连接成功后将p赋值给s，p又<br>指向一个新开辟的结点…<br>图示：<br><img src="https://i.imgur.com/hSpoXhg.png" alt="">     </p>
+<p>###二、增加客户<br>代码如下：</p>
+<p><pre name="code" class="c++"><br>//添加<br>void create() {<br>    link p,s;<br>    FILE *fp;<br>    int yn;<br>    s=T;<br>    while(s-&gt;next!=NULL) {<br>        s=s-&gt;next;<br>    }<br>    do {<br>        p=(link)malloc(sizeof(struct node));<br>        printf(“请输入客户姓名：\n”);<br>        scanf(“%s”,p-&gt;data.name);<br>        printf(“请输入客户性别：\n”);<br>        scanf(“%s”,p-&gt;data.gender);<br>        printf(“请输入客户年龄：\n”);<br>        scanf(“%d”,&amp;p-&gt;data.age);<br>        printf(“请输入客户联系方式：\n”);<br>        scanf(“%s”,p-&gt;data.tel);<br>        p-&gt;next=NULL;<br>        s-&gt;next=p;<br>        s=p;<br>        if((fp=fopen(“1.txt”,”at”))==NULL) {<br>            printf(“write error!\n”);<br>            exit(0);<br>        }<br>        printf(“写了一次\n”);<br>        fprintf(fp,”%s\t%s\t%d\t%s\n”,p-&gt;data.name,p-&gt;data.gender,p-&gt;data.age,p-&gt;data.tel);<br>        if(fclose(fp)) {<br>            printf(“can’t close the file!\n”);<br>            exit(0);<br>        }<br>        printf(“添加成功!\n”);<br>        printf(“是否继续添加请输入0或1:”);<br>        scanf(“%d”,&amp;yn);<br>    } while(yn);<br>}<br></pre><br>代码逻辑很简单，新增结点，并连在尾节点后面，同时写入文件，如果前一片代码看懂了，这不是什么<br>大问题…     </p>
+<p>###三、删除客户<br>代码如下</p>
+<p><pre name="code" class="c++"><br>//删除<br>int del() {<br>    link p,q;<br>    FILE *fp;<br>    char mod[25];<br>    printf(“请输入需要删除的客户名称:\n”);<br>    scanf(“%s”,mod);<br>    p=T;<br>    while(p-&gt;next!=NULL&amp;&amp;strcmp(p-&gt;next-&gt;data.name,mod)!=0)<br>        p=p-&gt;next;<br>    if(p-&gt;next==NULL) {<br>        printf(“并无此人！\n”);<br>        return 0;<br>    }<br>    q = p;<br>    p = p-&gt;next;<br>    q-&gt;next = p-&gt;next;<br>    delete(p);<br>    printf(“删除成功！\n”);<br>    if((fp=fopen(“1.txt”,”wt”))==NULL) {<br>        printf(“error!\n”);<br>        exit(0);<br>    }<br>    p=T-&gt;next;<br>    while(p!=NULL) {<br>        printf(“%s”,p-&gt;data.name);<br>        fprintf(fp,”%s\t%s\t%d\t%s\t\n”,p-&gt;data.name,p-&gt;data.gender,p-&gt;data.age,p-&gt;data.tel);<br>        p = p-&gt;next;<br>    }<br>    if(fclose(fp)) {<br>        printf(“can’t close the file!\n”);<br>        exit(1);<br>    }<br>}<br></pre><br>模块三、四、五、六道理类似，不再赘述<br>附上代码地址：<br><a href="https://github.com/inspurer/DataStructure/tree/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/day01%E5%8D%95%E9%93%BE%E8%A1%A8" target="_blank" rel="noopener">github</a> 欢迎star<br>如有疑问，欢迎进群讨论：<br><img src="https://shang.qq.com/wpa/qunwpaidkey=206e0bc6e1608678ffccd929ba75b1a459994d2b638d3253df444ffcfd4964d9" alt="加群链接"><br>如链接失效，扫二维码：<br><img src="https://i.imgur.com/fEXzOCG.jpg" alt=""></p>
+
+      
+    </div>
+    
+    
+    
+	<div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/09/12/数据结构之单链表/">数据结构之单链表</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 月小水长 的个人博客">月小水长</a></p>
+  <p><span>发布时间:</span>2018年09月12日 - 14:09</p>
+  <p><span>最后更新:</span>2018年11月10日 - 14:11</p>
+  <p><span>原始链接:</span><a href="https://inspurer.github.io" title="1536734058000数据结构之单链表">https://inspurer.github.io/2018/09/12/数据结构之单链表/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://inspurer.github.io/2018/09/12/数据结构之单链表/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+      
+	</div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>您的赞助将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat.png" alt="月小水长 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="月小水长 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+	<div>
+		
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢阅读-------------</div>
+    
+</div>
+		
+	</div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/单链表/" rel="tag"><i class="fa fa-tag"></i> 单链表</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/17/前端入门第二天/" rel="next" title="前端入门第二天">
+                <i class="fa fa-chevron-left"></i> 前端入门第二天
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/25/基于opencv人脸识别的员工考勤系统/" rel="prev" title="基于opencv人脸识别的员工考勤系统">
+                基于opencv人脸识别的员工考勤系统 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6877569709040311",
+    enable_page_level_ads: true
+  });
+</script>
 
     <div class="post-spread">
       
