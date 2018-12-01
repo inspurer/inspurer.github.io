@@ -92,7 +92,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="python,itchat,">
 
 
 
@@ -105,16 +105,22 @@
 
 
 
-<meta name="description" content="饮冰室主人">
-<meta property="og:type" content="website">
-<meta property="og:title" content="月小水长的个人博客">
-<meta property="og:url" content="https://inspurer.github.io/archives/2018/page/2/index.html">
+<meta name="description" content="本文首发于我的简书https://www.jianshu.com/p/4b7b4f4fb0e4">
+<meta name="keywords" content="python,itchat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python实现微信自动回复和群聊助手">
+<meta property="og:url" content="https://inspurer.github.io/2018/12/01/Python实现微信自动回复和群聊助手/index.html">
 <meta property="og:site_name" content="月小水长的个人博客">
-<meta property="og:description" content="饮冰室主人">
+<meta property="og:description" content="本文首发于我的简书https://www.jianshu.com/p/4b7b4f4fb0e4">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/13236872-034194b9a0fe532b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/13236872-e6ca6877df235781.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/13236872-c4c3a65b233be1cf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-12-01T01:48:49.044Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="月小水长的个人博客">
-<meta name="twitter:description" content="饮冰室主人">
+<meta name="twitter:title" content="Python实现微信自动回复和群聊助手">
+<meta name="twitter:description" content="本文首发于我的简书https://www.jianshu.com/p/4b7b4f4fb0e4">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/13236872-034194b9a0fe532b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -156,13 +162,13 @@
 
 
 
-  <link rel="canonical" href="https://inspurer.github.io/archives/2018/page/2/">
+  <link rel="canonical" href="https://inspurer.github.io/2018/12/01/Python实现微信自动回复和群聊助手/">
 
 
 
 
 
-  <title>归档 | 月小水长的个人博客</title>
+  <title>Python实现微信自动回复和群聊助手 | 月小水长的个人博客</title>
   
 
 
@@ -183,7 +189,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 	
 	<a href="https://github.com/inspurer" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
@@ -357,286 +363,435 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://inspurer.github.io/2018/12/01/Python实现微信自动回复和群聊助手/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="月小水长">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="月小水长的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">Python实现微信自动回复和群聊助手</h1>
         
+
+        <div class="post-meta">
+			 
+				<i class="fa fa-thumb-tack"></i> 
+				<font color="7D26CD">已置顶</font> 
+				<span class="post-meta-divider">|</span> 
+			
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于&#58;</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-01T09:45:02+08:00">
+                2018-12-01
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-01T09:48:49+08:00">
+                2018-12-01
+              </time>
+            
+          </span>
+		  
+		  
+
           
-        
-        嗯..! 目前共计 17 篇日志。 继续努力。
-      </span>
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+                               
+                <span class="post-meta-item-text">分类于&#58;</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+				<span class="post-meta-item-text">评论数&#58;</span>
+                <a href="/2018/12/01/Python实现微信自动回复和群聊助手/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/12/01/Python实现微信自动回复和群聊助手/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/12/01/Python实现微信自动回复和群聊助手/" class="leancloud_visitors" data-flag-title="Python实现微信自动回复和群聊助手">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.2k字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
+      
+        <p>本文首发于我的简书<a href="https://www.jianshu.com/p/4b7b4f4fb0e4" target="_blank" rel="noopener">https://www.jianshu.com/p/4b7b4f4fb0e4</a><a id="more"></a></p>
+<h1 id="本教程的作用"><a href="#本教程的作用" class="headerlink" title="本教程的作用"></a>本教程的作用</h1><p>零基础手把手教你打造一款微信机器人，包括好友聊天自动回复和群聊助手两个部分，零基础！话不多说，下面开始实战编码。</p>
+<h1 id="第一部分-好友聊天自动回复"><a href="#第一部分-好友聊天自动回复" class="headerlink" title="第一部分:好友聊天自动回复"></a>第一部分:好友聊天自动回复</h1><h2 id="第一步，安装python环境。"><a href="#第一步，安装python环境。" class="headerlink" title="第一步，安装python环境。"></a>第一步，安装python环境。</h2><p>打开python官网<a href="https://www.python.org/downloads/" target="_blank" rel="noopener">https://www.python.org/downloads/</a>，下载与你的电脑系统相匹配的python发行版本，推荐python3.5-python3.6,版本太高了可能有许多未知的bug，太低了兼容性不太好。</p>
+<h2 id="第二步，安装itchat库"><a href="#第二步，安装itchat库" class="headerlink" title="第二步，安装itchat库"></a>第二步，安装itchat库</h2><p>在命令行下输入<code>pip install itchat</code>完成安装   </p>
+<h2 id="第三步，编写代码"><a href="#第三步，编写代码" class="headerlink" title="第三步，编写代码"></a>第三步，编写代码</h2><p>核心代码如下：</p>
+<pre><code>  #coding=utf8
+import itchat
+
+# 当接收到的消息是Text，即文字消息
+#注册re_msg的意义在于，告诉itchat每次有符合特定条件的消息，itchat要把消息作为参数，去调用re_msg。
+@itchat.msg_register(&apos;Text&apos;)
+def text_reply(msg):
+    #message:取出msg里面的文本消息
+    message = msg[&apos;Text&apos;]
+    # 回复给好友
+    replay = u&apos;肖涛已在电脑上登陆网页微信，但暂时无法进行交流,可以给他发送电脑QQ消息哈&apos;  
+    #主要是一些关键词设置
+    # if B in A 如果 A中有B的话
+    if u&apos;干什么&apos; in message:
+        replay = u&apos;在忙呢&apos;
+    elif u&apos;逼&apos; in message:
+        replay = u&apos;含有敏感词汇,请注意言辞&apos;
+    elif u&apos;生气&apos; in message:
+        replay = u&apos;生气对身体不好&apos;
+    elif u&apos;?&apos; in  message:
+        replay = u&apos;哈哈，我也不知道&apos;
+    elif u&apos;不理你&apos; in message:
+        replay = u&apos;乖，忙完给你买糖吃&apos;
+    elif u&apos;涛&apos; in message:
+        replay = u&apos;他是我主人&apos;
+    elif u&apos;厉害&apos; in message:
+        replay = u&apos;不不不，辣鸡一个&apos;
+    elif u&apos;你好&apos; in message:
+        replay = u&apos;你好哇&apos;
+    elif u&apos;好吧&apos; in message:
+        replay = u&apos;再见&apos;
+    return replay
+#弹出扫码登录界面,参数这样设置的好处是短时间内退出程序，再次登录可以不用扫码
+itchat.auto_login(hotReload=True)
+#开启自动回复
+itchat.run()
+</code></pre><p>以上代码都是本人亲自编写，如需转载请私信我。<br>代码截至2018/11/30本人调试有效，最新的代码更新在我的github：<a href="https://github.com/inspurer/PythonLearning/blob/master/python%E5%B0%8F%E9%A1%B9%E7%9B%AE/itchat_wechat/auto_replay.py" target="_blank" rel="noopener">auto_replay.py</a>如有问题欢迎评论。</p>
+<h2 id="运行代码"><a href="#运行代码" class="headerlink" title="运行代码"></a>运行代码</h2><p>运行之后，会弹出一个二维码，用微信扫一扫登录网页版微信之后，这份代码就会接管你的消息通知。下面是一个简单的效果图<br><img src="https://upload-images.jianshu.io/upload_images/13236872-034194b9a0fe532b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="20180331100337372.png"></p>
+<h1 id="第二部分：群聊助手"><a href="#第二部分：群聊助手" class="headerlink" title="第二部分：群聊助手"></a>第二部分：群聊助手</h1><p>第一步是点对点的消息自动回复，本部分实现的是点对多、在群中的消息自动回复。请确认上一部分实现无误之后再来尝试第二部分，因为第二部分需要第一部分的环境配置做支撑。</p>
+<h2 id="编写代码"><a href="#编写代码" class="headerlink" title="编写代码"></a>编写代码</h2><pre><code>  import itchat
+import requests
+def get_response(msg):
+    apiUrl = &apos;http://www.tuling123.com/openapi/api&apos;   #改成你自己的图灵机器人的api
+        &apos;key&apos;: &apos;ce697b3fc8b54d5f88c2fa59772cb2cf&apos;,  # Tuling Key 
+        &apos;info&apos;: msg,  # 这是我们发出去的消息
+        &apos;userid&apos;: &apos;wechat-robot&apos;,  # 这里可随意修改
+    }
+    # 通过如下命令发送一个post请求
+    r = requests.post(apiUrl, data=data).json()
+    return r.get(&apos;text&apos;)
+@itchat.msg_register(itchat.content.TEXT)
+#用于接收来自朋友间的对话消息  #如果不用这个，朋友发的消息便不会自动回复 
+def print_content(msg):
+    return get_response(msg[&apos;Text&apos;])
+#用于接收群里面的对话消息
+@itchat.msg_register([itchat.content.TEXT], isGroupChat=True)
+def print_content(msg):
+    return get_response(msg[&apos;Text&apos;])
+itchat.auto_login(True)
+itchat.run()
+</code></pre><h2 id="接入图灵机器人"><a href="#接入图灵机器人" class="headerlink" title="接入图灵机器人"></a>接入图灵机器人</h2><p>打卡图灵机器人官网，<a href="http://www.tuling123.com/" target="_blank" rel="noopener">http://www.tuling123.com/</a>,注册账号，新建一个机器人，如下图<br><img src="https://upload-images.jianshu.io/upload_images/13236872-e6ca6877df235781.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="20180718175512463.png"><br>把图中的apikey替换到代码里就行，如果你要用我的，我也无法拒绝，毕竟我的apikey也贴出来了。</p>
+<h2 id="运行效果"><a href="#运行效果" class="headerlink" title="运行效果"></a>运行效果</h2><p><img src="https://upload-images.jianshu.io/upload_images/13236872-c4c3a65b233be1cf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="和上一个效果图不同的是，这是在一个群里的消息"></p>
+<h2 id="简要原理"><a href="#简要原理" class="headerlink" title="简要原理"></a>简要原理</h2><p>一但接收到信息，就会调用get_response()方法，把消息传给图灵机器人，然后图灵机器人把回复信息再返回给微信。</p>
+<p>截至2018/11/30代码运行无误，最新更新在我的github：<a href="https://github.com/inspurer/PythonLearning/blob/master/python%E5%B0%8F%E9%A1%B9%E7%9B%AE/itchat_wechat/grouphandler.py" target="_blank" rel="noopener">grouphandler.py</a><br>如有问题请评论，如需转载请私信我。</p>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>本篇文章参考了我的两篇csdn博客<br><a href="https://blog.csdn.net/ygdxt/article/details/79766197" target="_blank" rel="noopener">https://blog.csdn.net/ygdxt/article/details/79766197</a><br><a href="https://blog.csdn.net/ygdxt/article/details/81101020" target="_blank" rel="noopener">https://blog.csdn.net/ygdxt/article/details/81101020</a><br>在这里推荐两个python代码仓库：<br>一个是<a href="https://github.com/inspurer/PythonLearning" target="_blank" rel="noopener">PythonLearning</a>,这里面有我学习python的课程学习资料、以及一些我实战编写的代码，<br>另一个是<a href="https://github.com/inspurer/PythonSpider" target="_blank" rel="noopener">PythonSpider</a>,这里面主要是一些我写的python实现的爬虫。<br>更多的请访问我的github，欢迎star，fork.<br>另外欢迎关注微信公众号：inspurer</p>
+<p>如果你觉得本篇文章不错，不妨打赏一下，谢谢。</p>
+
+      
+    </div>
+    
+    
+    
+	<div>
+      
         
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/12/01/Python实现微信自动回复和群聊助手/">Python实现微信自动回复和群聊助手</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 月小水长 的个人博客">月小水长</a></p>
+  <p><span>发布时间:</span>2018年12月01日 - 09:12</p>
+  <p><span>最后更新:</span>2018年12月01日 - 09:12</p>
+  <p><span>原始链接:</span><a href="https://inspurer.github.io" title="1543628702000Python实现微信自动回复和群聊助手">https://inspurer.github.io/2018/12/01/Python实现微信自动回复和群聊助手/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://inspurer.github.io/2018/12/01/Python实现微信自动回复和群聊助手/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+      
+	</div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>您的赞助将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat.png" alt="月小水长 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="月小水长 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+	<div>
+		
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢阅读-------------</div>
+    
+</div>
+		
+	</div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+          
+            <a href="/tags/itchat/" rel="tag"><i class="fa fa-tag"></i> itchat</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
         
+
         
 
         
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
           </div>
         
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/07/打卡微信小程序/" itemprop="url">
-              
-                <span itemprop="name">打卡微信小程序</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-11-07T19:41:19+08:00" content="2018-11-07">
-          11-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
+        </div>
+      
       
 
-        
-        
-        
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/30/python爬取学校教务系统/" rel="next" title="python爬取学校教务系统">
+                <i class="fa fa-chevron-left"></i> python爬取学校教务系统
+              </a>
+            
+          </div>
 
-        
-        
+          <span class="post-nav-divider"></span>
 
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/09/25/基于opencv人脸识别的员工考勤系统/" itemprop="url">
-              
-                <span itemprop="name">基于opencv人脸识别的员工考勤系统</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-09-25T21:37:57+08:00" content="2018-09-25">
-          09-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/09/12/数据结构之单链表/" itemprop="url">
-              
-                <span itemprop="name">数据结构之单链表</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-09-12T14:34:18+08:00" content="2018-09-12">
-          09-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/08/17/前端入门第二天/" itemprop="url">
-              
-                <span itemprop="name">前端入门第二天</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-08-17T19:43:04+08:00" content="2018-08-17">
-          08-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/06/12/前端入门杂记/" itemprop="url">
-              
-                <span itemprop="name">前端入门杂记</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-06-12T23:58:24+08:00" content="2018-06-12">
-          06-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/06/11/前端入门第一天/" itemprop="url">
-              
-                <span itemprop="name">前端入门第一天</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-06-11T23:40:05+08:00" content="2018-06-11">
-          06-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/06/07/月小水长的由来/" itemprop="url">
-              
-                <span itemprop="name">”月小水长“和“inspurer”的由来</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-06-07T16:24:34+08:00" content="2018-06-07">
-          06-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-    </div>
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/2018/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/2018/">1</a><span class="page-number current">2</span>
-  </nav>
+  </article>
 
 
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6877569709040311",
+    enable_page_level_ads: true
+  });
+</script>
+
+    <div class="post-spread">
+      
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -644,6 +799,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -664,8 +826,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -792,6 +963,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#本教程的作用"><span class="nav-number">1.</span> <span class="nav-text">本教程的作用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第一部分-好友聊天自动回复"><span class="nav-number">2.</span> <span class="nav-text">第一部分:好友聊天自动回复</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一步，安装python环境。"><span class="nav-number">2.1.</span> <span class="nav-text">第一步，安装python环境。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二步，安装itchat库"><span class="nav-number">2.2.</span> <span class="nav-text">第二步，安装itchat库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三步，编写代码"><span class="nav-number">2.3.</span> <span class="nav-text">第三步，编写代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行代码"><span class="nav-number">2.4.</span> <span class="nav-text">运行代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二部分：群聊助手"><span class="nav-number">3.</span> <span class="nav-text">第二部分：群聊助手</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#编写代码"><span class="nav-number">3.1.</span> <span class="nav-text">编写代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接入图灵机器人"><span class="nav-number">3.2.</span> <span class="nav-text">接入图灵机器人</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行效果"><span class="nav-number">3.3.</span> <span class="nav-text">运行效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简要原理"><span class="nav-number">3.4.</span> <span class="nav-text">简要原理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后记"><span class="nav-number">4.</span> <span class="nav-text">后记</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -982,6 +1169,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://inspurer.github.io/"/>
-  <updated>2018-11-30T06:02:37.338Z</updated>
+  <updated>2018-12-01T01:48:49.044Z</updated>
   <id>https://inspurer.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python实现微信自动回复和群聊助手</title>
+    <link href="https://inspurer.github.io/2018/12/01/Python%E5%AE%9E%E7%8E%B0%E5%BE%AE%E4%BF%A1%E8%87%AA%E5%8A%A8%E5%9B%9E%E5%A4%8D%E5%92%8C%E7%BE%A4%E8%81%8A%E5%8A%A9%E6%89%8B/"/>
+    <id>https://inspurer.github.io/2018/12/01/Python实现微信自动回复和群聊助手/</id>
+    <published>2018-12-01T01:45:02.000Z</published>
+    <updated>2018-12-01T01:48:49.044Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文首发于我的简书<a href="https://www.jianshu.com/p/4b7b4f4fb0e4" target="_blank" rel="noopener">https://www.jianshu.com/p/4b7b4f4fb0e4</a><a id="more"></a></p><h1 id="本教程的作用"><a href="#本教程的作用" class="headerlink" title="本教程的作用"></a>本教程的作用</h1><p>零基础手把手教你打造一款微信机器人，包括好友聊天自动回复和群聊助手两个部分，零基础！话不多说，下面开始实战编码。</p><h1 id="第一部分-好友聊天自动回复"><a href="#第一部分-好友聊天自动回复" class="headerlink" title="第一部分:好友聊天自动回复"></a>第一部分:好友聊天自动回复</h1><h2 id="第一步，安装python环境。"><a href="#第一步，安装python环境。" class="headerlink" title="第一步，安装python环境。"></a>第一步，安装python环境。</h2><p>打开python官网<a href="https://www.python.org/downloads/" target="_blank" rel="noopener">https://www.python.org/downloads/</a>，下载与你的电脑系统相匹配的python发行版本，推荐python3.5-python3.6,版本太高了可能有许多未知的bug，太低了兼容性不太好。</p><h2 id="第二步，安装itchat库"><a href="#第二步，安装itchat库" class="headerlink" title="第二步，安装itchat库"></a>第二步，安装itchat库</h2><p>在命令行下输入<code>pip install itchat</code>完成安装   </p><h2 id="第三步，编写代码"><a href="#第三步，编写代码" class="headerlink" title="第三步，编写代码"></a>第三步，编写代码</h2><p>核心代码如下：</p><pre><code>  #coding=utf8import itchat# 当接收到的消息是Text，即文字消息#注册re_msg的意义在于，告诉itchat每次有符合特定条件的消息，itchat要把消息作为参数，去调用re_msg。@itchat.msg_register(&apos;Text&apos;)def text_reply(msg):    #message:取出msg里面的文本消息    message = msg[&apos;Text&apos;]    # 回复给好友    replay = u&apos;肖涛已在电脑上登陆网页微信，但暂时无法进行交流,可以给他发送电脑QQ消息哈&apos;      #主要是一些关键词设置    # if B in A 如果 A中有B的话    if u&apos;干什么&apos; in message:        replay = u&apos;在忙呢&apos;    elif u&apos;逼&apos; in message:        replay = u&apos;含有敏感词汇,请注意言辞&apos;    elif u&apos;生气&apos; in message:        replay = u&apos;生气对身体不好&apos;    elif u&apos;?&apos; in  message:        replay = u&apos;哈哈，我也不知道&apos;    elif u&apos;不理你&apos; in message:        replay = u&apos;乖，忙完给你买糖吃&apos;    elif u&apos;涛&apos; in message:        replay = u&apos;他是我主人&apos;    elif u&apos;厉害&apos; in message:        replay = u&apos;不不不，辣鸡一个&apos;    elif u&apos;你好&apos; in message:        replay = u&apos;你好哇&apos;    elif u&apos;好吧&apos; in message:        replay = u&apos;再见&apos;    return replay#弹出扫码登录界面,参数这样设置的好处是短时间内退出程序，再次登录可以不用扫码itchat.auto_login(hotReload=True)#开启自动回复itchat.run()</code></pre><p>以上代码都是本人亲自编写，如需转载请私信我。<br>代码截至2018/11/30本人调试有效，最新的代码更新在我的github：<a href="https://github.com/inspurer/PythonLearning/blob/master/python%E5%B0%8F%E9%A1%B9%E7%9B%AE/itchat_wechat/auto_replay.py" target="_blank" rel="noopener">auto_replay.py</a>如有问题欢迎评论。</p><h2 id="运行代码"><a href="#运行代码" class="headerlink" title="运行代码"></a>运行代码</h2><p>运行之后，会弹出一个二维码，用微信扫一扫登录网页版微信之后，这份代码就会接管你的消息通知。下面是一个简单的效果图<br><img src="https://upload-images.jianshu.io/upload_images/13236872-034194b9a0fe532b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="20180331100337372.png"></p><h1 id="第二部分：群聊助手"><a href="#第二部分：群聊助手" class="headerlink" title="第二部分：群聊助手"></a>第二部分：群聊助手</h1><p>第一步是点对点的消息自动回复，本部分实现的是点对多、在群中的消息自动回复。请确认上一部分实现无误之后再来尝试第二部分，因为第二部分需要第一部分的环境配置做支撑。</p><h2 id="编写代码"><a href="#编写代码" class="headerlink" title="编写代码"></a>编写代码</h2><pre><code>  import itchatimport requestsdef get_response(msg):    apiUrl = &apos;http://www.tuling123.com/openapi/api&apos;   #改成你自己的图灵机器人的api        &apos;key&apos;: &apos;ce697b3fc8b54d5f88c2fa59772cb2cf&apos;,  # Tuling Key         &apos;info&apos;: msg,  # 这是我们发出去的消息        &apos;userid&apos;: &apos;wechat-robot&apos;,  # 这里可随意修改    }    # 通过如下命令发送一个post请求    r = requests.post(apiUrl, data=data).json()    return r.get(&apos;text&apos;)@itchat.msg_register(itchat.content.TEXT)#用于接收来自朋友间的对话消息  #如果不用这个，朋友发的消息便不会自动回复 def print_content(msg):    return get_response(msg[&apos;Text&apos;])#用于接收群里面的对话消息@itchat.msg_register([itchat.content.TEXT], isGroupChat=True)def print_content(msg):    return get_response(msg[&apos;Text&apos;])itchat.auto_login(True)itchat.run()</code></pre><h2 id="接入图灵机器人"><a href="#接入图灵机器人" class="headerlink" title="接入图灵机器人"></a>接入图灵机器人</h2><p>打卡图灵机器人官网，<a href="http://www.tuling123.com/" target="_blank" rel="noopener">http://www.tuling123.com/</a>,注册账号，新建一个机器人，如下图<br><img src="https://upload-images.jianshu.io/upload_images/13236872-e6ca6877df235781.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="20180718175512463.png"><br>把图中的apikey替换到代码里就行，如果你要用我的，我也无法拒绝，毕竟我的apikey也贴出来了。</p><h2 id="运行效果"><a href="#运行效果" class="headerlink" title="运行效果"></a>运行效果</h2><p><img src="https://upload-images.jianshu.io/upload_images/13236872-c4c3a65b233be1cf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="和上一个效果图不同的是，这是在一个群里的消息"></p><h2 id="简要原理"><a href="#简要原理" class="headerlink" title="简要原理"></a>简要原理</h2><p>一但接收到信息，就会调用get_response()方法，把消息传给图灵机器人，然后图灵机器人把回复信息再返回给微信。</p><p>截至2018/11/30代码运行无误，最新更新在我的github：<a href="https://github.com/inspurer/PythonLearning/blob/master/python%E5%B0%8F%E9%A1%B9%E7%9B%AE/itchat_wechat/grouphandler.py" target="_blank" rel="noopener">grouphandler.py</a><br>如有问题请评论，如需转载请私信我。</p><h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>本篇文章参考了我的两篇csdn博客<br><a href="https://blog.csdn.net/ygdxt/article/details/79766197" target="_blank" rel="noopener">https://blog.csdn.net/ygdxt/article/details/79766197</a><br><a href="https://blog.csdn.net/ygdxt/article/details/81101020" target="_blank" rel="noopener">https://blog.csdn.net/ygdxt/article/details/81101020</a><br>在这里推荐两个python代码仓库：<br>一个是<a href="https://github.com/inspurer/PythonLearning" target="_blank" rel="noopener">PythonLearning</a>,这里面有我学习python的课程学习资料、以及一些我实战编写的代码，<br>另一个是<a href="https://github.com/inspurer/PythonSpider" target="_blank" rel="noopener">PythonSpider</a>,这里面主要是一些我写的python实现的爬虫。<br>更多的请访问我的github，欢迎star，fork.<br>另外欢迎关注微信公众号：inspurer</p><p>如果你觉得本篇文章不错，不妨打赏一下，谢谢。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文首发于我的简书&lt;a href=&quot;https://www.jianshu.com/p/4b7b4f4fb0e4&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.jianshu.com/p/4b7b4f4fb0e4&lt;/a&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="https://inspurer.github.io/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://inspurer.github.io/tags/python/"/>
+    
+      <category term="itchat" scheme="https://inspurer.github.io/tags/itchat/"/>
+    
+  </entry>
   
   <entry>
     <title>python爬取学校教务系统</title>
