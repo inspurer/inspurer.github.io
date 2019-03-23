@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://inspurer.github.io/"/>
-  <updated>2019-03-22T15:35:08.713Z</updated>
+  <updated>2019-03-23T14:08:33.375Z</updated>
   <id>https://inspurer.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PAT (Advanced Level) Practice NO.1002</title>
+    <link href="https://inspurer.github.io/2019/03/23/PAT-Advanced-Level-Practice-NO-1002/"/>
+    <id>https://inspurer.github.io/2019/03/23/PAT-Advanced-Level-Practice-NO-1002/</id>
+    <published>2019-03-23T14:04:46.000Z</published>
+    <updated>2019-03-23T14:08:33.375Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h1><h3 id="1002-A-B-for-Polynomials-（25-分"><a href="#1002-A-B-for-Polynomials-（25-分" class="headerlink" title="1002 A+B for Polynomials （25 分)"></a>1002 A+B for Polynomials （25 分)</h3><p>This time, you are supposed to find A+B where A and B are two polynomials.<a id="more"></a><br>Input Specification:</p><p>Each input file contains one test case. Each case occupies 2 lines, and each line contains the information of a polynomial:</p><p>K N​1​​ a​N​1​​​​ N​2​​ a​N​2​​​​ … N​K​​ a​N​K​​​​</p><p>where K is the number of nonzero terms in the polynomial, N​i​​ and a​N​i​​​​ (i=1,2,⋯,K) are the exponents and coefficients, respectively. It is given that 1≤K≤10，0≤N​K​​&lt;⋯&lt;N​2​​&lt;N​1​​≤1000.<br>Output Specification:</p><p>For each test case you should output the sum of A and B in one line, with the same format as the input. Notice that there must be NO extra space at the end of each line. Please be accurate to 1 decimal place.</p><h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input:"></a>Sample Input:</h3><p>2 1 2.4 0 3.2<br>2 2 1.5 1 0.5</p><h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output:"></a>Sample Output:</h3><p>3 2 1.5 1 2.9 0 3.2</p><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><pre><code>import java.util.*;//CreateTime: 2019/3/21 23:21//Author:     月小水长(https://github.com/inspurer)/*    类名:首字母大写，其他单词中首字母大写，其他小写    方法名:首字母小写，其他单词中首字母大写，其他小写    变量:与方法名规则同    包名:全部小写*/public class Main {    public static void main(String [] args){        Scanner sc = new Scanner(System.in);        String aLine = null;        String [] l = null;        HashMap&lt;Integer,Float&gt; [] hm = new HashMap[2];        for(int i = 0; i &lt; 2; i++){            aLine = sc.nextLine();            l = aLine.split(&quot; &quot;);            hm[i] = new HashMap&lt;Integer, Float&gt;(Integer.parseInt(l[0]));            for(int j = 1; j &lt; l.length; j += 2){                hm[i].put(Integer.parseInt(l[j]),Float.parseFloat(l[j+1]));            }        }        sc.close();        HashSet&lt;Integer&gt; setKeys = new HashSet&lt;&gt;(hm[0].keySet());        setKeys.addAll(hm[1].keySet());        ArrayList&lt;Integer&gt; sumKeys = new ArrayList&lt;&gt;(setKeys);        HashMap&lt;Integer,Float&gt; res = new HashMap&lt;Integer,Float&gt;();        // 排除掉系数为 0        for(int i = 0; i &lt; sumKeys.size(); i++){            int key = sumKeys.get(i);            float value = hm[0].getOrDefault(key,0.0f)+hm[1].getOrDefault(key,0.0f);            if(value == 0.0f)                continue;            res.put(key,value);        }        ArrayList resultKeys = new ArrayList(res.keySet());        Collections.sort(resultKeys, new Comparator&lt;Integer&gt;() {            @Override            public int compare(Integer o1, Integer o2) {                return o2 - o1;            }        });        // 如果项数为0，只把0输出就可以了        if(res.size() == 0) {            System.out.print(0);            return;        }        System.out.print(res.size());        System.out.print(&quot; &quot;);        for(int i = 0; i &lt; resultKeys.size(); i++){            int key = (int)resultKeys.get(i);            System.out.print(key);            System.out.print(&quot; &quot;);            System.out.printf(&quot;%.1f&quot;,res.get(key));            if(i == resultKeys.size() - 1)                break;            System.out.print(&quot; &quot;);        }    }}/*    格式错误，要求跟输入一样，浮点数保留一位小数，最后不能有空格    没有考虑到如果两个多项式相加，会出现系数为0的情况，此时不再记录（多虑的是demo分明有0输出了么，但是它是指数不是系数）    数据的类型，一定尽量开始就合适*/</code></pre><h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><p><a href="https://github.com/inspurer/PAT" target="_blank" rel="noopener">PAT Advanced Pratice 题解系列代码集合</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Question&quot;&gt;&lt;a href=&quot;#Question&quot; class=&quot;headerlink&quot; title=&quot;Question&quot;&gt;&lt;/a&gt;Question&lt;/h1&gt;&lt;h3 id=&quot;1002-A-B-for-Polynomials-（25-分&quot;&gt;&lt;a href=&quot;#1002-A-B-for-Polynomials-（25-分&quot; class=&quot;headerlink&quot; title=&quot;1002 A+B for Polynomials （25 分)&quot;&gt;&lt;/a&gt;1002 A+B for Polynomials （25 分)&lt;/h3&gt;&lt;p&gt;This time, you are supposed to find A+B where A and B are two polynomials.
+    
+    </summary>
+    
+      <category term="PAT" scheme="https://inspurer.github.io/categories/PAT/"/>
+    
+    
+      <category term="PAT" scheme="https://inspurer.github.io/tags/PAT/"/>
+    
+      <category term="collection" scheme="https://inspurer.github.io/tags/collection/"/>
+    
+  </entry>
   
   <entry>
     <title>PAT (Advanced Level) Practice No.1001</title>
@@ -462,26 +486,6 @@
     
     
       <category term="前端" scheme="https://inspurer.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>”月小水长“和“inspurer”的由来</title>
-    <link href="https://inspurer.github.io/2018/06/07/%E6%9C%88%E5%B0%8F%E6%B0%B4%E9%95%BF%E7%9A%84%E7%94%B1%E6%9D%A5/"/>
-    <id>https://inspurer.github.io/2018/06/07/月小水长的由来/</id>
-    <published>2018-06-07T08:24:34.000Z</published>
-    <updated>2018-11-12T13:23:19.747Z</updated>
-    
-    <content type="html"><![CDATA[<p> 非凭空臆想,其有典故；宋苏轼在后赤壁赋有云：<code>山高月小，水落石出曾日月之几何，而江山不可复识矣</code><a id="more"></a><br>在此我引申出<code>月小水长</code>句，一为不怕贻笑大方而附庸风雅，二为吾全名<code>肖涛</code>之字析，<code>月小</code>为<code>肖</code>，<code>水</code>即三点水，<code>长寿</code>为<code>涛</code>，还算是能够自圆其说。<br>至于<code>inspurer</code>,大一的时候了解到一家很厉害的中国企业<code>inspur浪潮</code><br>想不到中国除了<code>华为</code>还有在高新技术领域耕耘了这么深的企业，遂起名<br><code>inspurer</code>，寓意<code>弄潮儿</code>，想成为那种站在技术潮头的人儿呐~</p><hr>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt; 非凭空臆想,其有典故；宋苏轼在后赤壁赋有云：&lt;code&gt;山高月小，水落石出曾日月之几何，而江山不可复识矣&lt;/code&gt;
-    
-    </summary>
-    
-      <category term="生活志" scheme="https://inspurer.github.io/categories/%E7%94%9F%E6%B4%BB%E5%BF%97/"/>
-    
     
   </entry>
   
