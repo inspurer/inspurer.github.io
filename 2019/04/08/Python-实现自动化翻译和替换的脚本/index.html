@@ -92,7 +92,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="爬虫,Python,谷歌翻译,">
 
 
 
@@ -105,16 +105,22 @@
 
 
 
-<meta name="description" content="饮冰室主人">
-<meta property="og:type" content="website">
-<meta property="og:title" content="月小水长的个人博客">
-<meta property="og:url" content="https://inspurer.github.io/tags/人脸识别/index.html">
+<meta name="description" content="一个可能你似曾相识的场景阅读内容包含大量英文的 PPT、Word、Excel 或者记事本时，由于英语不熟悉，为了流利地阅读，需要打开浏览器进入谷歌翻译的主界面，然后把英文复制到谷歌翻译的输入框中，最后又把翻译结果复制回 PPT、Word 和 Excel。   要是一个两个单词还好，要是发现有 100 个单词不认识，就必须复制粘贴 200 次，如此机械性重复性的工作，应该交给程序来做，这就是我设计下">
+<meta name="keywords" content="爬虫,Python,谷歌翻译">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 实现自动化翻译和替换的脚本">
+<meta property="og:url" content="https://inspurer.github.io/2019/04/08/Python-实现自动化翻译和替换的脚本/index.html">
 <meta property="og:site_name" content="月小水长的个人博客">
-<meta property="og:description" content="饮冰室主人">
+<meta property="og:description" content="一个可能你似曾相识的场景阅读内容包含大量英文的 PPT、Word、Excel 或者记事本时，由于英语不熟悉，为了流利地阅读，需要打开浏览器进入谷歌翻译的主界面，然后把英文复制到谷歌翻译的输入框中，最后又把翻译结果复制回 PPT、Word 和 Excel。   要是一个两个单词还好，要是发现有 100 个单词不认识，就必须复制粘贴 200 次，如此机械性重复性的工作，应该交给程序来做，这就是我设计下">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/08/A5MBQA.md.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/08/A5MrLt.md.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/08/A5MyeP.md.gif">
+<meta property="og:updated_time" content="2019-04-08T11:47:34.196Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="月小水长的个人博客">
-<meta name="twitter:description" content="饮冰室主人">
+<meta name="twitter:title" content="Python 实现自动化翻译和替换的脚本">
+<meta name="twitter:description" content="一个可能你似曾相识的场景阅读内容包含大量英文的 PPT、Word、Excel 或者记事本时，由于英语不熟悉，为了流利地阅读，需要打开浏览器进入谷歌翻译的主界面，然后把英文复制到谷歌翻译的输入框中，最后又把翻译结果复制回 PPT、Word 和 Excel。   要是一个两个单词还好，要是发现有 100 个单词不认识，就必须复制粘贴 200 次，如此机械性重复性的工作，应该交给程序来做，这就是我设计下">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/04/08/A5MBQA.md.png">
 
 
 
@@ -156,13 +162,13 @@
 
 
 
-  <link rel="canonical" href="https://inspurer.github.io/tags/人脸识别/">
+  <link rel="canonical" href="https://inspurer.github.io/2019/04/08/Python-实现自动化翻译和替换的脚本/">
 
 
 
 
 
-  <title>标签: 人脸识别 | 月小水长的个人博客</title>
+  <title>Python 实现自动化翻译和替换的脚本 | 月小水长的个人博客</title>
   
 
 
@@ -190,7 +196,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 	
 	<a href="https://github.com/inspurer" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
@@ -364,52 +370,429 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>人脸识别<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://inspurer.github.io/2019/04/08/Python-实现自动化翻译和替换的脚本/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="月小水长">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="月小水长的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/09/25/基于opencv人脸识别的员工考勤系统/" itemprop="url">
-              
-                <span itemprop="name">基于opencv人脸识别的员工考勤系统</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Python 实现自动化翻译和替换的脚本</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-09-25T21:37:57+08:00" content="2018-09-25">
-          09-25
-        </time>
-      </div>
+        <div class="post-meta">
+			
 
-    </header>
-  </article>
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于&#58;</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-08T19:38:14+08:00">
+                2019-04-08
+              </time>
+            
 
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-08T19:47:34+08:00">
+                2019-04-08
+              </time>
+            
+          </span>
+		  
+		  
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+                               
+                <span class="post-meta-item-text">分类于&#58;</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+				<span class="post-meta-item-text">评论数&#58;</span>
+                <a href="/2019/04/08/Python-实现自动化翻译和替换的脚本/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/08/Python-实现自动化翻译和替换的脚本/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/04/08/Python-实现自动化翻译和替换的脚本/" class="leancloud_visitors" data-flag-title="Python 实现自动化翻译和替换的脚本">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.2k字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="一个可能你似曾相识的场景"><a href="#一个可能你似曾相识的场景" class="headerlink" title="一个可能你似曾相识的场景"></a>一个可能你似曾相识的场景</h2><p>阅读内容包含大量英文的 PPT、Word、Excel 或者记事本时，由于英语不熟悉，为了流利地阅读，需要打开浏览器进入谷歌翻译的主界面，然后把英文复制到谷歌翻译的输入框中，最后又把翻译结果复制回 PPT、Word 和 Excel。</p>
+<p><img src="https://s2.ax1x.com/2019/04/08/A5MBQA.md.png" alt=""></p>
+<p><img src="https://s2.ax1x.com/2019/04/08/A5MrLt.md.png" alt=""></p>
+<p>要是一个两个单词还好，要是发现有 100 个单词不认识，就必须复制粘贴 200 次，如此机械性重复性的工作，应该交给程序来做，这就是我设计下面这个自动化翻译工具的初衷。</p>
+<h2 id="提升办公效率的法宝"><a href="#提升办公效率的法宝" class="headerlink" title="提升办公效率的法宝"></a>提升办公效率的法宝</h2><p><img src="https://s2.ax1x.com/2019/04/08/A5MyeP.md.gif" alt=""></p>
+<p>如上图，运行程序并保持后台运行，在电脑上的任何一个软件中选择一段文本，并 Ctrl + C 复制到系统剪贴板中，程序就会自动帮助我们完成翻译，并将翻译结果自动复制到系统剪贴版中，只需 Ctrl + V，就完成了翻译结果对原文的替换。</p>
+<h2 id="编码实现"><a href="#编码实现" class="headerlink" title="编码实现"></a>编码实现</h2><p>程序主要分为两部分，第一部分为谷歌翻译爬虫，第二部分就是实现这个将翻译结果自动替换的业务逻辑。</p>
+<h4 id="谷歌翻译爬虫"><a href="#谷歌翻译爬虫" class="headerlink" title="谷歌翻译爬虫"></a>谷歌翻译爬虫</h4><p>通过浏览器 F12 开发者工具，很容易定位到翻译请求的 URL: <code>http://translate.google.cn/translate_a/single?client=t&amp;sl=en&amp;tl=zh-CN&amp;hl=zh-CN&amp;dt=at&amp;dt=bd&amp;dt=ex&amp;dt=ld&amp;dt=md&amp;dt=qca&amp;dt=rw&amp;dt=rm&amp;dt=ss
+&amp;dt=t&amp;ie=UTF-8&amp;oe=UTF-8&amp;clearbtn=1&amp;otf=1&amp;pc=1&amp;srcrom=0&amp;ssel=0&amp;tsel=0&amp;kc=2</code></p>
+<p>这个请求接受两个参数，一个就是我们要翻译的字符串 q，另一个是用于用户认证的 tk(token),其中 q 很容易构造，tk 的构造就需要花费一番心力了，需要我们调试 js 代码，这里参考 Github 上大神的轮子： <a href="https://github.com/cocoa520/Google_TK" target="_blank" rel="noopener">https://github.com/cocoa520/Google_TK</a></p>
+<p>谷歌翻译爬虫的主要代码如下:</p>
+<pre><code>def translate(tk, content):
+    if len(content) &gt; 4891:
+        print(&quot;翻译的长度超过限制！！！&quot;)
+        return
+
+    param = {&apos;tk&apos;: tk, &apos;q&apos;: content}
+
+    result = requests.get(&quot;&quot;&quot;http://translate.google.cn/translate_a/single?client=t&amp;sl=en
+        &amp;tl=zh-CN&amp;hl=zh-CN&amp;dt=at&amp;dt=bd&amp;dt=ex&amp;dt=ld&amp;dt=md&amp;dt=qca&amp;dt=rw&amp;dt=rm&amp;dt=ss
+        &amp;dt=t&amp;ie=UTF-8&amp;oe=UTF-8&amp;clearbtn=1&amp;otf=1&amp;pc=1&amp;srcrom=0&amp;ssel=0&amp;tsel=0&amp;kc=2&quot;&quot;&quot;, params=param)
+
+    data = result.json()
+    print(data[0][0][0])
+</code></pre><p>返回结果是 json 形式的，翻译结果保存在结果的第一个元组中。</p>
+<h4 id="Python-操作系统剪贴板"><a href="#Python-操作系统剪贴板" class="headerlink" title="Python 操作系统剪贴板"></a>Python 操作系统剪贴板</h4><p>将读取剪贴板的内容的代码封装成函数如下：</p>
+<pre><code>def getText():#读取剪切板
+    # 打开剪贴板
+    w.OpenClipboard()
+    # 读取剪贴板的内容
+    d = w.GetClipboardData(win32con.CF_TEXT)
+    # 关闭剪贴板
+    w.CloseClipboard()
+    try:
+        return d.decode(&apos;utf-8&apos;)
+    except:
+        return d.decode(&apos;gbk&apos;)
+</code></pre><p>返回值 d 是字节类型的，需要解码，中文按 gbk 格式解码，英文按 utf-8 解码。</p>
+<p>类似地，写入剪贴板的代码如下：</p>
+<pre><code>def setText(aString):#写入剪切板
+    # 打开剪贴板
+    w.OpenClipboard()
+    # 清空剪贴板
+    w.EmptyClipboard()
+    # 写入剪贴板
+    w.SetClipboardText(aString)
+    # 关闭剪贴板
+    w.CloseClipboard()
+</code></pre><p>实现将翻译结果自动替换原文的逻辑的代码如下：</p>
+<pre><code>while(True):
+        # 如果剪贴板正在被占用
+        try:
+            cs = getText()
+        except:
+            time.sleep(1)
+            cs = getText()
+        print(&apos;cs&apos;,cs)
+        if cs and cs != ls:
+            print(&apos;准备翻译&apos;)
+            content = getText()
+            tk = js.getTk(content)
+            res = translate(tk, content)
+            setText(res)
+            time.sleep(1)
+            ls = res
+</code></pre><p>值得注意的是，系统剪贴板对象是单例模式的，在操作系统范围内只有一个，而且读写剪贴板都是互斥的，在读（写）剪贴板的同时不允许任何对剪贴板的写（读）操作。试想这样一种情景，我们在其他软件中 Ctrl + C 写入剪贴板，而此时我们的程序代码正好执行到读剪贴板那一行，毫无疑问会报错，我的解决办法是使用 try…except 语句延时 1 s再读取，这样可以大大降低读写碰撞的概率，但无疑消耗了程序性能。最好的办法是判断剪贴板对象句柄是否被占用，其实我一直在寻找是否存在判断剪贴板对象句柄是否被占用的 API,但是一直没有找到，如果有人知道的话，欢迎评论区留言。</p>
+<h4 id="源代码获取"><a href="#源代码获取" class="headerlink" title="源代码获取"></a>源代码获取</h4><p>关注公众号 <font size="5" color="red">月小水长</font>，后台回复，<font size="5" color="red">自动替换的翻译软件</font> 即可获取所有源代码</p>
 
       
     </div>
+    
+    
+    
+	<div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
 
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2019/04/08/Python-实现自动化翻译和替换的脚本/">Python 实现自动化翻译和替换的脚本</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 月小水长 的个人博客">月小水长</a></p>
+  <p><span>发布时间:</span>2019年04月08日 - 19:04</p>
+  <p><span>最后更新:</span>2019年04月08日 - 19:04</p>
+  <p><span>原始链接:</span><a href="https://inspurer.github.io" title="1554723494000Python 实现自动化翻译和替换的脚本">https://inspurer.github.io/2019/04/08/Python-实现自动化翻译和替换的脚本/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://inspurer.github.io/2019/04/08/Python-实现自动化翻译和替换的脚本/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+      
+	</div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>您的赞助将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat.png" alt="月小水长 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="月小水长 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+	<div>
+		
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢阅读-------------</div>
+    
+</div>
+		
+	</div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/爬虫/" rel="tag"><i class="fa fa-tag"></i> 爬虫</a>
+          
+            <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+          
+            <a href="/tags/谷歌翻译/" rel="tag"><i class="fa fa-tag"></i> 谷歌翻译</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/23/PAT-Advanced-Level-Practice-NO-1002/" rel="next" title="PAT (Advanced Level) Practice NO.1002">
+                <i class="fa fa-chevron-left"></i> PAT (Advanced Level) Practice NO.1002
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6877569709040311",
+    enable_page_level_ads: true
+  });
+</script>
+
+    <div class="post-spread">
+      
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -417,6 +800,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -437,8 +827,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -569,6 +968,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一个可能你似曾相识的场景"><span class="nav-number">1.</span> <span class="nav-text">一个可能你似曾相识的场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提升办公效率的法宝"><span class="nav-number">2.</span> <span class="nav-text">提升办公效率的法宝</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编码实现"><span class="nav-number">3.</span> <span class="nav-text">编码实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#谷歌翻译爬虫"><span class="nav-number">3.0.1.</span> <span class="nav-text">谷歌翻译爬虫</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Python-操作系统剪贴板"><span class="nav-number">3.0.2.</span> <span class="nav-text">Python 操作系统剪贴板</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#源代码获取"><span class="nav-number">3.0.3.</span> <span class="nav-text">源代码获取</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -759,6 +1174,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

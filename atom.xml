@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://inspurer.github.io/"/>
-  <updated>2019-03-23T14:08:33.375Z</updated>
+  <updated>2019-04-08T11:47:34.196Z</updated>
   <id>https://inspurer.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python 实现自动化翻译和替换的脚本</title>
+    <link href="https://inspurer.github.io/2019/04/08/Python-%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E5%8C%96%E7%BF%BB%E8%AF%91%E5%92%8C%E6%9B%BF%E6%8D%A2%E7%9A%84%E8%84%9A%E6%9C%AC/"/>
+    <id>https://inspurer.github.io/2019/04/08/Python-实现自动化翻译和替换的脚本/</id>
+    <published>2019-04-08T11:38:14.000Z</published>
+    <updated>2019-04-08T11:47:34.196Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="一个可能你似曾相识的场景"><a href="#一个可能你似曾相识的场景" class="headerlink" title="一个可能你似曾相识的场景"></a>一个可能你似曾相识的场景</h2><p>阅读内容包含大量英文的 PPT、Word、Excel 或者记事本时，由于英语不熟悉，为了流利地阅读，需要打开浏览器进入谷歌翻译的主界面，然后把英文复制到谷歌翻译的输入框中，最后又把翻译结果复制回 PPT、Word 和 Excel。</p><p><img src="https://s2.ax1x.com/2019/04/08/A5MBQA.md.png" alt=""></p><p><img src="https://s2.ax1x.com/2019/04/08/A5MrLt.md.png" alt=""></p><p>要是一个两个单词还好，要是发现有 100 个单词不认识，就必须复制粘贴 200 次，如此机械性重复性的工作，应该交给程序来做，这就是我设计下面这个自动化翻译工具的初衷。</p><h2 id="提升办公效率的法宝"><a href="#提升办公效率的法宝" class="headerlink" title="提升办公效率的法宝"></a>提升办公效率的法宝</h2><p><img src="https://s2.ax1x.com/2019/04/08/A5MyeP.md.gif" alt=""></p><p>如上图，运行程序并保持后台运行，在电脑上的任何一个软件中选择一段文本，并 Ctrl + C 复制到系统剪贴板中，程序就会自动帮助我们完成翻译，并将翻译结果自动复制到系统剪贴版中，只需 Ctrl + V，就完成了翻译结果对原文的替换。</p><h2 id="编码实现"><a href="#编码实现" class="headerlink" title="编码实现"></a>编码实现</h2><p>程序主要分为两部分，第一部分为谷歌翻译爬虫，第二部分就是实现这个将翻译结果自动替换的业务逻辑。</p><h4 id="谷歌翻译爬虫"><a href="#谷歌翻译爬虫" class="headerlink" title="谷歌翻译爬虫"></a>谷歌翻译爬虫</h4><p>通过浏览器 F12 开发者工具，很容易定位到翻译请求的 URL: <code>http://translate.google.cn/translate_a/single?client=t&amp;sl=en&amp;tl=zh-CN&amp;hl=zh-CN&amp;dt=at&amp;dt=bd&amp;dt=ex&amp;dt=ld&amp;dt=md&amp;dt=qca&amp;dt=rw&amp;dt=rm&amp;dt=ss&amp;dt=t&amp;ie=UTF-8&amp;oe=UTF-8&amp;clearbtn=1&amp;otf=1&amp;pc=1&amp;srcrom=0&amp;ssel=0&amp;tsel=0&amp;kc=2</code></p><p>这个请求接受两个参数，一个就是我们要翻译的字符串 q，另一个是用于用户认证的 tk(token),其中 q 很容易构造，tk 的构造就需要花费一番心力了，需要我们调试 js 代码，这里参考 Github 上大神的轮子： <a href="https://github.com/cocoa520/Google_TK" target="_blank" rel="noopener">https://github.com/cocoa520/Google_TK</a></p><p>谷歌翻译爬虫的主要代码如下:</p><pre><code>def translate(tk, content):    if len(content) &gt; 4891:        print(&quot;翻译的长度超过限制！！！&quot;)        return    param = {&apos;tk&apos;: tk, &apos;q&apos;: content}    result = requests.get(&quot;&quot;&quot;http://translate.google.cn/translate_a/single?client=t&amp;sl=en        &amp;tl=zh-CN&amp;hl=zh-CN&amp;dt=at&amp;dt=bd&amp;dt=ex&amp;dt=ld&amp;dt=md&amp;dt=qca&amp;dt=rw&amp;dt=rm&amp;dt=ss        &amp;dt=t&amp;ie=UTF-8&amp;oe=UTF-8&amp;clearbtn=1&amp;otf=1&amp;pc=1&amp;srcrom=0&amp;ssel=0&amp;tsel=0&amp;kc=2&quot;&quot;&quot;, params=param)    data = result.json()    print(data[0][0][0])</code></pre><p>返回结果是 json 形式的，翻译结果保存在结果的第一个元组中。</p><h4 id="Python-操作系统剪贴板"><a href="#Python-操作系统剪贴板" class="headerlink" title="Python 操作系统剪贴板"></a>Python 操作系统剪贴板</h4><p>将读取剪贴板的内容的代码封装成函数如下：</p><pre><code>def getText():#读取剪切板    # 打开剪贴板    w.OpenClipboard()    # 读取剪贴板的内容    d = w.GetClipboardData(win32con.CF_TEXT)    # 关闭剪贴板    w.CloseClipboard()    try:        return d.decode(&apos;utf-8&apos;)    except:        return d.decode(&apos;gbk&apos;)</code></pre><p>返回值 d 是字节类型的，需要解码，中文按 gbk 格式解码，英文按 utf-8 解码。</p><p>类似地，写入剪贴板的代码如下：</p><pre><code>def setText(aString):#写入剪切板    # 打开剪贴板    w.OpenClipboard()    # 清空剪贴板    w.EmptyClipboard()    # 写入剪贴板    w.SetClipboardText(aString)    # 关闭剪贴板    w.CloseClipboard()</code></pre><p>实现将翻译结果自动替换原文的逻辑的代码如下：</p><pre><code>while(True):        # 如果剪贴板正在被占用        try:            cs = getText()        except:            time.sleep(1)            cs = getText()        print(&apos;cs&apos;,cs)        if cs and cs != ls:            print(&apos;准备翻译&apos;)            content = getText()            tk = js.getTk(content)            res = translate(tk, content)            setText(res)            time.sleep(1)            ls = res</code></pre><p>值得注意的是，系统剪贴板对象是单例模式的，在操作系统范围内只有一个，而且读写剪贴板都是互斥的，在读（写）剪贴板的同时不允许任何对剪贴板的写（读）操作。试想这样一种情景，我们在其他软件中 Ctrl + C 写入剪贴板，而此时我们的程序代码正好执行到读剪贴板那一行，毫无疑问会报错，我的解决办法是使用 try…except 语句延时 1 s再读取，这样可以大大降低读写碰撞的概率，但无疑消耗了程序性能。最好的办法是判断剪贴板对象句柄是否被占用，其实我一直在寻找是否存在判断剪贴板对象句柄是否被占用的 API,但是一直没有找到，如果有人知道的话，欢迎评论区留言。</p><h4 id="源代码获取"><a href="#源代码获取" class="headerlink" title="源代码获取"></a>源代码获取</h4><p>关注公众号 <font size="5" color="red">月小水长</font>，后台回复，<font size="5" color="red">自动替换的翻译软件</font> 即可获取所有源代码</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;一个可能你似曾相识的场景&quot;&gt;&lt;a href=&quot;#一个可能你似曾相识的场景&quot; class=&quot;headerlink&quot; title=&quot;一个可能你似曾相识的场景&quot;&gt;&lt;/a&gt;一个可能你似曾相识的场景&lt;/h2&gt;&lt;p&gt;阅读内容包含大量英文的 PPT、Word、Excel 或者记
+      
+    
+    </summary>
+    
+      <category term="Python" scheme="https://inspurer.github.io/categories/Python/"/>
+    
+    
+      <category term="爬虫" scheme="https://inspurer.github.io/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="Python" scheme="https://inspurer.github.io/tags/Python/"/>
+    
+      <category term="谷歌翻译" scheme="https://inspurer.github.io/tags/%E8%B0%B7%E6%AD%8C%E7%BF%BB%E8%AF%91/"/>
+    
+  </entry>
   
   <entry>
     <title>PAT (Advanced Level) Practice NO.1002</title>
@@ -457,28 +486,6 @@
     <summary type="html">
     
       &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;从今天开始在本教程上纪录当日学到的知识点，不追求百科全书式的纪录
-    
-    </summary>
-    
-      <category term="前端" scheme="https://inspurer.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="前端" scheme="https://inspurer.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>前端入门第一天</title>
-    <link href="https://inspurer.github.io/2018/06/11/%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8%E7%AC%AC%E4%B8%80%E5%A4%A9/"/>
-    <id>https://inspurer.github.io/2018/06/11/前端入门第一天/</id>
-    <published>2018-06-11T15:40:05.000Z</published>
-    <updated>2018-11-13T14:50:38.517Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前不久在网上看到一篇Hexo建站的教程，顺手给自己建了个<a href="https://inspurer.github.io/">个人博客</a>  <a id="more"></a><br>有还算扎实的c++/java/python/andorid基础，整个建站过程还算顺利<br>从此沉迷web编程,但是我感觉用现成的框架,总有点那啥受制于人的感觉<br>打算好好学一下前端，由于在实验室跟着老师做项目一直没有时间<br>但是万万没想到，心心念念的前端，开始正式开始系统学习居然是在忙到炸的期末考试周<br>在此要先pick一下<a href="http://ife.baidu.com/college/detail/id/5" target="_blank" rel="noopener">百度前端技术学院</a>,可以说是我的前端入门导师了哈哈哈，不bb了，<br>正式开始。  </p><h1 id="首先我们要知道访问网站的具体过程"><a href="#首先我们要知道访问网站的具体过程" class="headerlink" title="首先我们要知道访问网站的具体过程"></a>首先我们要知道访问网站的具体过程</h1><p>比如，输入<code>http://www.zhihu.com/question/22689579</code><br>访问过程如下图所示<br><img src="https://i.imgur.com/v0DfIHf.jpg" alt=""><br>浏览器和服务器交流，服务器和数据库交流（有时候数据库就在服务器那台机子上）<br>浏览器给服务器发一个请求，服务器不是一看就知道怎么响应的。<br>首先这些请求和响应要有一个通用的写法，也就是要有一个协议，常用的是<code>HTTP</code>协议。<br>像最前面的图，服务器的响应写了一个状态码<code>200 OK</code>,是<code>HTTP</code>协议里约定俗成的一个东西，<br>服务器写<code>200 OK</code>在响应里，表示“你请求的这个东西我有”，<br>如果是<code>404 Not Found</code>，就是“你请求的这个东西我这里没有”。<br><code>HTTP</code>响应里还包括很多东西，比如<code>Content-type</code>表示服务器发过来的文件类型是什么（文本？动画？图片？音频？）<br>形象化<code>Http</code>响应，大概这样：<br><img src="https://i.imgur.com/1D8LY96.jpg" alt="">  </p><h1 id="然后我们来了解前端三剑客"><a href="#然后我们来了解前端三剑客" class="headerlink" title="然后我们来了解前端三剑客"></a>然后我们来了解前端三剑客</h1><ol><li><strong>html</strong> 接上图，服务器返回html（就是上图HTTP响应的body里的内容)文件  后,电脑拿到<code>html</code>后，浏览器就会对它进行解析渲染，html是一种文本标记语言，举个栗子：<br><img src="https://i.imgur.com/XkEMXvx.jpg" alt="">  </li><li><strong>css</strong> 浏览器拿到这些代码之后，分析一下给你渲染好页面显示出来，<br>但是如果没有用css，效果是这样的，按照浏览器默认的样式显示<br>出列表、图片、超链接、输入框、按钮等等：<br><img src="https://i.imgur.com/rsWvX0a.jpg" alt=""><br>是不是觉得默认样式有点看瞎狗眼呢……所以很多时候我们需要自定义样式，<br>现行通用的规定样式的语言是CSS，我们可以用它写一些定义样式的代码，<br>在 html 文件里用一个<link>标签把这些规定样式的CSS代码与表达内容语义的HTML代码关联起来，<br>然后你就能看到一个符合人类正常审美的页面了:<br><img src="https://i.imgur.com/uXBaWo1.jpg" alt=""><br>插一句：CSS 代码的格式基本是<br><code>属性 : 值</code></li><li><strong>javascipt(js)</strong>有了表示内容和语义的 HTML，规定样式的 CSS，<br>得到的是一个静态的页面，没什么动画（其实用 CSS 还是可以有一些动画的,不过这个跑题了),<br>按 F5 才会刷新数据，于是我们有了 Javascript(js)来给页面添加一些动态的效果<br>浏览器都会帮你实现一些 JS 可以用的工具（函数，对象什么的），<br>你只要写一些js的代码，保存在xxx.js 里，在html文件中用 <code>&lt;script&gt;</code>关联进来就可以用了</li><li>在前端三剑客bb了怎么多，可以用一句很形象的话来归纳之：<br><code>前台三剑客，html是名词，css是形容词，javascript是动词。三个互相配合才是一句子</code><br>就问形不形象   <h1 id="立个Flag"><a href="#立个Flag" class="headerlink" title="立个Flag"></a>立个Flag</h1>考虑到三周的期末周，就立一个这样的flag吧：<br>暑假每天至少学习前端两个小时，争取下学期开始学完！  <h1 id="致谢"><a href="#致谢" class="headerlink" title="致谢"></a>致谢</h1>最后实名pick一下小姐姐<a href="https://www.zhihu.com/question/22689579/answer/22318058" target="_blank" rel="noopener">张秋怡</a>,<br>感谢她的精彩回答<br>我只是个搬运工<br>只不过经过自己的理解稍作了修改<br>2018/6/12 00:31初稿<br>欢迎评论啊  </li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;前不久在网上看到一篇Hexo建站的教程，顺手给自己建了个&lt;a href=&quot;https://inspurer.github.io/&quot;&gt;个人博客&lt;/a&gt;
     
     </summary>
     
