@@ -105,28 +105,21 @@
 
 
 
-<meta name="description" content="打卡微信小程序。实现功能1、类似论坛，可发帖、评论、回复。">
+<meta name="description" content="这学期受某人所托，给学院做了一款打卡小程序。其效果如下： 一个类似论坛的社区，可发帖、评论、回复。     打卡可换算积分，一天只能打卡一次，且有今日打卡排行榜实时展示。    跑步也可换算积分，换算的规则男女有别。    这个小程序的上线成本比较高，需要营业执照，还有因为论坛的存在，上线之后还需要工信部的备案资质，否则不予更新代码，所以我已经停止对它的维护了。开源这个项目的代码： github地">
 <meta name="keywords" content="打卡">
 <meta property="og:type" content="article">
 <meta property="og:title" content="打卡微信小程序">
 <meta property="og:url" content="https://inspurer.github.io/2018/11/07/打卡微信小程序/index.html">
 <meta property="og:site_name" content="月小水长的个人博客">
-<meta property="og:description" content="打卡微信小程序。实现功能1、类似论坛，可发帖、评论、回复。">
+<meta property="og:description" content="这学期受某人所托，给学院做了一款打卡小程序。其效果如下： 一个类似论坛的社区，可发帖、评论、回复。     打卡可换算积分，一天只能打卡一次，且有今日打卡排行榜实时展示。    跑步也可换算积分，换算的规则男女有别。    这个小程序的上线成本比较高，需要营业执照，还有因为论坛的存在，上线之后还需要工信部的备案资质，否则不予更新代码，所以我已经停止对它的维护了。开源这个项目的代码： github地">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.imgur.com/HROakCa.jpg">
-<meta property="og:image" content="https://i.imgur.com/JtbINuy.jpg">
-<meta property="og:image" content="https://i.imgur.com/huWnNXu.jpg">
-<meta property="og:image" content="https://i.imgur.com/hvKAPCi.jpg">
-<meta property="og:image" content="https://i.imgur.com/xcUyMnX.jpg">
-<meta property="og:image" content="https://i.imgur.com/A2ppD0v.jpg">
-<meta property="og:image" content="https://i.imgur.com/TYXFybN.jpg">
-<meta property="og:image" content="https://i.imgur.com/NNazajL.jpg">
-<meta property="og:image" content="https://i.imgur.com/qlOLDji.jpg">
-<meta property="og:updated_time" content="2019-03-22T15:48:44.709Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/10/AT4LKf.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/10/AT4z5j.jpg">
+<meta property="og:updated_time" content="2019-04-10T10:50:44.749Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="打卡微信小程序">
-<meta name="twitter:description" content="打卡微信小程序。实现功能1、类似论坛，可发帖、评论、回复。">
-<meta name="twitter:image" content="https://i.imgur.com/HROakCa.jpg">
+<meta name="twitter:description" content="这学期受某人所托，给学院做了一款打卡小程序。其效果如下： 一个类似论坛的社区，可发帖、评论、回复。     打卡可换算积分，一天只能打卡一次，且有今日打卡排行榜实时展示。    跑步也可换算积分，换算的规则男女有别。    这个小程序的上线成本比较高，需要营业执照，还有因为论坛的存在，上线之后还需要工信部的备案资质，否则不予更新代码，所以我已经停止对它的维护了。开源这个项目的代码： github地">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/04/10/AT4LKf.jpg">
 
 
 
@@ -437,8 +430,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-22T23:48:44+08:00">
-                2019-03-22
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-10T18:50:44+08:00">
+                2019-04-10
               </time>
             
           </span>
@@ -511,7 +504,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.1k字
+                  1.4k字
                 </span>
               
 
@@ -527,7 +520,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  5分钟
+                  7分钟
                 </span>
               
             </div>
@@ -548,328 +541,370 @@
       
 
       
-        <h1 id="打卡微信小程序。"><a href="#打卡微信小程序。" class="headerlink" title="打卡微信小程序。"></a>打卡微信小程序。</h1><h1 id="实现功能"><a href="#实现功能" class="headerlink" title="实现功能"></a>实现功能</h1><h2 id="1、类似论坛，可发帖、评论、回复。"><a href="#1、类似论坛，可发帖、评论、回复。" class="headerlink" title="1、类似论坛，可发帖、评论、回复。"></a>1、类似论坛，可发帖、评论、回复。</h2><a id="more"></a>    
-<h2 id="2、打卡可换算积分，一天只能打卡一次，且有今日打卡排行榜实时展示。"><a href="#2、打卡可换算积分，一天只能打卡一次，且有今日打卡排行榜实时展示。" class="headerlink" title="2、打卡可换算积分，一天只能打卡一次，且有今日打卡排行榜实时展示。"></a>2、打卡可换算积分，一天只能打卡一次，且有今日打卡排行榜实时展示。</h2><h2 id="3、跑步也可换算积分，换算的规则男女有别。"><a href="#3、跑步也可换算积分，换算的规则男女有别。" class="headerlink" title="3、跑步也可换算积分，换算的规则男女有别。"></a>3、跑步也可换算积分，换算的规则男女有别。</h2><h1 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h1><p><img src="https://i.imgur.com/HROakCa.jpg" alt=""><br><img src="https://i.imgur.com/JtbINuy.jpg" alt=""><br><img src="https://i.imgur.com/huWnNXu.jpg" alt=""><br><img src="https://i.imgur.com/hvKAPCi.jpg" alt=""><br><img src="https://i.imgur.com/xcUyMnX.jpg" alt=""><br><img src="https://i.imgur.com/A2ppD0v.jpg" alt=""><br><img src="https://i.imgur.com/TYXFybN.jpg" alt=""><br><img src="https://i.imgur.com/NNazajL.jpg" alt=""><br><img src="https://i.imgur.com/qlOLDji.jpg" alt="">    </p>
-<h1 id="核心js代码"><a href="#核心js代码" class="headerlink" title="核心js代码"></a>核心js代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">	</span><br></pre></td></tr></table></figure>
-<pre><code>    var Bmob = require(&quot;../../utils/bmob.js&quot;);
-    var common = require(&quot;../../utils/common.js&quot;);
-    Bmob.initialize(&quot;*************************&quot;, &quot;**************************&quot;);
-    Page({
+        <p>这学期受某人所托，给学院做了一款打卡小程序。其效果如下：</p>
+<pre><code>一个类似论坛的社区，可发帖、评论、回复。    
+打卡可换算积分，一天只能打卡一次，且有今日打卡排行榜实时展示。   
+跑步也可换算积分，换算的规则男女有别。   
+</code></pre><p><img src="https://s2.ax1x.com/2019/04/10/AT4LKf.jpg" alt=""><br>这个小程序的上线成本比较高，需要营业执照，还有因为论坛的存在，上线之后还需要工信部的备案资质，否则不予更新代码，所以我已经停止对它的维护了。开源这个项目的代码： <a href="https://github.com/inspurer/CampusPunchcard" target="_blank" rel="noopener">github地址</a>,欢迎star、fork!!!    </p>
+<p>今天我主要讲述其中的打卡部分的制作,为了后期维护，我已经单独把这部分做成一个小程序，欢迎体验。</p>
+<center><img src="https://s2.ax1x.com/2019/04/10/AT4z5j.jpg"></center>
 
-      /**
-       * 页面的初始数据
-       */
-      data: {
-        canIUse: wx.canIUse(&apos;button.open-type.getUserInfo&apos;),
-        hiddenmodalput: true,
-        cname: &apos;&apos;,
-        sexx: &apos;&apos;,
-        iname: &apos;&apos;,
-      },
+<p>talk  is cheap,show the code.</p>
+<h2 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码"></a>核心代码</h2><h3 id="punch-js"><a href="#punch-js" class="headerlink" title="punch.js"></a>punch.js</h3><pre><code>var app = getApp();
+var date;
+var allowlog = 1;
+var Bmob = require(&apos;../../utils/bmob.js&apos;);
+Page({
 
-      cancel: function(e){
-        wx.showToast({
-          title: &apos;务必输入&apos;,
-          icon: &apos;loading&apos;
-        })
-      },
+  /**
+   * 页面的初始数据
+   */
+  data: {
+   newList: [],
+  },
 
-      cn:function(e){
-        console.log(e.detail.value)
-        this.setData({
-          cname: e.detail.value
-        })
-      },
+  btn_click: function(e){
+    if (allowlog == 1){
+      allowlog = 0;
+      wx.getStorage({
+        key: &apos;user_id&apos;,
+        success: function (res) {
+          var user_id = new Bmob.User();
+          user_id.id = res.data;
+          wx.getStorage({
+            key: &apos;my_nick&apos;,
+            success: function (ress) {
+              var mydate = new Date();
+              var year = mydate.getFullYear();
+              var month = mydate.getMonth() + 1;
+              var day = mydate.getDate();
+              var date = year + &quot;年&quot; + month + &quot;月&quot; + day + &quot;日&quot;;
+              var hour = mydate.getHours(); //获取当前小时数(0-23)
+              var minute = mydate.getMinutes(); //获取当前分钟数(0-59)
+              var second = mydate.getSeconds(); //获取当前秒数(0-59)
+              var time = hour + &quot;时&quot; + minute + &quot;分&quot; + second + &quot;秒&quot;;
+              var avatar = wx.getStorageSync(&quot;my_avatar&quot;);
+              var Punch = Bmob.Object.extend(&quot;punch&quot;);
+              var punch = new Punch();
+              var me = ress.data;
+              var query = new Bmob.Query(Punch);
+              query.equalTo(&quot;nickname&quot;, me);
+              query.equalTo(&quot;date&quot;, date);
+              // 查询所有数据
+              query.find({
+                success: function (results) {
+                  console.log(&quot;共查询到 &quot; + results.length + &quot; 条记录&quot;);
+                  if (results.length == 0) {
+                    if (hour &gt;= 6) {
+                      if (hour &lt; 8) {
+                        var intger;
+                        if (hour &lt; 7) {
+                          if (minute &lt;= 20) {
+                            intger = 3;
+                          }
+                          else if (minute &lt;= 40) {
+                            intger = 2.5;
+                          }
+                          else {
+                            intger = 2;
+                          }
+                        }
+                        else if (hour &lt; 8) {
+                          if (minute &lt;= 20) {
+                            intger = 1.5;
+                          }
+                          else if (minute &lt;= 40) {
+                            intger = 1;
+                          }
+                          else {
+                            intger = 0.5;
+                          }
+                        }
+                        wx.showToast({
+                          title: &apos;打卡成功+&apos; + intger + &quot;分&quot;,
+                          icon: &apos;success&apos;
+                        })
+                        wx.getStorage({
+                          key: &apos;my_username&apos;,
+                          success: function (ress) {
+                            if (ress.data) {
+                              var my_username = ress.data;
+                              wx.getStorage({
+                                key: &apos;user_openid&apos;,
+                                success: function (openid) {
+                                  var openid = openid.data;
+                                  var user = Bmob.User.logIn(my_username, openid, {
+                                    success: function (users) {
+                                      var score = users.get(&apos;score&apos;);
+                                      score = score + intger;
+                                      users.set(&apos;score&apos;, score);
+                                      users.save(null, {
+                                        success: function (user) {
+                                        },
+                                        error: function (error) {
+                                          console.log(error)
+                                        }
+                                      });
+                                    }
+                                  });
+                                }, function(error) {
+                                  console.log(error);
+                                }
+                              })
+                            }
 
-      se: function (e) {
-        console.log(e.detail.value)
-        this.setData({
-          sexx: e.detail.value
-        })
-      },
-      ina: function(e){
-        this.setData({
-          iname:e.detail.value
-        })
-      },
+                          }
+                        })
+                        punch.set(&apos;nickname&apos;, me);
+                        punch.set(&apos;user_id&apos;, user_id);
+                        punch.set(&apos;date&apos;, date);
+                        punch.set(&apos;avatar&apos;, avatar)
+                        punch.set(&apos;time&apos;, time);
+                        console.log(me, user_id);
+                        punch.save(null, {
+                          success: function (result) {
+                            console.log(&apos;success&apos;);
+                            allowlog = 1;
 
-      confirm: function (e) {
-
-        var that = this;
-        if (!(that.data.sexx == &apos;男&apos; || that.data.sexx == &apos;女&apos;)){
-          wx.showToast({
-            title: &apos;性别输入有误&apos;,
-          })
-          return;
-        }
-        if(!that.data.cname){
-          wx.showToast({
-            title: &apos;姓名班级有误&apos;,
-          })
-          return;
-        }
-        if(that.data.iname.length&gt;0)
-        {
-          var User = Bmob.Object.extend(&quot;_User&quot;);
-          var query = new Bmob.Query(User);
-          query.equalTo(&apos;nickname&apos;, that.data.iname)
-          query.find({
-            success: function (results) {
-              if (results.length == 0) {
-                wx.showToast({
-                  title: &apos;无此邀请人&apos;,
-                  icon: &apos;loading&apos;
-                })
-                return;
-              }
-              var user = Bmob.User.logIn(results[0].get(&apos;username&apos;), results[0].get(&apos;userData&apos;).openid, {
-                success: function (users) {
-                  var score = users.get(&apos;score&apos;);
-                  score = score + 2;
-                  users.set(&apos;score&apos;, score);
-                  users.save(null, {
-                    success: function (user) {
-                      wx.showToast({
-                        title: &apos;被邀请成功&apos;,
-                        icon: &apos;success&apos;
-                      })
-                    },
-                    error: function (error) {
-                      console.log(error)
+                          },
+                          error: function (result, error) {
+                            console.log(result, error, &quot;failure&quot;)
+                          }
+                        })
+                      }
+                      else {
+                        wx.showToast({
+                          title: &apos;已过打卡时间&apos;,
+                          icon: &apos;loading&apos;
+                        })
+                      }
                     }
-                  });
+                    else {
+                      wx.showToast({
+                        title: &apos;还没到打卡时间&apos;,
+                        icon: &apos;loading&apos;
+                      })
+                    }
+
+
+                  }
+                  else {
+                    allowlog = 1;
+                    wx.showToast({
+                      title: &apos;重复打卡&apos;,
+                      icon: &apos;loading&apos;
+                    })
+                  }
+                },
+                error: function (error) {
+                  console.log(&quot;查询失败&quot;);
                 }
               });
             }
           })
+
+        },
+      })
+    }
+    else{
+      wx.showToast({
+        title: &apos;点的太快了&apos;,
+        icon: &apos;loading&apos;
+      })
+    }
+
+  },
+  tempData: function () {
+    var that = this;
+    var Punch = Bmob.Object.extend(&quot;punch&quot;);
+    var query = new Bmob.Query(Punch);
+    var mydate = new Date();
+    var year = mydate.getFullYear();
+    var month = mydate.getMonth() + 1;
+    var day = mydate.getDate();
+    var date = year + &quot;年&quot; + month + &quot;月&quot; + day + &quot;日&quot;;
+    query.equalTo(&quot;date&quot;, date);
+    query.limit(100);
+    var results = [];
+    query.find({
+      success: function (result) {
+        for (var i = 0; i &lt; result.length; i++) {
+          console.log(&apos;共有打卡记录:&apos;, result.length)
+          var object = result[i];
+          object.set(&apos;time&apos;, object.createdAt.substring(11, 19));
+          object.set(&apos;rank&apos;, i + 1);
+          results[i] = object;
         }
-
-        this.setData({
-          hiddenmodalput: true,
-        })
-        wx.getStorage({
-          key: &apos;my_username&apos;,
-          success: function (ress) {
-            if (ress.data) {
-              var my_username = ress.data;
-              wx.getStorage({
-                key: &apos;user_openid&apos;,
-                success: function (openid) {
-                  var openid = openid.data;
-                  var user = Bmob.User.logIn(my_username, openid, {
-                    success: function (users) {
-                      users.set(&apos;nickname&apos;, that.data.cname);
-                      users.set(&apos;sex&apos;,that.data.sexx)
-                      users.save(null, {
-                        success: function (user) {
-                          wx.setStorageSync(&apos;my_nick&apos;, that.data.cname);
-                          wx.setStorageSync(&quot;sex&quot;, that.data.sexx);
-                        },
-                        error: function (error) {
-                          console.log(error)
-                        }
-                      });
-                    }
-                  });
-                }, function(error) {
-                  console.log(error);
-                }
-              })
-            }
-
-          }
-        })
-        wx.switchTab({
-          url: &apos;../punch/punch&apos;,
+        console.log(results);
+        that.setData({
+          list: results
         });
-      },
-
-      /**
-       * 生命周期函数--监听页面加载
-       */
-      onLoad: function (options) {
-      },
-
-      bindGetUserInfo: function (e) {
-        var that = this;
-        // 查看是否授权
-        wx.getSetting({
-          success: function (res) {
-            if (res.authSetting[&apos;scope.userInfo&apos;]) {
-              console.log(&quot;已授权&quot;)
-              // 已经授权，可以直接调用 getUserInfo 获取头像昵称
-
-                  //调用API从本地缓存中获取数据
-                  try {
-                    var value = wx.getStorageSync(&apos;user_openid&apos;)
-                    if (value) {
-                      console.log(&quot;value不为空&quot;)
-
-                      wx.switchTab({
-                        url: &apos;../punch/punch&apos;,
-                      })
-                    } else {
-                      console.log(&quot;value为空&quot;)
-                      wx.login({
-                        success: function (res) {
-                          console.log(&apos;res&apos;, res)
-                          if (res.code) {
-                            Bmob.User.requestOpenId(res.code, {
-                              success: function (userData) {
-                                console.log(&apos;uD&apos;,userData)
-                                    var userInfo = e.detail.userInfo;
-                                    var nickName = userInfo.nickName;
-                                    var avatarUrl = userInfo.avatarUrl;
-                                    Bmob.User.logIn(nickName, userData.openid, {
-                                      success: function (user) {
-                                        try {
-                                          console.log(&apos;sex&apos;+user.get(&apos;sex&apos;));
-                                          console.log(&apos;score&apos; + user.get(&apos;score&apos;));
-                                          wx.setStorageSync(&quot;newsnum&quot;, user.get(&apos;newsnum&apos;))
-
-                                          wx.setStorageSync(&quot;sex&quot;, user.get(&apos;sex&apos;));
-                                          wx.setStorageSync(&quot;score&quot;, user.get(&apos;score&apos;));
-                                          wx.setStorageSync(&apos;user_openid&apos;, user.get(&quot;userData&quot;).openid)
-                                          wx.setStorageSync(&apos;user_id&apos;, user.id);
-                                          wx.setStorageSync(&apos;my_nick&apos;, user.get(&quot;nickname&quot;))
-                                          wx.setStorageSync(&apos;my_username&apos;, user.get(&quot;username&quot;))
-                                          wx.setStorageSync(&apos;my_avatar&apos;, user.get(&quot;userPic&quot;))
-                                        } catch (e) {
-                                        }
-                                        console.log(&quot;登录成功y&quot;);
-
-                                      },
-                                      error: function (user, error) {
-                                        console.log(&apos;test&apos;,error)
-                                        if (error.code == &quot;101&quot;) {
-                                          that.setData({
-                                            hiddenmodalput: false,
-                                          })
-                                          var user = new Bmob.User();//开始注册用户
-                                          user.set(&quot;username&quot;, nickName);
-                                          user.set(&quot;password&quot;, userData.openid);//因为密码必须提供，但是微信直接登录小程序是没有密码的，所以用openId作为唯一密码                   
-                                          user.set(&quot;sex&quot;,&quot;男&quot;);
-
-                                          user.set(&quot;score&quot;,0);
-                                          user.set(&apos;newsnum&apos;,0);
-                                          user.set(&quot;nickname&quot;, nickName);
-                                          user.set(&quot;userPic&quot;, avatarUrl);
-                                          user.set(&quot;userData&quot;, userData);
-                                          user.signUp(null, {
-                                            success: function (results) {
-
-
-                                              try {//将返回的3rd_session储存到缓存
-                                                wx.setStorageSync(&apos;user_openid&apos;, results.get(&quot;userData&quot;).openid)
-                                                wx.setStorageSync(&apos;user_id&apos;, results.id);
-                                                wx.setStorageSync(&apos;my_username&apos;, results.get(&quot;username&quot;));
-                                                wx.setStorageSync(&quot;newsnum&quot;, results.get(&apos;newsnum&apos;));
-
-                                                wx.setStorageSync(&quot;score&quot;, 0);
-                                                wx.setStorageSync(&quot;sex&quot;, &quot;男&quot;);
-                                                wx.setStorageSync(&apos;my_nick&apos;, results.get(&quot;nickname&quot;));
-                                                wx.setStorageSync(&apos;my_avatar&apos;, results.get(&quot;userPic&quot;)
-                                                )
-
-                                                console.log(&quot;注册成功!&quot;);
-
-                                              } catch (e) {
-                                              }
-                                            },
-                                            error: function (userData, error) {
-                                              console.log(error)
-                                            }
-                                          });
-                                        }
-                                      }
-                                    });
-
-
-
-
-                              },
-
-                            });
-
-                          }
-                           else {
-                            console.log(&apos;获取用户登录态失败！&apos; + res.errMsg)
-                          }
-                        },
-
-
-                      });
-                    }
-                  } catch (e) {
-                    console.log(&quot;登陆失败&quot;)
-                  }
-                  wx.checkSession({
-                    success: function () {
-                    },
-                    fail: function () {
-                      //登录态过期
-                      wx.login()
-                    }
-                  })
-
-            }
-          }
-        })
-      },
-
-      /**
-       * 生命周期函数--监听页面初次渲染完成
-       */
-      onReady: function () {
-
-      },
-
-      /**
-       * 生命周期函数--监听页面显示
-       */
-      onShow: function () {
-
-      },
-
-      /**
-       * 生命周期函数--监听页面隐藏
-       */
-      onHide: function () {
-
-      },
-
-      /**
-       * 生命周期函数--监听页面卸载
-       */
-      onUnload: function () {
-
-      },
-
-      /**
-       * 页面相关事件处理函数--监听用户下拉动作
-       */
-      onPullDownRefresh: function () {
-        wx.stopPullDownRefresh()
-      },
-
-      /**
-       * 页面上拉触底事件的处理函数
-       */
-      onReachBottom: function () {
-
-      },
-
-
-      /**
-       * 用户点击右上角分享
-       */
-      onShareAppMessage: function () {
-
       }
     })
-```
-</code></pre><p><code>`</code>  </p>
-<h1 id="github地址-欢迎star、fork"><a href="#github地址-欢迎star、fork" class="headerlink" title="github地址,欢迎star、fork!!!"></a><a href="https://github.com/inspurer/CampusPunchcard" target="_blank" rel="noopener">github地址</a>,欢迎star、fork!!!</h1>
+
+  },
+  onLoad: function () {
+    this.tempData();
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+    this.tempData();
+    wx.stopPullDownRefresh();
+  },
+
+  onShareAppMessage: function () {
+    return {
+      title: &apos;快来打卡赢积分&apos;,
+      imageUrl: &apos;../../static/images/tao.png&apos;
+    }
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  }
+})
+</code></pre><h3 id="pun-wxml"><a href="#pun-wxml" class="headerlink" title="pun.wxml"></a>pun.wxml</h3><pre><code>&lt;view class=&quot;title&quot;&gt;今日打卡榜&lt;/view&gt;
+&lt;view class=&quot;item-box&quot;&gt;
+  &lt;view class=&quot;items&quot;&gt;
+    &lt;view wx:for=&quot;{{list}}&quot;  wx:key=&quot;{{index}}&quot;  class=&quot;item&quot;&gt;
+
+      &lt;view data-index=&quot;{{index}}&quot; class=&quot;inner txt&quot;&gt;
+      &lt;i&gt;{{item.rank}}&lt;/i&gt;
+      &lt;image class=&quot;item-icon&quot; mode=&quot;widthFix&quot; src=&quot;{{item.avatar}}&quot;&gt;&lt;/image&gt;
+       &lt;i&gt; {{item.nickname}}&lt;/i&gt;
+      &lt;span class=&quot;item-data&quot;&gt;
+
+       &lt;i class=&quot;rankpace&quot;&gt; 打卡时间:{{item.time}}&lt;/i&gt;
+        &lt;!-- &lt;span class=&quot;rankxin&quot;&gt;{{item.xin}}&lt;/span&gt; --&gt;
+      &lt;/span&gt;
+
+      &lt;/view&gt;
+
+    &lt;/view&gt;
+  &lt;/view&gt;
+&lt;/view&gt;&lt;!--pages/ranking/ranking.wxml--&gt;
+
+&lt;button  class=&quot;circle&quot; bindtap=&quot;btn_click&quot;&gt;开始打卡&lt;/button&gt;
+</code></pre><h3 id="punch-css"><a href="#punch-css" class="headerlink" title="punch.css"></a>punch.css</h3><pre><code>page {
+  background: #fff;
+  padding: 0 0rpx 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background-size: cover;
+  background-image: url(http://bmob-cdn-21956.b0.upaiyun.com/2018/11/08/e16028434063466d80d9d79f281ce145.jpg);
+}
+/* pages/leftSwiperDel/index.wxss */
+view{
+    box-sizing: border-box;
+}
+.item-box{
+    width: 700rpx;
+    height: 10rpx;
+    margin: 0 auto;
+    padding:40rpx 0;
+}
+.title{
+  margin-top: 12px;
+  font-size: 20px;
+  height: 12px;
+  text-align: center;  
+}
+.items{
+    width: 100%;
+}
+.item{
+    position: relative;
+    border-top: 2rpx solid #eee;
+    height: 120rpx;
+    line-height: 120rpx;
+    overflow: hidden;
+
+}
+
+
+.item:last-child{
+    border-bottom: 2rpx solid #eee;
+}
+.inner{
+    position: absolute;
+    top:0;
+}
+.inner.txt{
+    background-color: #fff;
+    width: 100%;
+    z-index: 5;
+    padding:0 10rpx;
+    transition: left 0.2s ease-in-out;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.item-icon{
+    width: 64rpx;
+    height: 64rpx;
+    vertical-align: middle;
+    margin-right: 16rpx;
+    margin-left:13px;
+    border-radius:50%;
+
+}
+
+.item-data{
+  float: right;
+  margin-right:5%;}
+
+.rankpace{
+  color: #87CEFA;
+}
+.circle{
+    right: 35px;
+    bottom: 35px;         
+    width: 110px;
+    background-color: #87CEFA;
+    height: 110px;
+    padding-top: 28px;
+    color: white;
+    background-size: cover;
+    position: fixed;
+    z-index: 9999;
+    font-size: 20px;
+    text-align: center;
+    border: 0 solid #ffffff;
+    border-radius: 500px;
+    box-shadow: 4px 1px 1px #cccccc;
+}
+</code></pre><h2 id="后话"><a href="#后话" class="headerlink" title="后话"></a>后话</h2><h3 id="本小程序已上线，欢迎体验。"><a href="#本小程序已上线，欢迎体验。" class="headerlink" title="本小程序已上线，欢迎体验。"></a>本小程序已上线，欢迎体验。</h3><p>可以扫描最上方的小程序码，也可以在微信搜索<code>一见打卡</code></p>
+<h3 id="此小程序参考了我以前的代码仓库-https-github-com-inspurer-CampusPunchcard欢迎star-fork"><a href="#此小程序参考了我以前的代码仓库-https-github-com-inspurer-CampusPunchcard欢迎star-fork" class="headerlink" title="此小程序参考了我以前的代码仓库:https://github.com/inspurer/CampusPunchcard欢迎star,fork"></a>此小程序参考了我以前的代码仓库:<a href="https://github.com/inspurer/CampusPunchcard" target="_blank" rel="noopener">https://github.com/inspurer/CampusPunchcard</a>欢迎star,fork</h3><h3 id="如果你也想开发一款这样的小程序，从代码到上线，欢迎联系2391527690-qq-com-同时欢迎关注微信公众号-月小水长"><a href="#如果你也想开发一款这样的小程序，从代码到上线，欢迎联系2391527690-qq-com-同时欢迎关注微信公众号-月小水长" class="headerlink" title="如果你也想开发一款这样的小程序，从代码到上线，欢迎联系2391527690@qq.com,同时欢迎关注微信公众号: 月小水长"></a>如果你也想开发一款这样的小程序，从代码到上线，欢迎联系<a href="mailto:2391527690@qq.com" target="_blank" rel="noopener">2391527690@qq.com</a>,同时欢迎关注微信公众号: 月小水长</h3>
       
     </div>
     
@@ -887,7 +922,7 @@
   <p><span>本文标题:</span><a href="/2018/11/07/打卡微信小程序/">打卡微信小程序</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 月小水长 的个人博客">月小水长</a></p>
   <p><span>发布时间:</span>2018年11月07日 - 19:11</p>
-  <p><span>最后更新:</span>2019年03月22日 - 23:03</p>
+  <p><span>最后更新:</span>2019年04月10日 - 18:04</p>
   <p><span>原始链接:</span><a href="https://inspurer.github.io" title="1541590879000打卡微信小程序">https://inspurer.github.io/2018/11/07/打卡微信小程序/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://inspurer.github.io/2018/11/07/打卡微信小程序/" aria-label="复制成功！"></i></span>
   </p>
@@ -1246,7 +1281,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#打卡微信小程序。"><span class="nav-number">1.</span> <span class="nav-text">打卡微信小程序。</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现功能"><span class="nav-number">2.</span> <span class="nav-text">实现功能</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、类似论坛，可发帖、评论、回复。"><span class="nav-number">2.1.</span> <span class="nav-text">1、类似论坛，可发帖、评论、回复。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、打卡可换算积分，一天只能打卡一次，且有今日打卡排行榜实时展示。"><span class="nav-number">2.2.</span> <span class="nav-text">2、打卡可换算积分，一天只能打卡一次，且有今日打卡排行榜实时展示。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、跑步也可换算积分，换算的规则男女有别。"><span class="nav-number">2.3.</span> <span class="nav-text">3、跑步也可换算积分，换算的规则男女有别。</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现效果"><span class="nav-number">3.</span> <span class="nav-text">实现效果</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#核心js代码"><span class="nav-number">4.</span> <span class="nav-text">核心js代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#github地址-欢迎star、fork"><span class="nav-number">5.</span> <span class="nav-text">github地址,欢迎star、fork!!!</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#核心代码"><span class="nav-number">1.</span> <span class="nav-text">核心代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#punch-js"><span class="nav-number">1.1.</span> <span class="nav-text">punch.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pun-wxml"><span class="nav-number">1.2.</span> <span class="nav-text">pun.wxml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#punch-css"><span class="nav-number">1.3.</span> <span class="nav-text">punch.css</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后话"><span class="nav-number">2.</span> <span class="nav-text">后话</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#本小程序已上线，欢迎体验。"><span class="nav-number">2.1.</span> <span class="nav-text">本小程序已上线，欢迎体验。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#此小程序参考了我以前的代码仓库-https-github-com-inspurer-CampusPunchcard欢迎star-fork"><span class="nav-number">2.2.</span> <span class="nav-text">此小程序参考了我以前的代码仓库:https://github.com/inspurer/CampusPunchcard欢迎star,fork</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果你也想开发一款这样的小程序，从代码到上线，欢迎联系2391527690-qq-com-同时欢迎关注微信公众号-月小水长"><span class="nav-number">2.3.</span> <span class="nav-text">如果你也想开发一款这样的小程序，从代码到上线，欢迎联系2391527690@qq.com,同时欢迎关注微信公众号: 月小水长</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1294,7 +1329,7 @@
     
       <span class="post-meta-item-text">总字数:</span>
     
-    <span title="Site words total count">21.7k</span>
+    <span title="Site words total count">22k</span>
   
 
 

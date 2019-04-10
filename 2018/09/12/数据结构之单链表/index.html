@@ -113,15 +113,12 @@
 <meta property="og:site_name" content="月小水长的个人博客">
 <meta property="og:description" content="从今天起开始数据结构系列的分享，今天分享的是单链表。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.imgur.com/ndpa8Mo.png">
 <meta property="og:image" content="https://i.imgur.com/hSpoXhg.png">
-<meta property="og:image" content="https://shang.qq.com/wpa/qunwpaidkey=206e0bc6e1608678ffccd929ba75b1a459994d2b638d3253df444ffcfd4964d9">
-<meta property="og:image" content="https://i.imgur.com/fEXzOCG.jpg">
-<meta property="og:updated_time" content="2018-11-10T06:59:51.117Z">
+<meta property="og:updated_time" content="2019-04-10T10:26:33.308Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构之单链表">
 <meta name="twitter:description" content="从今天起开始数据结构系列的分享，今天分享的是单链表。">
-<meta name="twitter:image" content="https://i.imgur.com/ndpa8Mo.png">
+<meta name="twitter:image" content="https://i.imgur.com/hSpoXhg.png">
 
 
 
@@ -432,8 +429,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-11-10T14:59:51+08:00">
-                2018-11-10
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-10T18:26:33+08:00">
+                2019-04-10
               </time>
             
           </span>
@@ -545,7 +542,7 @@
       
         <p>从今天起开始数据结构系列的分享，今天分享的是单链表。<a id="more"></a><br>单链表大概是大概是每个数据结构初学者的必经之路，下面结合一个小小的工程<br>来深入学习单链表的使用–简易客户管理系统。<br>ps：如果还不清楚单链表是什么的小伙伴自行百度，在此不在赘述   </p>
 <hr>
-<p>#项目结构<br>如图所示<br><img src="https://i.imgur.com/ndpa8Mo.png" alt=""><br>大致了解了项目架构后，下面开始从零编写代码<br><strong>注：增、删、改这三个部分同时包含了将变动后的信息写入到文件中的操作</strong>    </p>
+<p>#项目结构<br>增删改查，增、删、改这三个部分同时包含了将变动后的信息写入到文件中的操作</p>
 <hr>
 <p>#代码编写</p>
 <p>##项目基础代码<br>俗话说得好，“万丈高楼平地起”，先来编写项目的预定义代码部分，主要是头文件<br>包含、结构体定义、全局变量定义等    </p>
@@ -561,7 +558,7 @@
 <p>###二、增加客户<br>代码如下：</p>
 <p><pre name="code" class="c++"><br>//添加<br>void create() {<br>    link p,s;<br>    FILE *fp;<br>    int yn;<br>    s=T;<br>    while(s-&gt;next!=NULL) {<br>        s=s-&gt;next;<br>    }<br>    do {<br>        p=(link)malloc(sizeof(struct node));<br>        printf(“请输入客户姓名：\n”);<br>        scanf(“%s”,p-&gt;data.name);<br>        printf(“请输入客户性别：\n”);<br>        scanf(“%s”,p-&gt;data.gender);<br>        printf(“请输入客户年龄：\n”);<br>        scanf(“%d”,&amp;p-&gt;data.age);<br>        printf(“请输入客户联系方式：\n”);<br>        scanf(“%s”,p-&gt;data.tel);<br>        p-&gt;next=NULL;<br>        s-&gt;next=p;<br>        s=p;<br>        if((fp=fopen(“1.txt”,”at”))==NULL) {<br>            printf(“write error!\n”);<br>            exit(0);<br>        }<br>        printf(“写了一次\n”);<br>        fprintf(fp,”%s\t%s\t%d\t%s\n”,p-&gt;data.name,p-&gt;data.gender,p-&gt;data.age,p-&gt;data.tel);<br>        if(fclose(fp)) {<br>            printf(“can’t close the file!\n”);<br>            exit(0);<br>        }<br>        printf(“添加成功!\n”);<br>        printf(“是否继续添加请输入0或1:”);<br>        scanf(“%d”,&amp;yn);<br>    } while(yn);<br>}<br></pre><br>代码逻辑很简单，新增结点，并连在尾节点后面，同时写入文件，如果前一片代码看懂了，这不是什么<br>大问题…     </p>
 <p>###三、删除客户<br>代码如下</p>
-<p><pre name="code" class="c++"><br>//删除<br>int del() {<br>    link p,q;<br>    FILE *fp;<br>    char mod[25];<br>    printf(“请输入需要删除的客户名称:\n”);<br>    scanf(“%s”,mod);<br>    p=T;<br>    while(p-&gt;next!=NULL&amp;&amp;strcmp(p-&gt;next-&gt;data.name,mod)!=0)<br>        p=p-&gt;next;<br>    if(p-&gt;next==NULL) {<br>        printf(“并无此人！\n”);<br>        return 0;<br>    }<br>    q = p;<br>    p = p-&gt;next;<br>    q-&gt;next = p-&gt;next;<br>    delete(p);<br>    printf(“删除成功！\n”);<br>    if((fp=fopen(“1.txt”,”wt”))==NULL) {<br>        printf(“error!\n”);<br>        exit(0);<br>    }<br>    p=T-&gt;next;<br>    while(p!=NULL) {<br>        printf(“%s”,p-&gt;data.name);<br>        fprintf(fp,”%s\t%s\t%d\t%s\t\n”,p-&gt;data.name,p-&gt;data.gender,p-&gt;data.age,p-&gt;data.tel);<br>        p = p-&gt;next;<br>    }<br>    if(fclose(fp)) {<br>        printf(“can’t close the file!\n”);<br>        exit(1);<br>    }<br>}<br></pre><br>模块三、四、五、六道理类似，不再赘述<br>附上代码地址：<br><a href="https://github.com/inspurer/DataStructure/tree/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/day01%E5%8D%95%E9%93%BE%E8%A1%A8" target="_blank" rel="noopener">github</a> 欢迎star<br>如有疑问，欢迎进群讨论：<br><img src="https://shang.qq.com/wpa/qunwpaidkey=206e0bc6e1608678ffccd929ba75b1a459994d2b638d3253df444ffcfd4964d9" alt="加群链接"><br>如链接失效，扫二维码：<br><img src="https://i.imgur.com/fEXzOCG.jpg" alt=""></p>
+<p><pre name="code" class="c++"><br>//删除<br>int del() {<br>    link p,q;<br>    FILE *fp;<br>    char mod[25];<br>    printf(“请输入需要删除的客户名称:\n”);<br>    scanf(“%s”,mod);<br>    p=T;<br>    while(p-&gt;next!=NULL&amp;&amp;strcmp(p-&gt;next-&gt;data.name,mod)!=0)<br>        p=p-&gt;next;<br>    if(p-&gt;next==NULL) {<br>        printf(“并无此人！\n”);<br>        return 0;<br>    }<br>    q = p;<br>    p = p-&gt;next;<br>    q-&gt;next = p-&gt;next;<br>    delete(p);<br>    printf(“删除成功！\n”);<br>    if((fp=fopen(“1.txt”,”wt”))==NULL) {<br>        printf(“error!\n”);<br>        exit(0);<br>    }<br>    p=T-&gt;next;<br>    while(p!=NULL) {<br>        printf(“%s”,p-&gt;data.name);<br>        fprintf(fp,”%s\t%s\t%d\t%s\t\n”,p-&gt;data.name,p-&gt;data.gender,p-&gt;data.age,p-&gt;data.tel);<br>        p = p-&gt;next;<br>    }<br>    if(fclose(fp)) {<br>        printf(“can’t close the file!\n”);<br>        exit(1);<br>    }<br>}<br></pre><br>模块三、四、五、六道理类似，不再赘述<br>附上代码地址：<br><a href="https://github.com/inspurer/DataStructure/tree/master/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/day01%E5%8D%95%E9%93%BE%E8%A1%A8" target="_blank" rel="noopener">github</a> 欢迎star<br>如有疑问，欢迎进群讨论：    </p>
 
       
     </div>
@@ -580,7 +577,7 @@
   <p><span>本文标题:</span><a href="/2018/09/12/数据结构之单链表/">数据结构之单链表</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 月小水长 的个人博客">月小水长</a></p>
   <p><span>发布时间:</span>2018年09月12日 - 14:09</p>
-  <p><span>最后更新:</span>2018年11月10日 - 14:11</p>
+  <p><span>最后更新:</span>2019年04月10日 - 18:04</p>
   <p><span>原始链接:</span><a href="https://inspurer.github.io" title="1536734058000数据结构之单链表">https://inspurer.github.io/2018/09/12/数据结构之单链表/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://inspurer.github.io/2018/09/12/数据结构之单链表/" aria-label="复制成功！"></i></span>
   </p>
@@ -962,7 +959,7 @@
     
       <span class="post-meta-item-text">总字数:</span>
     
-    <span title="Site words total count">21.7k</span>
+    <span title="Site words total count">22k</span>
   
 
 

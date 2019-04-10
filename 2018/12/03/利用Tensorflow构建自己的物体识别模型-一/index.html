@@ -113,19 +113,19 @@
 <meta property="og:site_name" content="月小水长的个人博客">
 <meta property="og:description" content="原料windows10+python3.5+pycharm 安装tensorflow利用Tensorflow训练搭建自己的物体训练模型，万里长征第一步，先安装tensorflow。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.imgur.com/Zov6Hfk.png">
-<meta property="og:image" content="https://i.imgur.com/JijedwT.png">
-<meta property="og:image" content="https://i.imgur.com/Xv3LQMO.png">
-<meta property="og:image" content="https://i.imgur.com/asuh01x.png">
-<meta property="og:image" content="https://i.imgur.com/ttKY474.png">
-<meta property="og:image" content="https://i.imgur.com/ILr2wSV.png">
-<meta property="og:image" content="https://i.imgur.com/JuKrvQ9.png">
-<meta property="og:image" content="https://i.imgur.com/me6S453.png">
-<meta property="og:updated_time" content="2019-04-09T01:17:36.423Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/10/AThq74.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/10/AThx91.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/10/AT4Sc6.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/10/AT4pjK.md.png">
+<meta property="og:image" content="hhttps://s2.ax1x.com/2019/04/10/AT4Z9I.md.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/10/AT4e3t.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/10/AT4njf.md.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/10/AT4MDS.md.png">
+<meta property="og:updated_time" content="2019-04-10T10:38:51.194Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用Tensorflow构建自己的物体识别模型(一)">
 <meta name="twitter:description" content="原料windows10+python3.5+pycharm 安装tensorflow利用Tensorflow训练搭建自己的物体训练模型，万里长征第一步，先安装tensorflow。">
-<meta name="twitter:image" content="https://i.imgur.com/Zov6Hfk.png">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/04/10/AThq74.png">
 
 
 
@@ -436,8 +436,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-04-09T09:17:36+08:00">
-                2019-04-09
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-10T18:38:51+08:00">
+                2019-04-10
               </time>
             
           </span>
@@ -593,7 +593,7 @@ print(str(sess.run(first_blood)))
 </blockquote>
 <p>如果下载速度很慢，可以参考:<a href="https://blog.csdn.net/ygdxt/article/details/82825013" target="_blank" rel="noopener">https://blog.csdn.net/ygdxt/article/details/82825013</a></p>
 <h2 id="下载并配置protoc"><a href="#下载并配置protoc" class="headerlink" title="下载并配置protoc"></a>下载并配置protoc</h2><p>在<a href="https://github.com/google/protobuf/releases" target="_blank" rel="noopener">https://github.com/google/protobuf/releases</a>中选择windows版本：   </p>
-<p><img src="https://i.imgur.com/Zov6Hfk.png" alt=""></p>
+<p><img src="https://s2.ax1x.com/2019/04/10/AThq74.png" alt=""></p>
 <p>只有win32,也就是windows32位的，64位是兼容32位的。  </p>
 <p>下载好之后，解压，把bin目录下的<code>protoc.exe</code>复制到<code>..\models\research</code>文件夹下。</p>
 <p>接着就是配置protoc了，在打开cmd下切换到<code>..\models\research</code>目录，</p>
@@ -616,8 +616,8 @@ for file in os.listdir(path_url):
         os.popen(command)
 </code></pre><p>在<code>..\research</code>目录下新建一个文件<code>excuter.py</code>,把以上代码复制进去，保存运行，稍等一会儿就可以看到<code>..\research\object_detection\protos</code>目录下生成了许多<code>.py</code>文件，说明protoc配置成功。</p>
 <h2 id="models环境变量配置"><a href="#models环境变量配置" class="headerlink" title="models环境变量配置"></a>models环境变量配置</h2><h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><p>依次打开：<code>我的电脑</code>—&gt;<code>高级系统设置</code>—&gt;<code>环境变量</code>，新建一个系统变量:</p>
-<p><img src="https://i.imgur.com/JijedwT.png" alt=""></p>
-<p><img src="https://i.imgur.com/Xv3LQMO.png" alt=""></p>
+<p><img src="https://s2.ax1x.com/2019/04/10/AThx91.png" alt=""></p>
+<p><img src="https://s2.ax1x.com/2019/04/10/AT4Sc6.png" alt=""></p>
 <blockquote>
 <p>系统变量名只要不和已有的重复，符合命令规范，没有其他要求，我这里是<code>tensorflow</code><br>系统变量名下有两个值,<code>..\research</code>和<code>..\research\slim</code>的绝对路径。</p>
 </blockquote>
@@ -626,9 +626,9 @@ for file in os.listdir(path_url):
 <p>python object_detection/builders/model_builder_test.py</p>
 </blockquote>
 <p>如果出现错误:  </p>
-<p><img src="https://i.imgur.com/asuh01x.png" alt=""></p>
-<p>报错原因是你的models路径太长，python无法找指定模块，<br>解决办法是在你的<code>python</code>安装路径下新建一个<code>tensorflow_model.pth</code>文件<br>(比如我的是<code>E:\python\Lib\site-packages</code>)<br>把写到环境变量里的那两个路径复制到该文件中。<br><img src="https://i.imgur.com/ttKY474.png" alt=""></p>
-<p>再运行命令<code>python object_detection/builders/model_builder_test.py</code><br><img src="https://i.imgur.com/ILr2wSV.png" alt=""></p>
+<p><img src="https://s2.ax1x.com/2019/04/10/AT4pjK.md.png" alt=""></p>
+<p>报错原因是你的models路径太长，python无法找指定模块，<br>解决办法是在你的<code>python</code>安装路径下新建一个<code>tensorflow_model.pth</code>文件<br>(比如我的是<code>E:\python\Lib\site-packages</code>)<br>把写到环境变量里的那两个路径复制到该文件中。<br><img src="hhttps://s2.ax1x.com/2019/04/10/AT4Z9I.md.png" alt=""></p>
+<p>再运行命令<code>python object_detection/builders/model_builder_test.py</code><br><img src="https://s2.ax1x.com/2019/04/10/AT4e3t.png" alt=""></p>
 <p>说明配置成功</p>
 <h2 id="利用tensorflow自带模型测试"><a href="#利用tensorflow自带模型测试" class="headerlink" title="利用tensorflow自带模型测试"></a>利用tensorflow自带模型测试</h2><p>测试的图片是在</p>
 <blockquote>
@@ -833,7 +833,7 @@ for image_path in TEST_IMAGE_PATHS:
 </code></pre><blockquote>
 <p>运行上述代码需要安装<code>matplotlib</code>库，直接<code>pip install matplotlib</code>安装失败的可以去官网安装与python版本对应的whl文件。安装<code>matplotlib.whl</code>时需要先出pycharm。<br>同时由于需要下载模型文件，需要在网络好的情况下进行测试。否则就会报<code>HTTP ERROR</code></p>
 </blockquote>
-<h2 id="运行效果图"><a href="#运行效果图" class="headerlink" title="运行效果图"></a>运行效果图</h2><p><img src="https://i.imgur.com/JuKrvQ9.png" alt=""><br><img src="https://i.imgur.com/me6S453.png" alt=""></p>
+<h2 id="运行效果图"><a href="#运行效果图" class="headerlink" title="运行效果图"></a>运行效果图</h2><p><img src="https://s2.ax1x.com/2019/04/10/AT4njf.md.png" alt=""><br><img src="https://s2.ax1x.com/2019/04/10/AT4MDS.md.png" alt=""></p>
 <h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><p>以上就是本次教程的所有内容，后续还会有系列教程，原创作品，转载请联系<a href="mailto:2391527690@qq.com" target="_blank" rel="noopener">2391527690@qq.com</a><br>欢迎大家多多上机操作，指出本教程的不足之处，如有问题，可加群交流，群号码: 861016679<br>本文首发于<a href="https://www.jianshu.com/p/9c9b908a2b73" target="_blank" rel="noopener">我的简书</a>，如果您在本站上看到了google广告，请多多点击，算是对我的一个鼓励，能够赞赏那就更好了，谢谢！</p>
 
       
@@ -853,7 +853,7 @@ for image_path in TEST_IMAGE_PATHS:
   <p><span>本文标题:</span><a href="/2018/12/03/利用Tensorflow构建自己的物体识别模型-一/">利用Tensorflow构建自己的物体识别模型(一)</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 月小水长 的个人博客">月小水长</a></p>
   <p><span>发布时间:</span>2018年12月03日 - 23:12</p>
-  <p><span>最后更新:</span>2019年04月09日 - 09:04</p>
+  <p><span>最后更新:</span>2019年04月10日 - 18:04</p>
   <p><span>原始链接:</span><a href="https://inspurer.github.io" title="1543850540000利用Tensorflow构建自己的物体识别模型(一)">https://inspurer.github.io/2018/12/03/利用Tensorflow构建自己的物体识别模型-一/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://inspurer.github.io/2018/12/03/利用Tensorflow构建自己的物体识别模型-一/" aria-label="复制成功！"></i></span>
   </p>
@@ -1262,7 +1262,7 @@ for image_path in TEST_IMAGE_PATHS:
     
       <span class="post-meta-item-text">总字数:</span>
     
-    <span title="Site words total count">21.7k</span>
+    <span title="Site words total count">22k</span>
   
 
 
