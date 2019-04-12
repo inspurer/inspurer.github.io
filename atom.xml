@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://inspurer.github.io/"/>
-  <updated>2019-04-10T12:10:56.586Z</updated>
+  <updated>2019-04-12T06:47:26.296Z</updated>
   <id>https://inspurer.github.io/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>wxPython 开发实战之输入控件 TextCtrl 使用验证器 Validator 来约束输入</title>
+    <link href="https://inspurer.github.io/2019/04/12/wxPython-%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98%E4%B9%8B%E8%BE%93%E5%85%A5%E6%8E%A7%E4%BB%B6-TextCtrl-%E4%BD%BF%E7%94%A8%E9%AA%8C%E8%AF%81%E5%99%A8-Validator-%E6%9D%A5%E7%BA%A6%E6%9D%9F%E8%BE%93%E5%85%A5/"/>
+    <id>https://inspurer.github.io/2019/04/12/wxPython-开发实战之输入控件-TextCtrl-使用验证器-Validator-来约束输入/</id>
+    <published>2019-04-12T06:43:18.000Z</published>
+    <updated>2019-04-12T06:47:26.296Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>TextCtrl 是 wxPython 框架里一个非常实用的文本输入控件，我们经常需要对 TextCtrl 做这样一个输入上的约束：只允许输入数字<a id="more"></a> （比如允许 1.2、4.5、100 这些输入而禁止诸如 .8、4t等输入，方便我们在将输入的 str 类型转成 int、float 等其他类型时不需要额外加判断来防止产生异常。今天我查阅 wxPython 的 API,发现了 Validator 这个类可以满足我们的需求。事实上，不仅是满足只允许输入数字这个需要，掌握了 Validator 这个类的使用，我们可以满足任何定制化的需求。</p><h2 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h2><h4 id="首先必须新建类继承自-wx-Validator"><a href="#首先必须新建类继承自-wx-Validator" class="headerlink" title="首先必须新建类继承自 wx.Validator"></a>首先必须新建类继承自 wx.Validator</h4><pre><code>import wxclass MyNumberValidator(wx.Validator):# 创建验证器子类          def __init__(self):        wx.Validator.__init__(self)    def Clone(self):        return MyNumberValidator()    def Validate(self,win):#1 使用验证器方法        return True    def TransferToWindow(self):        return True    def TransferFromWindow(self):        return True</code></pre><p>同时，必须重写 <strong>init</strong>()(完成初始化）、Clone()(返回当前类的一个实例）等五个方法，你只要把它们当成一个模板就行，然后在此基础上加上我们自己的逻辑。</p><h4 id="根据需求加入实现逻辑"><a href="#根据需求加入实现逻辑" class="headerlink" title="根据需求加入实现逻辑"></a>根据需求加入实现逻辑</h4><pre><code>import wx# import wx.lib.imagebrowserclass MyNumberValidator(wx.Validator):# 创建验证器子类          def __init__(self):        wx.Validator.__init__(self)        self.ValidInput = [&apos;.&apos;,&apos;0&apos;,&apos;1&apos;,&apos;2&apos;,&apos;3&apos;,&apos;4&apos;,&apos;5&apos;,&apos;6&apos;,&apos;7&apos;,&apos;8&apos;,&apos;9&apos;]        self.StringLength = 0        self.Bind(wx.EVT_CHAR,self.OnCharChanged)  #  绑定字符改变事件    def OnCharChanged(self,event):        # 得到输入字符的 ASCII 码        keycode = event.GetKeyCode()        # 退格（ASCII 码 为8），删除一个字符。        if keycode == 8:            self.StringLength -= 1            #事件继续传递            event.Skip()            return        # 把 ASII 码 转成字符        InputChar = chr(keycode)        if InputChar in self.ValidInput:            # 第一个字符为 .,非法，拦截该事件，不会成功输入            if InputChar == &apos;.&apos; and self.StringLength == 0:                return False            # 在允许输入的范围，继续传递该事件。            else:                event.Skip()                self.StringLength += 1                return True        return False    def Clone(self):        return MyNumberValidator()    def Validate(self,win):#1 使用验证器方法        return True    def TransferToWindow(self):        return True    def TransferFromWindow(self):        return True</code></pre><p>注意这行代码，<code>self.Bind(wx.EVT_CHAR,self.OnCharChanged)  #  绑定字符输入事件</code>,它的意思是，一旦用户输入了字符，该事件会首先交给<code>OnCharChanged</code>方法处理，在<code>OnCharChanged</code>中，特别注意<code>event.Skip()</code>这行代码，它的意思是，过了合法性检验这一关，该事件可以继续传递了，可以交给将该字符加入 textctrl.value 并显示出来的函数处理；否则，事件就在<code>OnCharChanged</code>中被拦截了，不会显示出来，输入失败。</p><h3 id="给控件-textctrl-绑定验证器子类。"><a href="#给控件-textctrl-绑定验证器子类。" class="headerlink" title="给控件 textctrl 绑定验证器子类。"></a>给控件 textctrl 绑定验证器子类。</h3><p>很简单，只需要在创建 textctrl 的时候加指定关键词参数</p><pre><code>wx.TextCtrl(self,validator=MyNumberValidator(),style=wx.TE_CENTER)</code></pre><p><code>style=wx.TE_CENTER</code> 使输入字符居中</p><h3 id="再说-Validate-方法"><a href="#再说-Validate-方法" class="headerlink" title="再说 Validate() 方法"></a>再说 Validate() 方法</h3><p>我们发现，<code>Validator</code> 类中和类名最相似的方法<code>Validate()</code>一直没有使用，其实这个方法是一般使用流程如下，先在 <code>Validate()</code> 方法中加上业务逻辑。</p><pre><code>def Validate(self,win):#1 使用验证器方法       print(111)       textCtrl = self.GetWindow()       text = textCtrl.GetValue()       valid_text = &apos;&apos;       for i in text:           if i in self.ValidInput:               valid_text += i       textCtrl.SetValue(valid_text)       return True</code></pre><p>然后在外部调用它验证合法性</p><pre><code>self.n1.GetValidator().Validate(self.n1)</code></pre><p>Validate()也可以验证合法性，只不过它不能处理输入事件，必须在输入完成后才能验证合法性，相当于“马后炮”的作用。</p><h2 id="一个完整的例子"><a href="#一个完整的例子" class="headerlink" title="一个完整的例子"></a>一个完整的例子</h2><p><img src="https://s2.ax1x.com/2019/04/12/Ab2c9I.gif" alt=""></p><pre><code># -*- coding: utf-8 -*-# author:           inspurer(月小水长)# pc_type           lenovo# create_time:      2019/4/12 13:37# file_name:        validator.py# github            https://github.com/inspurer# qq邮箱            2391527690@qq.com# 微信公众号         月小水长(ID: inspurer)import wx# import wx.lib.imagebrowserclass MyNumberValidator(wx.Validator):# 创建验证器子类          def __init__(self):        wx.Validator.__init__(self)        self.ValidInput = [&apos;.&apos;,&apos;0&apos;,&apos;1&apos;,&apos;2&apos;,&apos;3&apos;,&apos;4&apos;,&apos;5&apos;,&apos;6&apos;,&apos;7&apos;,&apos;8&apos;,&apos;9&apos;]        self.StringLength = 0        self.Bind(wx.EVT_CHAR,self.OnCharChanged)  #  绑定字符输入事件    def OnCharChanged(self, event):        # 得到输入字符的 ASCII 码        keycode = event.GetKeyCode()        # 退格（ASCII 码 为8），删除一个字符。        if keycode == 8:            self.StringLength -= 1            # 事件继续传递            event.Skip()            return        # 把 ASII 码 转成字符        InputChar = chr(keycode)        if InputChar in self.ValidInput:            # 第一个字符为 .,非法，拦截该事件，不会成功输入            if InputChar == &apos;.&apos; and self.StringLength == 0:                return False            # 在允许输入的范围，继续传递该事件。            else:                event.Skip()                self.StringLength += 1                return True        return False    def Clone(self):        return MyNumberValidator()    def Validate(self,win):#1 使用验证器方法        print(111)        textCtrl = self.GetWindow()        text = textCtrl.GetValue()        valid_text = &apos;&apos;        for i in text:            if i in self.ValidInput:                valid_text += i        textCtrl.SetValue(valid_text)        return True    def TransferToWindow(self):        return True    def TransferFromWindow(self):        return Trueclass GUI(wx.Frame):    def __init__(self,parent):        wx.Frame.__init__(self, parent=parent, title=&quot;wxPython开发实战&quot;,size=(400,300),style=wx.DEFAULT_FRAME_STYLE ^ wx.RESIZE_BORDER ^ wx.MAXIMIZE_BOX )        self.Center()        self.SetBackgroundColour(&apos;white&apos;)        font = wx.Font(16,wx.DECORATIVE, wx.NORMAL, wx.NORMAL)        self.n1 = wx.TextCtrl(self,validator=MyNumberValidator(),pos=(100,30),size=(180,45),style=wx.TE_CENTER)        self.n1.SetFont(font)        self.n1.SetBackgroundColour(&apos;#95ec69&apos;)        self.n1.SetHint(&apos;请输入第一个数字&apos;)        self.n2 = wx.TextCtrl(self,validator=MyNumberValidator(),pos=(100,100),size=(180,45),style=wx.TE_CENTER)        self.n2.SetFont(font)        self.n2.SetBackgroundColour(&apos;#95ec69&apos;)        self.n2.SetHint(&apos;请输入第二个数字&apos;)        self.config = wx.Button(self,label=&quot;验证输入框一的合法性&quot;,pos=(115,170),size=(150,40))        self.config.SetBackgroundColour(&apos;#95ec69&apos;)        self.Bind(wx.EVT_BUTTON,self.configClicked,self.config)    def configClicked(self,event):        self.n1.GetValidator().Validate(self.n1)        passif __name__ == &quot;__main__&quot;:    app = wx.App()    GUI(None).Show()    app.MainLoop()</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;TextCtrl 是 wxPython 框架里一个非常实用的文本输入控件，我们经常需要对 TextCtrl 做这样一个输入上的约束：只允许输入数字
+    
+    </summary>
+    
+      <category term="Python" scheme="https://inspurer.github.io/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://inspurer.github.io/tags/Python/"/>
+    
+      <category term="wxPython" scheme="https://inspurer.github.io/tags/wxPython/"/>
+    
+      <category term="TextCtrl" scheme="https://inspurer.github.io/tags/TextCtrl/"/>
+    
+      <category term="Validator" scheme="https://inspurer.github.io/tags/Validator/"/>
+    
+  </entry>
+  
+  <entry>
     <title>丘吉尔二战演讲</title>
     <link href="https://inspurer.github.io/2019/04/10/%E4%B8%98%E5%90%89%E5%B0%94%E4%BA%8C%E6%88%98%E6%BC%94%E8%AE%B2/"/>
     <id>https://inspurer.github.io/2019/04/10/丘吉尔二战演讲/</id>
     <published>2019-04-10T12:09:12.000Z</published>
-    <updated>2019-04-10T12:10:56.586Z</updated>
+    <updated>2019-04-10T12:16:41.352Z</updated>
     
     <content type="html"><![CDATA[<font size="4" color="red">I have nothing to offer but blood, toil, tears and sweat.<a id="more"></a> We have before us an ordeal of the most grievous kind. We have before us many, many months of struggle and suffering.<br><br>我所能奉献的唯有热血、辛劳、眼泪和汗水我们所面临的将是一场极其严酷的考验，将是旷日持久的斗争和苦难。</font><p>You ask, what is our policy? I say it is to wage war by land, sea and air. War with all our might and with all the strength God has given us, and to wage war against a monstrous tyranny never surpassed in the dark and lamentable catalogue of human crime. That is our policy.</p><p>若问我们的政策是什么？我的回答是：在陆上、海上、空中作战。尽我们的全力，尽上帝赋予我们的全部力量去作战，对人类黑暗、可悲的罪恶史上空前凶残的暴政作战。这就是我们的政策。</p><p>You ask, what is our aim? I can answer in one word, It is victory. Victory at all costs-victory in spite of all terrors-victory, however long and hard the road may be, for without victory there is no survival.</p><p>若问我们的目标是什么？我可以用一个词来回答，那就是胜利。不惜一切代价，去夺取胜利–不惧一切恐怖，去夺取胜利–不论前路如何漫长、如何艰苦，去夺取胜利。因为没有胜利就不能生存。</p><p>Let that be realized. No survival for the British Empire, no survival for all that the British Empire has stood for, no survival for the urge, the impulse of the ages, that mankind shall move forward toward his goal.</p><p>我们务必认识到，没有胜利就不复有大英帝国，没有胜利就不复有大英帝国所象征的一切，没有胜利就不复有多少世纪以来的强烈要求和冲动：人类应当向自己的目标迈进。</p><p>I take up my task in buoyancy and hope. I feel sure that our cause will not be suffered to fail among men.</p><p>我精神振奋、满怀信心地承担起我的任务。我确信，大家联合起来，我们的事业就不会遭到挫败。</p><p>I feel entitled at this juncture, at this time, to claim the aid of all and to say, “Come then, let us go forward together with our united strength.”</p><p>在此时此刻的危急关头，我觉得我有权要求各方面的支持。我要说：”来吧，让我们群策群力，并肩前进！”</p>]]></content>
     
@@ -484,28 +512,6 @@
     
     
       <category term="打卡" scheme="https://inspurer.github.io/tags/%E6%89%93%E5%8D%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>基于opencv人脸识别的员工考勤系统</title>
-    <link href="https://inspurer.github.io/2018/09/25/%E5%9F%BA%E4%BA%8Eopencv%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%E7%9A%84%E5%91%98%E5%B7%A5%E8%80%83%E5%8B%A4%E7%B3%BB%E7%BB%9F/"/>
-    <id>https://inspurer.github.io/2018/09/25/基于opencv人脸识别的员工考勤系统/</id>
-    <published>2018-09-25T13:37:57.000Z</published>
-    <updated>2019-04-10T10:43:50.488Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="WorkAttendanceSystem"><a href="#WorkAttendanceSystem" class="headerlink" title="WorkAttendanceSystem"></a>WorkAttendanceSystem</h1><p>一个基于opencv人脸识别的员工考勤系统，<a id="more"></a>作者某双一流A类大学里的二流学生，写于2018/09/，python课设期间。    </p><hr><h1 id="工程简介"><a href="#工程简介" class="headerlink" title="工程简介"></a>工程简介</h1><h1 id="项目结构是V1-0版本的，V2-0的介绍请看文末更新版块"><a href="#项目结构是V1-0版本的，V2-0的介绍请看文末更新版块" class="headerlink" title="项目结构是V1.0版本的，V2.0的介绍请看文末更新版块"></a><strong>项目结构是V1.0版本的，V2.0的介绍请看文末更新版块</strong></h1><h2 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h2><p>mainui.py是主界面，调用face_img_register.py和face_recognize_punchcard.py<br>其中face_img_register.py是录入人脸信息，face_recognize_punchcard.py是刷脸考勤<br>face_feature_storage.py属于鸡肋文件，没什么用，舍不得删，毕竟有点参考价值。<br>face_recognize_punchcard_lib.py和face_recognize_punchcard.py本质上差不多，<br>但是前者是给face_img_register.py专有的依赖。防止录入两个同样的人脸建不同数据库的风险。   </p><h2 id="运行效果"><a href="#运行效果" class="headerlink" title="运行效果"></a>运行效果</h2><h3 id="1-主界面"><a href="#1-主界面" class="headerlink" title="1. 主界面"></a>1. 主界面</h3><h3 id="2-人脸录入"><a href="#2-人脸录入" class="headerlink" title="2. 人脸录入"></a>2. 人脸录入</h3><h3 id="3-刷脸考勤"><a href="#3-刷脸考勤" class="headerlink" title="3. 刷脸考勤"></a>3. 刷脸考勤</h3><p><img src="https://s2.ax1x.com/2019/04/10/AT4auT.md.png" alt=""></p><p>其余的就不多做展示了，有什么问题欢迎<a href="mailto:2391527690@qq.com" target="_blank" rel="noopener">2391527690@qq.com</a>联系      </p><hr><h1 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h1><h2 id="V1-0版本"><a href="#V1-0版本" class="headerlink" title="V1.0版本"></a>V1.0版本</h2><h3 id="2018-9-23更新"><a href="#2018-9-23更新" class="headerlink" title="2018/9/23更新"></a>2018/9/23更新</h3><p>mainui.py–&gt;myapp.py<br>face_recognize_punchcard_lib.py等鸡肋文件放到useless文件夹里<br>运行效率显著提高   </p><h3 id="2018-9-25更新"><a href="#2018-9-25更新" class="headerlink" title="2018/9/25更新"></a>2018/9/25更新</h3><p>解决同步性问题，新录入的人脸能立即被识别<br>代码的运行速度少许下降    </p><h2 id="V2-0版本"><a href="#V2-0版本" class="headerlink" title="V2.0版本"></a>V2.0版本</h2><h3 id="1-全新设计的UI-更人性化的操作"><a href="#1-全新设计的UI-更人性化的操作" class="headerlink" title="1. 全新设计的UI,更人性化的操作"></a>1. 全新设计的UI,更人性化的操作</h3><p><img src="https://s2.ax1x.com/2019/04/10/AT4wbF.md.png" alt=""><img src="https://s2.ax1x.com/2019/04/10/AT4DUJ.png" alt=""><img src="https://s2.ax1x.com/2019/04/10/AT4yCR.md.png" alt="">     </p><h3 id="2-数据更加安全，用户不可见"><a href="#2-数据更加安全，用户不可见" class="headerlink" title="2. 数据更加安全，用户不可见"></a>2. 数据更加安全，用户不可见</h3><p>人脸数据和签到日志全部保存在inspurer.db数据库文件里，更加安全；而且对人脸数据进行了压缩，更加小巧。   </p><h3 id="3-注意事项"><a href="#3-注意事项" class="headerlink" title="3. 注意事项"></a>3. 注意事项</h3><ol><li>打开摄像头时请左右晃动一下人脸，确保人脸识别开始。   </li><li>人脸识别时做了拒绝处理，多张人脸时，只取距离屏幕最近的人脸。      </li><li><code>新建录入</code>时会自动录入十张人脸照片，也可手动点击<code>完成录入</code>立即完成，之后就会计算人脸数据并存储到数据库中，<br>左边的信息栏会有相应的信息打印。   </li><li><code>开始签到</code>后，如不点击<code>结束签到</code>,就会一直对屏幕前的人脸进行签到，签到状态分三种,未识别的人脸，签到成功，<br>签到成功但是迟到了(9.00后签到),重复签到(此时签到日志不会写入到数据库。         </li><li>为确保程序稳定性，每一个菜单里的按钮尽量成对操作。    </li></ol><hr><p>Thanks for your attention;<br>can you fork it if helping you? Thanks again！<br>CopyRight <a href="mailto:2391527690@qq.com" target="_blank" rel="noopener">2391527690@qq.com</a>;<br>send me for allowance if you want to transmit it  </p><h1 id="源代码地址"><a href="#源代码地址" class="headerlink" title="源代码地址"></a>源代码地址</h1><p><a href="https://github.com/inspurer/WorkAttendanceSystem" target="_blank" rel="noopener">github</a>   </p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;WorkAttendanceSystem&quot;&gt;&lt;a href=&quot;#WorkAttendanceSystem&quot; class=&quot;headerlink&quot; title=&quot;WorkAttendanceSystem&quot;&gt;&lt;/a&gt;WorkAttendanceSystem&lt;/h1&gt;&lt;p&gt;一个基于opencv人脸识别的员工考勤系统，
-    
-    </summary>
-    
-      <category term="Python" scheme="https://inspurer.github.io/categories/Python/"/>
-    
-    
-      <category term="人脸识别" scheme="https://inspurer.github.io/tags/%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB/"/>
     
   </entry>
   
