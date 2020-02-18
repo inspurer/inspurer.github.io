@@ -1,0 +1,1967 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <!-- Google AdSense start -->
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6877569709040311",
+    enable_page_level_ads: true
+  });
+</script>
+  <!-- Google AdSense end -->
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "46887a48"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/tao.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/tao.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/tao.png?v=5.1.4">
+
+
+
+
+
+
+  <meta name="keywords" content="Python,tensorflow,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="月小水长的个人博客" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="原料windows10+python3.5+pycharm 安装tensorflow利用Tensorflow训练搭建自己的物体训练模型，万里长征第一步，先安装tensorflow。">
+<meta name="keywords" content="Python,tensorflow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用Tensorflow构建自己的物体识别模型(一)">
+<meta property="og:url" content="https://inspurer.github.io/2018/12/03/利用Tensorflow构建自己的物体识别模型-一/index.html">
+<meta property="og:site_name" content="月小水长的个人博客">
+<meta property="og:description" content="原料windows10+python3.5+pycharm 安装tensorflow利用Tensorflow训练搭建自己的物体训练模型，万里长征第一步，先安装tensorflow。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/10/AThq74.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/10/AThx91.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/10/AT4Sc6.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/10/AT4pjK.md.png">
+<meta property="og:image" content="hhttps://s2.ax1x.com/2019/04/10/AT4Z9I.md.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/10/AT4e3t.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/10/AT4njf.md.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/10/AT4MDS.md.png">
+<meta property="og:updated_time" content="2019-04-10T10:38:51.194Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="利用Tensorflow构建自己的物体识别模型(一)">
+<meta name="twitter:description" content="原料windows10+python3.5+pycharm 安装tensorflow利用Tensorflow训练搭建自己的物体训练模型，万里长征第一步，先安装tensorflow。">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/04/10/AThq74.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+  <link rel="canonical" href="https://inspurer.github.io/2018/12/03/利用Tensorflow构建自己的物体识别模型-一/">
+
+
+
+
+
+  <title>利用Tensorflow构建自己的物体识别模型(一) | 月小水长的个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+
+
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	
+	<a href="https://github.com/inspurer" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">月小水长的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">微信公众号@月小水长</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-welfare">
+          <a href="/welfare/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-coffee"></i> <br>
+            
+            福利
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-message">
+          <a href="/message/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-comment"></i> <br>
+            
+            留言
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-thank">
+          <a href="/thank/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            致谢
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6877569709040311",
+    enable_page_level_ads: true
+  });
+</script>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://inspurer.github.io/2018/12/03/利用Tensorflow构建自己的物体识别模型-一/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="月小水长">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="月小水长的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">利用Tensorflow构建自己的物体识别模型(一)</h1>
+        
+
+        <div class="post-meta">
+			
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于&#58;</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-03T23:22:20+08:00">
+                2018-12-03
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-10T18:38:51+08:00">
+                2019-04-10
+              </time>
+            
+          </span>
+		  
+		  
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+                               
+                <span class="post-meta-item-text">分类于&#58;</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+				<span class="post-meta-item-text">评论数&#58;</span>
+                <a href="/2018/12/03/利用Tensorflow构建自己的物体识别模型-一/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/12/03/利用Tensorflow构建自己的物体识别模型-一/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/12/03/利用Tensorflow构建自己的物体识别模型-一/" class="leancloud_visitors" data-flag-title="利用Tensorflow构建自己的物体识别模型(一)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.2k字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  10分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="原料"><a href="#原料" class="headerlink" title="原料"></a>原料</h2><p>windows10+python3.5+pycharm</p>
+<h2 id="安装tensorflow"><a href="#安装tensorflow" class="headerlink" title="安装tensorflow"></a>安装tensorflow</h2><p>利用Tensorflow训练搭建自己的物体训练模型，万里长征第一步，先安装tensorflow。<a id="more"></a></p>
+<p>tensorflow分为cpu版和gpu版，gpu版的运行速度是cpu的50倍，但是gpu版的坑太多，要安装许多开发套件,对windows的支持不够友好；更为致命的是,它需要Nvida的中高端显卡，我的电脑系统是windows10,显卡是入门级显卡，开始我还想挣扎一下，安装个gpu版，大概试了一个晚上，到底是没有成功，识时务者为俊杰，那就安装cpu版的吧。</p>
+<blockquote>
+<p>pip insatll tensorflow   </p>
+</blockquote>
+<p>假如没有报错，做个测试，运行以下代码</p>
+<pre><code>import tensorflow as tf
+#指定一个常数张量
+first_blood = tf.constant(&apos;double kill&apos;)
+#创建一个会话，方便查看结果
+sess = tf.Session()
+print(str(sess.run(first_blood)))
+</code></pre><p>运行结果如下</p>
+<pre><code>E:\python\python.exe &quot;E:/pycharm src/TF/__init__.py&quot;
+2018-12-01 23:33:25.181550: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
+double kill
+
+Process finished with exit code 0
+</code></pre><p>如果出现警告:</p>
+<p><code>Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2</code></p>
+<p>翻译过来的大致意思是:<br><code>你的CPU支持AVX扩展，但是你安装的TensorFlow版本无法编译使用</code>   </p>
+<p>此时需要在第一行代码前加上两行代码:</p>
+<pre><code>import os
+os.environ[&apos;TF_CPP_MIN_LOG_LEVEL&apos;] = &apos;2&apos;
+import tensorflow as tf
+# 指定一个常数张量
+first_blood = tf.constant(&apos;double kill&apos;)
+# 创建一个会话，方便查看结果
+sess = tf.Session()
+print(str(sess.run(first_blood)))
+</code></pre><h2 id="下载Tensorflow-object-detection-API"><a href="#下载Tensorflow-object-detection-API" class="headerlink" title="下载Tensorflow object detection API"></a>下载Tensorflow object detection API</h2><p>如果有git的话，右键<code>git bash</code>,使用命令下载：</p>
+<blockquote>
+<p>git clone <a href="https://github.com/tensorflow/models.git" target="_blank" rel="noopener">https://github.com/tensorflow/models.git</a>  </p>
+</blockquote>
+<p>或者直接打开网站:</p>
+<blockquote>
+<p><a href="https://github.com/tensorflow/models" target="_blank" rel="noopener">https://github.com/tensorflow/models</a>   </p>
+</blockquote>
+<p>点击绿色按钮-&gt;downlaod zip   </p>
+<p>下载好之后，把文件解压，注意解压路径不要包含中文，比如我的解压后的路径是:</p>
+<blockquote>
+<p>C:\Users\lenovo\Desktop\note\gitclone\models  </p>
+</blockquote>
+<p>如果下载速度很慢，可以参考:<a href="https://blog.csdn.net/ygdxt/article/details/82825013" target="_blank" rel="noopener">https://blog.csdn.net/ygdxt/article/details/82825013</a></p>
+<h2 id="下载并配置protoc"><a href="#下载并配置protoc" class="headerlink" title="下载并配置protoc"></a>下载并配置protoc</h2><p>在<a href="https://github.com/google/protobuf/releases" target="_blank" rel="noopener">https://github.com/google/protobuf/releases</a>中选择windows版本：   </p>
+<p><img src="https://s2.ax1x.com/2019/04/10/AThq74.png" alt=""></p>
+<p>只有win32,也就是windows32位的，64位是兼容32位的。  </p>
+<p>下载好之后，解压，把bin目录下的<code>protoc.exe</code>复制到<code>..\models\research</code>文件夹下。</p>
+<p>接着就是配置protoc了，在打开cmd下切换到<code>..\models\research</code>目录，</p>
+<p>执行命令<code>protoc object_detection\protos\*.proto --python_out=.</code> </p>
+<p>如果报以下的错(其实很大可能性会报错，无论是不是在管理员模式下）：</p>
+<blockquote>
+<p>object_detection\protos*.proto: No such file or directory</p>
+</blockquote>
+<p>则需要对指令做修改，指令<code>protoc object_detection\protos\*.proto --python_out=.</code>中的<code>*.proto</code>表示是对<code>research</code>目录下的所有后缀名为<code>proto</code>的文件做操作，那干脆我们把指令中的<code>*.proto</code>这部分改成所有后缀名为<code>proto</code>的文件，每执行一次，就会生成一个<code>.py</code>文件，由于文件太多，我已经把指令写成脚本:</p>
+<pre><code>import os
+
+path_url = os.path.join(os.getcwd(),r&quot;object_detection\protos&quot;)
+print(&quot;proto path:&quot;,path_url)
+
+for file in os.listdir(path_url):
+    cmd = &quot;protoc object_detection\protos\{} --python_out=.&quot;
+    if file.endswith(&quot;.proto&quot;):
+        command = cmd.format(file)
+        print(&quot;excuting command:&quot;,command)
+        os.popen(command)
+</code></pre><p>在<code>..\research</code>目录下新建一个文件<code>excuter.py</code>,把以上代码复制进去，保存运行，稍等一会儿就可以看到<code>..\research\object_detection\protos</code>目录下生成了许多<code>.py</code>文件，说明protoc配置成功。</p>
+<h2 id="models环境变量配置"><a href="#models环境变量配置" class="headerlink" title="models环境变量配置"></a>models环境变量配置</h2><h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><p>依次打开：<code>我的电脑</code>—&gt;<code>高级系统设置</code>—&gt;<code>环境变量</code>，新建一个系统变量:</p>
+<p><img src="https://s2.ax1x.com/2019/04/10/AThx91.png" alt=""></p>
+<p><img src="https://s2.ax1x.com/2019/04/10/AT4Sc6.png" alt=""></p>
+<blockquote>
+<p>系统变量名只要不和已有的重复，符合命令规范，没有其他要求，我这里是<code>tensorflow</code><br>系统变量名下有两个值,<code>..\research</code>和<code>..\research\slim</code>的绝对路径。</p>
+</blockquote>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>在<code>..\research</code>下打开cmd，运行以下命令，</p>
+<blockquote>
+<p>python object_detection/builders/model_builder_test.py</p>
+</blockquote>
+<p>如果出现错误:  </p>
+<p><img src="https://s2.ax1x.com/2019/04/10/AT4pjK.md.png" alt=""></p>
+<p>报错原因是你的models路径太长，python无法找指定模块，<br>解决办法是在你的<code>python</code>安装路径下新建一个<code>tensorflow_model.pth</code>文件<br>(比如我的是<code>E:\python\Lib\site-packages</code>)<br>把写到环境变量里的那两个路径复制到该文件中。<br><img src="hhttps://s2.ax1x.com/2019/04/10/AT4Z9I.md.png" alt=""></p>
+<p>再运行命令<code>python object_detection/builders/model_builder_test.py</code><br><img src="https://s2.ax1x.com/2019/04/10/AT4e3t.png" alt=""></p>
+<p>说明配置成功</p>
+<h2 id="利用tensorflow自带模型测试"><a href="#利用tensorflow自带模型测试" class="headerlink" title="利用tensorflow自带模型测试"></a>利用tensorflow自带模型测试</h2><p>测试的图片是在</p>
+<blockquote>
+<p><code>C:\Users\lenovo\Desktop\note\gitclone\models\research\object_detection\test_images</code>  </p>
+</blockquote>
+<p>我们看到这里有现成的两张图片，当然也可以换成自己的。</p>
+<p>测试的脚本是</p>
+<blockquote>
+<p>C:\Users\lenovo\Desktop\note\gitclone\models\research\object_detection\object_detection_tutorial.ipynb  </p>
+</blockquote>
+<p>这是一个需要用<code>jupyter notebook</code>打开的文件，不过好像在<code>jupyter notebook</code>运行会有许多毛病<br>我已经把这个<code>ipynb</code>文件改写成<code>py</code>文件，并修复了一些未知问题，文件内容如下:</p>
+<pre><code>import numpy as np
+import os
+import six.moves.urllib as urllib
+import sys
+import tarfile
+import tensorflow as tf
+import zipfile
+
+from distutils.version import StrictVersion
+from collections import defaultdict
+from io import StringIO
+from matplotlib import pyplot as plt
+from PIL import Image
+
+# This is needed since the notebook is stored in the object_detection folder.
+sys.path.append(&quot;..&quot;)
+from object_detection.utils import ops as utils_ops
+
+if StrictVersion(tf.__version__) &lt; StrictVersion(&apos;1.9.0&apos;):
+  raise ImportError(&apos;Please upgrade your TensorFlow installation to v1.9.* or later!&apos;)
+
+
+
+import numpy as np
+import os
+import six.moves.urllib as urllib
+import sys
+import tarfile
+import tensorflow as tf
+import zipfile
+
+from distutils.version import StrictVersion
+from collections import defaultdict
+from io import StringIO
+from matplotlib import pyplot as plt
+from PIL import Image
+
+# This is needed since the notebook is stored in the object_detection folder.
+sys.path.append(&quot;..&quot;)
+from object_detection.utils import ops as utils_ops
+
+if StrictVersion(tf.__version__) &lt; StrictVersion(&apos;1.9.0&apos;):
+  raise ImportError(&apos;Please upgrade your TensorFlow installation to v1.9.* or later!&apos;)
+
+
+
+from utils import label_map_util
+
+from utils import visualization_utils as vis_util
+
+
+
+
+# What model to download.
+MODEL_NAME = &apos;ssd_mobilenet_v1_coco_2017_11_17&apos;
+MODEL_FILE = MODEL_NAME + &apos;.tar.gz&apos;
+DOWNLOAD_BASE = &apos;http://download.tensorflow.org/models/object_detection/&apos;
+
+# Path to frozen detection graph. This is the actual model that is used for the object detection.
+PATH_TO_FROZEN_GRAPH = MODEL_NAME + &apos;/frozen_inference_graph.pb&apos;
+
+# List of the strings that is used to add correct label for each box.
+PATH_TO_LABELS = os.path.join(&apos;data&apos;, &apos;mscoco_label_map.pbtxt&apos;)
+
+
+
+opener = urllib.request.URLopener()
+opener.retrieve(DOWNLOAD_BASE + MODEL_FILE, MODEL_FILE)
+tar_file = tarfile.open(MODEL_FILE)
+for file in tar_file.getmembers():
+  file_name = os.path.basename(file.name)
+  if &apos;frozen_inference_graph.pb&apos; in file_name:
+    tar_file.extract(file, os.getcwd())
+
+
+
+
+detection_graph = tf.Graph()
+with detection_graph.as_default():
+  od_graph_def = tf.GraphDef()
+  with tf.gfile.GFile(PATH_TO_FROZEN_GRAPH, &apos;rb&apos;) as fid:
+    serialized_graph = fid.read()
+    od_graph_def.ParseFromString(serialized_graph)
+    tf.import_graph_def(od_graph_def, name=&apos;&apos;)
+
+
+
+category_index = label_map_util.create_category_index_from_labelmap(PATH_TO_LABELS, use_display_name=True)
+
+
+
+def load_image_into_numpy_array(image):
+  (im_width, im_height) = image.size
+  return np.array(image.getdata()).reshape(
+      (im_height, im_width, 3)).astype(np.uint8)
+
+
+
+# For the sake of simplicity we will use only 2 images:
+# image1.jpg
+# image2.jpg
+# If you want to test the code with your images, just add path to the images to the TEST_IMAGE_PATHS.
+PATH_TO_TEST_IMAGES_DIR = &apos;test_images&apos;
+TEST_IMAGE_PATHS = [ os.path.join(PATH_TO_TEST_IMAGES_DIR, &apos;image{}.jpg&apos;.format(i)) for i in range(1, 3) ]
+
+# Size, in inches, of the output images.
+IMAGE_SIZE = (12, 8)
+
+output_num = 1
+output_img_dic = r&apos;\output_images&apos;
+
+
+def run_inference_for_single_image(image, graph):
+  with graph.as_default():
+    with tf.Session() as sess:
+      # Get handles to input and output tensors
+      ops = tf.get_default_graph().get_operations()
+      all_tensor_names = {output.name for op in ops for output in op.outputs}
+      tensor_dict = {}
+      for key in [
+          &apos;num_detections&apos;, &apos;detection_boxes&apos;, &apos;detection_scores&apos;,
+          &apos;detection_classes&apos;, &apos;detection_masks&apos;
+      ]:
+        tensor_name = key + &apos;:0&apos;
+        if tensor_name in all_tensor_names:
+          tensor_dict[key] = tf.get_default_graph().get_tensor_by_name(
+              tensor_name)
+      if &apos;detection_masks&apos; in tensor_dict:
+        # The following processing is only for single image
+        detection_boxes = tf.squeeze(tensor_dict[&apos;detection_boxes&apos;], [0])
+        detection_masks = tf.squeeze(tensor_dict[&apos;detection_masks&apos;], [0])
+        # Reframe is required to translate mask from box coordinates to image coordinates and fit the image size.
+        real_num_detection = tf.cast(tensor_dict[&apos;num_detections&apos;][0], tf.int32)
+        detection_boxes = tf.slice(detection_boxes, [0, 0], [real_num_detection, -1])
+        detection_masks = tf.slice(detection_masks, [0, 0, 0], [real_num_detection, -1, -1])
+        detection_masks_reframed = utils_ops.reframe_box_masks_to_image_masks(
+            detection_masks, detection_boxes, image.shape[0], image.shape[1])
+        detection_masks_reframed = tf.cast(
+            tf.greater(detection_masks_reframed, 0.5), tf.uint8)
+        # Follow the convention by adding back the batch dimension
+        tensor_dict[&apos;detection_masks&apos;] = tf.expand_dims(
+            detection_masks_reframed, 0)
+      image_tensor = tf.get_default_graph().get_tensor_by_name(&apos;image_tensor:0&apos;)
+
+      # Run inference
+      output_dict = sess.run(tensor_dict,
+                             feed_dict={image_tensor: np.expand_dims(image, 0)})
+
+      # all outputs are float32 numpy arrays, so convert types as appropriate
+      output_dict[&apos;num_detections&apos;] = int(output_dict[&apos;num_detections&apos;][0])
+      output_dict[&apos;detection_classes&apos;] = output_dict[
+          &apos;detection_classes&apos;][0].astype(np.uint8)
+      output_dict[&apos;detection_boxes&apos;] = output_dict[&apos;detection_boxes&apos;][0]
+      output_dict[&apos;detection_scores&apos;] = output_dict[&apos;detection_scores&apos;][0]
+      if &apos;detection_masks&apos; in output_dict:
+        output_dict[&apos;detection_masks&apos;] = output_dict[&apos;detection_masks&apos;][0]
+  return output_dict
+
+
+
+
+for image_path in TEST_IMAGE_PATHS:
+  image = Image.open(image_path)
+  # the array based representation of the image will be used later in order to prepare the
+  # result image with boxes and labels on it.
+  image_np = load_image_into_numpy_array(image)
+  # Expand dimensions since the model expects images to have shape: [1, None, None, 3]
+  image_np_expanded = np.expand_dims(image_np, axis=0)
+  # Actual detection.
+  output_dict = run_inference_for_single_image(image_np, detection_graph)
+  # Visualization of the results of a detection.
+  vis_util.visualize_boxes_and_labels_on_image_array(
+      image_np,
+      output_dict[&apos;detection_boxes&apos;],
+      output_dict[&apos;detection_classes&apos;],
+      output_dict[&apos;detection_scores&apos;],
+      category_index,
+      instance_masks=output_dict.get(&apos;detection_masks&apos;),
+      use_normalized_coordinates=True,
+      line_thickness=8)
+  plt.figure(figsize=IMAGE_SIZE)
+  print(1,image_np)
+  plt.imshow(image_np)
+  plt.show()
+  global output_num
+  global output_img_dic
+  if not os.path.exists(output_img_dic):
+      os.mkdir(output_img_dic)
+  output_img_path = os.path.join(output_img_dic,str(output_num)+&quot;.png&quot;)
+  plt.savefig(output_img_path)
+</code></pre><blockquote>
+<p>运行上述代码需要安装<code>matplotlib</code>库，直接<code>pip install matplotlib</code>安装失败的可以去官网安装与python版本对应的whl文件。安装<code>matplotlib.whl</code>时需要先出pycharm。<br>同时由于需要下载模型文件，需要在网络好的情况下进行测试。否则就会报<code>HTTP ERROR</code></p>
+</blockquote>
+<h2 id="运行效果图"><a href="#运行效果图" class="headerlink" title="运行效果图"></a>运行效果图</h2><p><img src="https://s2.ax1x.com/2019/04/10/AT4njf.md.png" alt=""><br><img src="https://s2.ax1x.com/2019/04/10/AT4MDS.md.png" alt=""></p>
+<h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><p>以上就是本次教程的所有内容，后续还会有系列教程，原创作品，转载请联系<a href="mailto:2391527690@qq.com" target="_blank" rel="noopener">2391527690@qq.com</a><br>欢迎大家多多上机操作，指出本教程的不足之处，如有问题，可加群交流，群号码: 861016679<br>本文首发于<a href="https://www.jianshu.com/p/9c9b908a2b73" target="_blank" rel="noopener">我的简书</a>，如果您在本站上看到了google广告，请多多点击，算是对我的一个鼓励，能够赞赏那就更好了，谢谢！</p>
+
+      
+    </div>
+    
+    
+    
+	<div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/12/03/利用Tensorflow构建自己的物体识别模型-一/">利用Tensorflow构建自己的物体识别模型(一)</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 月小水长 的个人博客">月小水长</a></p>
+  <p><span>发布时间:</span>2018年12月03日 - 23:12</p>
+  <p><span>最后更新:</span>2019年04月10日 - 18:04</p>
+  <p><span>原始链接:</span><a href="https://inspurer.github.io" title="1543850540000利用Tensorflow构建自己的物体识别模型(一)">https://inspurer.github.io/2018/12/03/利用Tensorflow构建自己的物体识别模型-一/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://inspurer.github.io/2018/12/03/利用Tensorflow构建自己的物体识别模型-一/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+      
+	</div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>您的赞助将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat.png" alt="月小水长 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="月小水长 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+	<div>
+		
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢阅读-------------</div>
+    
+</div>
+		
+	</div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+          
+            <a href="/tags/tensorflow/" rel="tag"><i class="fa fa-tag"></i> tensorflow</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/03/一文搞定python的时间处理/" rel="next" title="一文搞定 Python 的时间处理">
+                <i class="fa fa-chevron-left"></i> 一文搞定 Python 的时间处理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/22/PAT-Advanced-Level-Practice-No-1001/" rel="prev" title="PAT (Advanced Level) Practice No.1001">
+                PAT (Advanced Level) Practice No.1001 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6877569709040311",
+    enable_page_level_ads: true
+  });
+</script>
+
+    <div class="post-spread">
+      
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="月小水长">
+            
+              <p class="site-author-name" itemprop="name">月小水长</p>
+              <p class="site-description motion-element" itemprop="description">饮冰室主人</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/inspurer" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/ygdxt" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-crosshairs"></i>CSDN</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/1b872cf08f32" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://music.163.com/#/playlist?id=490495120" target="_blank" title="云音乐">
+                      
+                        <i class="fa fa-fw fa-headphones"></i>云音乐</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:2391527690@qq.com" target="_blank" title="邮箱">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>邮箱</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://shang.qq.com/wpa/qunwpa?idkey=3abfbe96dfbe8f76a2b72321437fe94b8ba46ba7fb2071943b5830690044e5a0" target="_blank" title="交流群">
+                      
+                        <i class="fa fa-fw fa-qq"></i>交流群</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://markzxzx.github.io/" title="MarkZXZX" target="_blank">MarkZXZX</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://asdfv1929.github.io/" title="asdfv1929" target="_blank">asdfv1929</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.fujishiro.cn/" title="Otone" target="_blank">Otone</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://52bess.com/" title="zhuimeng" target="_blank">zhuimeng</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.heanny.cn" title="Heanny Blog" target="_blank">Heanny Blog</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.mochoublog.com/" title="莫愁" target="_blank">莫愁</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.yuki-nagato.com/" title="長門有希" target="_blank">長門有希</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.fi-forex.com/" title="Forex Trading" target="_blank">Forex Trading</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#原料"><span class="nav-number">1.</span> <span class="nav-text">原料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装tensorflow"><span class="nav-number">2.</span> <span class="nav-text">安装tensorflow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载Tensorflow-object-detection-API"><span class="nav-number">3.</span> <span class="nav-text">下载Tensorflow object detection API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载并配置protoc"><span class="nav-number">4.</span> <span class="nav-text">下载并配置protoc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#models环境变量配置"><span class="nav-number">5.</span> <span class="nav-text">models环境变量配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置环境变量"><span class="nav-number">5.1.</span> <span class="nav-text">配置环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试"><span class="nav-number">5.2.</span> <span class="nav-text">测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用tensorflow自带模型测试"><span class="nav-number">6.</span> <span class="nav-text">利用tensorflow自带模型测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行效果图"><span class="nav-number">7.</span> <span class="nav-text">运行效果图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#声明"><span class="nav-number">8.</span> <span class="nav-text">声明</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">月小水长</span>
+
+  
+</div>
+
+
+  <div class="powerd by">由 <a class="theme-link" target="_blank" href="https://hexo.io/zh-cn/">Hexo</a> 强力驱动</div>
+
+
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">总字数:</span>
+    
+    <span title="Site words total count">32.3k</span>
+  
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+	<span>
+		<i class="fa fa-eye"></i>
+	</span>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+总浏览量:<span id="busuanzi_value_site_pv"></span>
+
+  <span class="post-meta-divider">|</span>
+
+<span><i class="fa fa-user"></i></span>
+总访客数:<span id="busuanzi_value_site_uv"></span>
+
+
+<div class="powerd by">
+   
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span> 
+<script> 
+	var now = new Date(); 
+	function createtime() { 
+		var grt= new Date("06/07/2018 20:15:00");//此处修改你的建站时间或者网站上线时间 
+		now.setTime(now.getTime()+250); 
+		days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+		hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+		if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+		mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+		seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+		snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+		document.getElementById("timeDate").innerHTML = "已安全运行 "+dnum+" 天 "; 
+		document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; } setInterval("createtime()",250); </script>
+
+</div>
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'yK4bP0J5SG9yN5Xo70kINyon-gzGzoHsz',
+        appKey: 'pihr3aam43jDkFMNEqVNFsnC',
+        placeholder: '在此处留言,请一并在右上方留下邮箱,这样当我回复您时，您能收到邮件通知,同时也可加q群：861016679 一起讨论',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("yK4bP0J5SG9yN5Xo70kINyon-gzGzoHsz", "pihr3aam43jDkFMNEqVNFsnC");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618},"display":{"superSample":2,"width":150,"height":300,"position":"right","hOffset":0,"vOffset":-20},"mobile":{"show":true},"react":{"opacityDefault":0.5,"opacityOnHover":0.2},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
