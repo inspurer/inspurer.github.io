@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://inspurer.github.io/"/>
-  <updated>2020-12-03T15:24:02.435Z</updated>
+  <updated>2020-12-03T15:31:22.822Z</updated>
   <id>https://inspurer.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://inspurer.github.io/2020/12/03/%E5%8E%9F%E5%88%9B%E7%88%AC%E8%99%AB%E5%A4%A7%E5%85%A8/"/>
     <id>https://inspurer.github.io/2020/12/03/原创爬虫大全/</id>
     <published>2020-12-03T14:52:01.000Z</published>
-    <updated>2020-12-03T15:24:02.435Z</updated>
+    <updated>2020-12-03T15:31:22.822Z</updated>
     
     <content type="html"><![CDATA[<p>好久没有更新网站了，应该快一年了 orz，这一年，我完成了从一名学生到大厂工程师的转变。</p><p>在这期间，陆陆续续的完成了一些爬虫项目，介绍如下，代码获取方式见文末。<a id="more"></a></p><h2 id="微博爬虫"><a href="#微博爬虫" class="headerlink" title="微博爬虫"></a>微博爬虫</h2><p>一个完整爬取 <font size="4" color="red">搜索关键词的微博、用户微博以及评论</font>的爬虫，已经开源在 github 上，地址如下：</p><blockquote><p><a href="https://github.com/Python3Spiders/WeiboSuperSpider" target="_blank" rel="noopener">https://github.com/Python3Spiders/WeiboSuperSpider</a></p></blockquote><h2 id="微信公众号爬虫"><a href="#微信公众号爬虫" class="headerlink" title="微信公众号爬虫"></a>微信公众号爬虫</h2><p>1、可以爬取 <font size="4" color="red">指定公众号所有文章的标题、内容、点赞数、好看数</font></p><p>2、可以爬取 <font size="4" color="red">指定公众号所有视频并下载到本地</font></p><h2 id="知乎爬虫"><a href="#知乎爬虫" class="headerlink" title="知乎爬虫"></a>知乎爬虫</h2><p>1、可以爬取 <font size="4" color="red">指定用户或者机构的所有想法、文章、回答、视频的标题点赞数和评论数</font></p><p>2、可以爬取 <font size="4" color="red">指定问题下的所有回答，爬取指定回答下的所有评论</font></p><h2 id="链家爬虫"><a href="#链家爬虫" class="headerlink" title="链家爬虫"></a>链家爬虫</h2><p>可以爬取 <font size="4" color="red">指定城市的所有租房、成交房以及二手房数据，包含多达十个字段</font>，没有任何敏感信息，仅做数据分析用</p><h2 id="facebook-爬虫"><a href="#facebook-爬虫" class="headerlink" title="facebook 爬虫"></a>facebook 爬虫</h2><p>可以 <font size="4" color="red">爬取指定用户的帖子</font></p><h2 id="instagram-爬虫"><a href="#instagram-爬虫" class="headerlink" title="instagram 爬虫"></a>instagram 爬虫</h2><p>1、可以爬取 <font size="4" color="red">指定用户的粉丝信息，关注信息</font></p><p>2、可以 <font size="4" color="red">下载指定用户的所有图片</font></p><h2 id="youtube-爬虫"><a href="#youtube-爬虫" class="headerlink" title="youtube 爬虫"></a>youtube 爬虫</h2><p>可以爬取 <font size="4" color="red">指定视频的所有评论</font></p><h2 id="bilibili-爬虫"><a href="#bilibili-爬虫" class="headerlink" title="bilibili 爬虫"></a>bilibili 爬虫</h2><p>1、可以下载指定视频</p><p>2、可以爬取指定视频的所有评论和弹幕</p><h1 id="如何获取源码"><a href="#如何获取源码" class="headerlink" title="如何获取源码"></a>如何获取源码</h1> <font size="4" color="red">除了第一个微博爬虫，其余都没有开源，如有需要可通过关注公众号【月小水长】后台联系我。</font><p>#微信公众号爬虫、#知乎爬虫、#链家爬虫、#facebook 爬虫、#微博爬虫</p>]]></content>
     
@@ -35,7 +35,7 @@
       <category term="爬虫" scheme="https://inspurer.github.io/categories/%E7%88%AC%E8%99%AB/"/>
     
     
-      <category term="爬虫，新浪微博，instagram，Facebook，youtube，微信公众号文章，微信公众号视频，链家，知乎" scheme="https://inspurer.github.io/tags/%E7%88%AC%E8%99%AB%EF%BC%8C%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A%EF%BC%8Cinstagram%EF%BC%8CFacebook%EF%BC%8Cyoutube%EF%BC%8C%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0%EF%BC%8C%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E8%A7%86%E9%A2%91%EF%BC%8C%E9%93%BE%E5%AE%B6%EF%BC%8C%E7%9F%A5%E4%B9%8E/"/>
+      <category term="爬虫，新浪微博，微信公众号文章/视频，链家，知乎" scheme="https://inspurer.github.io/tags/%E7%88%AC%E8%99%AB%EF%BC%8C%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A%EF%BC%8C%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0-%E8%A7%86%E9%A2%91%EF%BC%8C%E9%93%BE%E5%AE%B6%EF%BC%8C%E7%9F%A5%E4%B9%8E/"/>
     
   </entry>
   
