@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://inspurer.github.io/"/>
-  <updated>2019-04-26T15:01:11.837Z</updated>
+  <updated>2020-12-03T15:13:35.381Z</updated>
   <id>https://inspurer.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>原创爬虫大全</title>
+    <link href="https://inspurer.github.io/2020/12/03/%E5%8E%9F%E5%88%9B%E7%88%AC%E8%99%AB%E5%A4%A7%E5%85%A8/"/>
+    <id>https://inspurer.github.io/2020/12/03/原创爬虫大全/</id>
+    <published>2020-12-03T14:52:01.000Z</published>
+    <updated>2020-12-03T15:13:35.381Z</updated>
+    
+    <content type="html"><![CDATA[<p>好久没有更新网站了，应该快一年了 orz，这一年，我完成了从一名学生到大厂工程师的转变。</p><p>在这期间，陆陆续续的完成了一些爬虫项目，介绍如下，代码获取方式见文末。<a id="more"></a></p><h2 id="微博爬虫"><a href="#微博爬虫" class="headerlink" title="微博爬虫"></a>微博爬虫</h2><p>一个完整爬取 <font size="4" color="red">搜索关键词的微博、用户微博以及评论</font>的爬虫，已经开源在 github 上，地址如下：</p><blockquote><p><a href="https://github.com/Python3Spiders/WeiboSuperSpider" target="_blank" rel="noopener">https://github.com/Python3Spiders/WeiboSuperSpider</a></p></blockquote><h2 id="微信公众号爬虫"><a href="#微信公众号爬虫" class="headerlink" title="微信公众号爬虫"></a>微信公众号爬虫</h2><p>1、可以爬取 <font size="4" color="red">指定公众号所有文章的标题、内容、点赞数、好看数</font></p><p>2、可以爬取 <font size="4" color="red">指定公众号所有视频并下载到本地</font></p><h2 id="知乎爬虫"><a href="#知乎爬虫" class="headerlink" title="知乎爬虫"></a>知乎爬虫</h2><p>1、可以爬取 <font size="4" color="red">指定用户或者机构的所有想法、文章、回答、视频的标题点赞数和评论数</font></p><p>2、可以爬取 <font size="4" color="red">指定问题下的所有回答，爬取指定回答下的所有评论</font></p><h2 id="链家爬虫"><a href="#链家爬虫" class="headerlink" title="链家爬虫"></a>链家爬虫</h2><p>可以爬取 <font size="4" color="red">指定城市的所有租房、成交房以及二手房数据，包含多达十个字段</font>，没有任何敏感信息，仅做数据分析用</p><h2 id="facebook-爬虫"><a href="#facebook-爬虫" class="headerlink" title="facebook 爬虫"></a>facebook 爬虫</h2><p>可以 <font size="4" color="red">爬取指定用户的帖子</font></p><h2 id="instagram-爬虫"><a href="#instagram-爬虫" class="headerlink" title="instagram 爬虫"></a>instagram 爬虫</h2><p>1、可以爬取 <font size="4" color="red">指定用户的粉丝信息，关注信息</font></p><p>2、可以 <font size="4" color="red">下载指定用户的所有图片</font></p><h2 id="youtube-爬虫"><a href="#youtube-爬虫" class="headerlink" title="youtube 爬虫"></a>youtube 爬虫</h2><p>可以爬取 <font size="4" color="red">指定视频的所有评论</font></p><h2 id="bilibili-爬虫"><a href="#bilibili-爬虫" class="headerlink" title="bilibili 爬虫"></a>bilibili 爬虫</h2><p>1、可以下载指定视频</p><p>2、可以爬取指定视频的所有评论和弹幕</p><h1 id="如何获取源码"><a href="#如何获取源码" class="headerlink" title="如何获取源码"></a>如何获取源码</h1> <font size="4" color="red">除了第一个微博爬虫，其余都没有开源，如有需要可通过公众号【月小水长】后台联系我。</font>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;好久没有更新网站了，应该快一年了 orz，这一年，我完成了从一名学生到大厂工程师的转变。&lt;/p&gt;
+&lt;p&gt;在这期间，陆陆续续的完成了一些爬虫项目，介绍如下，代码获取方式见文末。
+    
+    </summary>
+    
+      <category term="爬虫" scheme="https://inspurer.github.io/categories/%E7%88%AC%E8%99%AB/"/>
+    
+    
+      <category term="爬虫，新浪微博，instagram，Facebook，youtube，微信公众号文章，微信公众号视频，链家，知乎" scheme="https://inspurer.github.io/tags/%E7%88%AC%E8%99%AB%EF%BC%8C%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A%EF%BC%8Cinstagram%EF%BC%8CFacebook%EF%BC%8Cyoutube%EF%BC%8C%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0%EF%BC%8C%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E8%A7%86%E9%A2%91%EF%BC%8C%E9%93%BE%E5%AE%B6%EF%BC%8C%E7%9F%A5%E4%B9%8E/"/>
+    
+  </entry>
   
   <entry>
     <title>刘媛媛：年轻人能为世界做什么</title>
@@ -485,30 +508,6 @@
       <category term="Python" scheme="https://inspurer.github.io/tags/Python/"/>
     
       <category term="爬虫" scheme="https://inspurer.github.io/tags/%E7%88%AC%E8%99%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>小程序json.parse错误</title>
-    <link href="https://inspurer.github.io/2018/11/14/%E5%B0%8F%E7%A8%8B%E5%BA%8Fjson-parse%E9%94%99%E8%AF%AF/"/>
-    <id>https://inspurer.github.io/2018/11/14/小程序json-parse错误/</id>
-    <published>2018-11-14T05:53:15.000Z</published>
-    <updated>2018-11-14T06:51:30.695Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="错误详情"><a href="#错误详情" class="headerlink" title="错误详情"></a>错误详情</h1><h2 id="今天查看上线的微信小程序后台，发现了一个这样的错误"><a href="#今天查看上线的微信小程序后台，发现了一个这样的错误" class="headerlink" title="今天查看上线的微信小程序后台，发现了一个这样的错误:"></a>今天查看上线的微信小程序后台，发现了一个这样的错误:</h2><a id="more"></a><pre><code>Unexpected token in JSON at position 52;at pages/send/send onShow function;at api request success callback function   </code></pre><h2 id="于是我打开调试工具查看源代码并且调试"><a href="#于是我打开调试工具查看源代码并且调试" class="headerlink" title="于是我打开调试工具查看源代码并且调试:"></a>于是我打开调试工具查看源代码并且调试:</h2><pre><code>VM792:1 thirdScriptErrorUnexpected token in JSON at position 52;at pages/send/send onShow function;at api request success     callback functionSyntaxError: Unexpected token in JSON at position 52at JSON.parse (&lt;anonymous&gt;)at success (http://127.0.0.1:60162/appservice/pages/send/send.js:130:35)at http://127.0.0.1:60162/appservice/utils/bmob.js:2293:37at wrappedResolvedCallback (http://127.0.0.1:60162/appservice/utils/bmob.js:2219:48)at http://127.0.0.1:60162/appservice/utils/bmob.js:2171:34at Object._.each._.forEach [as _arrayEach] (http://127.0.0.1:60162/appservice/utils/underscore.js:161:17)at Bmob.Promise.resolve (http://127.0.0.1:60162/appservice/utils/bmob.js:2170:18)at wrappedResolvedCallback (http://127.0.0.1:60162/appservice/utils/bmob.js:2228:37)at http://127.0.0.1:60162/appservice/utils/bmob.js:2171:34at Object._.each._.forEach [as _arrayEach] (http://127.0.0.1:60162/appservice/utils/underscore.js:161:17)   </code></pre><p>果不其然,小程序已然上线,这个错误一定不能忍     </p><h1 id="调试过程"><a href="#调试过程" class="headerlink" title="调试过程"></a>调试过程</h1><h2 id="通过错误信息定位到出错的代码"><a href="#通过错误信息定位到出错的代码" class="headerlink" title="通过错误信息定位到出错的代码"></a>通过错误信息定位到出错的代码</h2><p>通过上面的报错信息：<br><code>at success (http://127.0.0.1:60162/appservice/pages/send/send.js:130:35)</code><br>定位到出错的代码是在130行:<br><code>var jsonB = JSON.parse(jsonA);</code>   </p><h2 id="上网浏览查询相关资料"><a href="#上网浏览查询相关资料" class="headerlink" title="上网浏览查询相关资料"></a>上网浏览查询相关资料</h2><p>网上的说法不一而足,实在不知道该听信哪家之言<br>不过都集中在<code>json文件不能有注释</code>、<code>json字符串url有误</code>、<code>json字符串有特殊字符</code>   </p><h2 id="定位原因"><a href="#定位原因" class="headerlink" title="定位原因"></a>定位原因</h2><p>排除了几种错误后还没有解决问题，有点心灰意冷,<br>尝试着输出json字符串中的每一个字符   </p><pre><code>51 &quot;。&quot;52 &quot;&quot;53 &quot;2&quot;</code></pre><p>等等,换行符确是是个特殊字符(ps,在js里面<code>\r</code>是回车符,<code>\n</code>是换行符,)<br>(在小程序中,我这个jsonA是包含用户的键盘输入信息的)   </p><h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><pre><code>jsonA = jsonA.replace(&apos;\n&apos;,&apos;&apos;)</code></pre><h1 id="后话"><a href="#后话" class="headerlink" title="后话"></a>后话</h1><p>小程序的预览可以查看: <a href="https://inspurer.github.io/2018/11/07/%E6%89%93%E5%8D%A1%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/#more">点击查看</a><br>小程序的所有源代码: <a href="https://github.com/inspurer/CampusPunchcard" target="_blank" rel="noopener">github地址</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;错误详情&quot;&gt;&lt;a href=&quot;#错误详情&quot; class=&quot;headerlink&quot; title=&quot;错误详情&quot;&gt;&lt;/a&gt;错误详情&lt;/h1&gt;&lt;h2 id=&quot;今天查看上线的微信小程序后台，发现了一个这样的错误&quot;&gt;&lt;a href=&quot;#今天查看上线的微信小程序后台，发现了一个这样的错误&quot; class=&quot;headerlink&quot; title=&quot;今天查看上线的微信小程序后台，发现了一个这样的错误:&quot;&gt;&lt;/a&gt;今天查看上线的微信小程序后台，发现了一个这样的错误:&lt;/h2&gt;
-    
-    </summary>
-    
-      <category term="小程序" scheme="https://inspurer.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
-    
-    
-      <category term="小程序" scheme="https://inspurer.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
-    
-      <category term="json" scheme="https://inspurer.github.io/tags/json/"/>
     
   </entry>
   
