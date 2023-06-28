@@ -113,7 +113,7 @@
 <meta property="og:site_name" content="月小水长的个人博客">
 <meta property="og:description" content="两年多没有更新网站了，这两年，我完成了从一名大厂工程师到连续创业者的转变。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2023-06-28T02:10:40.830Z">
+<meta property="og:updated_time" content="2023-06-28T02:21:29.716Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="站点 bug 维修记录">
 <meta name="twitter:description" content="两年多没有更新网站了，这两年，我完成了从一名大厂工程师到连续创业者的转变。">
@@ -431,7 +431,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2023-06-28T10:10:40+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2023-06-28T10:21:29+08:00">
                 2023-06-28
               </time>
             
@@ -499,7 +499,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  687字
+                  740字
                 </span>
               
 
@@ -552,6 +552,7 @@
 <p>这是错误是因为本地的博客版本与远程的版本不一致，解决方法是删除博客目录下的.deploy_git文件夹，然后克隆远程的仓库到博客目录里面，然后改名字为.deploy_git。</p>
 <h3 id="will-not-add-file-alias"><a href="#will-not-add-file-alias" class="headerlink" title="will not add file alias"></a>will not add file alias</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fatal: will not add file alias 'categories/Python/index.html' ('categories/python/index.html' already exists in index)</span><br><span class="line"></span><br><span class="line">    at ChildProcess.&lt;anonymous&gt; (D:\hexoblog\node_modules\hexo-util\lib\spawn.js:37:17)</span><br><span class="line">    at ChildProcess.emit (events.js:182:13)</span><br><span class="line">    at ChildProcess.cp.emit (D:\hexoblog\node_modules\cross-spawn\lib\enoent.js:40:29)</span><br><span class="line">    at maybeClose (internal/child_process.js:961:16)</span><br><span class="line">    at Process.ChildProcess._handle.onexit (internal/child_process.js:248:5)</span><br></pre></td></tr></table></figure>
 <p>解决办法，把 <code>./deploy_git/.git/config</code> 里面的 ignorecase 值改成 false</p>
+<h3 id="评论丢失"><a href="#评论丢失" class="headerlink" title="评论丢失"></a>评论丢失</h3><p>评论是保存在 LeanCloud 的，由于 LeanCloud 服务升级，代码丢失无法按期修改 appid 和 appkey，之前的评论数据全部丢失了，现在的评论是重开的。</p>
 <h3 id="兄弟站点"><a href="#兄弟站点" class="headerlink" title="兄弟站点"></a>兄弟站点</h3><p>已于 2022 年初新开兄弟站点 <a href="https://buyixiao.github.io/" target="_blank" rel="noopener">https://buyixiao.github.io/</a>，更多有趣好玩实用的 tools，欢迎来玩</p>
 
       
@@ -924,7 +925,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#RSA-host-key-for-github-com-has-changed-Could-not-read-from-remote-repository"><span class="nav-number">1.</span> <span class="nav-text">RSA host key for github.com has changed. Could not read from remote repository</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Host-key-verification-failed"><span class="nav-number">2.</span> <span class="nav-text">Host key verification failed.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#will-not-add-file-alias"><span class="nav-number">3.</span> <span class="nav-text">will not add file alias</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#兄弟站点"><span class="nav-number">4.</span> <span class="nav-text">兄弟站点</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#RSA-host-key-for-github-com-has-changed-Could-not-read-from-remote-repository"><span class="nav-number">1.</span> <span class="nav-text">RSA host key for github.com has changed. Could not read from remote repository</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Host-key-verification-failed"><span class="nav-number">2.</span> <span class="nav-text">Host key verification failed.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#will-not-add-file-alias"><span class="nav-number">3.</span> <span class="nav-text">will not add file alias</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#评论丢失"><span class="nav-number">4.</span> <span class="nav-text">评论丢失</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#兄弟站点"><span class="nav-number">5.</span> <span class="nav-text">兄弟站点</span></a></li></ol></div>
             
 
           </div>
@@ -972,7 +973,7 @@
     
       <span class="post-meta-item-text">总字数:</span>
     
-    <span title="Site words total count">33.4k</span>
+    <span title="Site words total count">33.5k</span>
   
 
 
