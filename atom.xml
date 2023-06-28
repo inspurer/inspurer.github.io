@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://inspurer.github.io/"/>
-  <updated>2020-12-03T15:31:22.822Z</updated>
+  <updated>2023-06-28T02:10:40.830Z</updated>
   <id>https://inspurer.github.io/</id>
   
   <author>
@@ -17,11 +17,35 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>站点 bug 维修记录</title>
+    <link href="https://inspurer.github.io/2023/06/28/%E7%AB%99%E7%82%B9-bug-%E7%BB%B4%E4%BF%AE%E8%AE%B0%E5%BD%95/"/>
+    <id>https://inspurer.github.io/2023/06/28/站点-bug-维修记录/</id>
+    <published>2023-06-28T01:42:14.000Z</published>
+    <updated>2023-06-28T02:10:40.830Z</updated>
+    
+    <content type="html"><![CDATA[<p>两年多没有更新网站了，这两年，我完成了从一名大厂工程师到连续创业者的转变。<a id="more"></a></p><p>网站由于年久失修，存在了许多 bug，比如部分友链 404，阅读量统计失效等等，由于代码丢失，拖了两年才在旧电脑上找到这份代码，将所有 bug 修好后，发布此篇，以作记录。</p><h3 id="RSA-host-key-for-github-com-has-changed-Could-not-read-from-remote-repository"><a href="#RSA-host-key-for-github-com-has-changed-Could-not-read-from-remote-repository" class="headerlink" title="RSA host key for github.com has changed. Could not read from remote repository"></a>RSA host key for github.com has changed. Could not read from remote repository</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">RSA host key for github.com has changed and you have requested strict checking.</span><br><span class="line">Host key verification failed.</span><br><span class="line">fatal: Could not read from remote repository.</span><br><span class="line"></span><br><span class="line">Please make sure you have the correct access rights</span><br><span class="line">and the repository exists.</span><br><span class="line"></span><br><span class="line">    at ChildProcess.&lt;anonymous&gt; (D:\hexoblog\node_modules\hexo-util\lib\spawn.js:37:17)</span><br><span class="line">    at ChildProcess.emit (events.js:182:13)</span><br><span class="line">    at ChildProcess.cp.emit (D:\hexoblog\node_modules\cross-spawn\lib\enoent.js:40:29)</span><br><span class="line">    at maybeClose (internal/child_process.js:961:16)</span><br><span class="line">    at Process.ChildProcess._handle.onexit (internal/child_process.js:248:5)</span><br></pre></td></tr></table></figure><p>1、如果<code>git config -l</code> 没有输出，在 git 设置一下身份的名字和邮箱，</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;yourname&quot;</span><br><span class="line"></span><br><span class="line">git config --global user.email &quot;your@email.com&quot;</span><br></pre></td></tr></table></figure><p>yourname 必须与 github 的用户名一致</p><p>这里 <a href="mailto:your@email.com" target="_blank" rel="noopener">your@email.com</a> 必须与 github 登录邮箱一致</p><p>2、删除.ssh文件夹下的 known_hosts 文件(该文件主要作用是域名解析)</p><p>3、<code>ssh-keygen -t rsa -C “your@email.com&quot;</code>(填写github对应的邮箱)</p><p>一路回车即可，yes，无需输入</p><p>4、在 github 设置界面新增SSH key 将 id_rsa.pub 里面的内容添加到如图中的 Key 上，Title 可随意。</p><h3 id="Host-key-verification-failed"><a href="#Host-key-verification-failed" class="headerlink" title="Host key verification failed."></a>Host key verification failed.</h3><p> Could not read from remote repository</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Host key verification failed.</span><br><span class="line">fatal: Could not read from remote repository.</span><br><span class="line"></span><br><span class="line">Please make sure you have the correct access rights</span><br><span class="line">and the repository exists.</span><br><span class="line">FATAL Something's wrong. Maybe you can find the solution here: http://hexo.io/docs/troubleshooting.html</span><br><span class="line">Error: Host key verification failed.</span><br><span class="line">fatal: Could not read from remote repository.</span><br><span class="line"></span><br><span class="line">Please make sure you have the correct access rights</span><br><span class="line">and the repository exists.</span><br><span class="line"></span><br><span class="line">    at ChildProcess.&lt;anonymous&gt; (D:\hexoblog\node_modules\hexo-util\lib\spawn.js:37:17)</span><br><span class="line">    at ChildProcess.emit (events.js:182:13)</span><br><span class="line">    at ChildProcess.cp.emit (D:\hexoblog\node_modules\cross-spawn\lib\enoent.js:40:29)</span><br><span class="line">    at maybeClose (internal/child_process.js:961:16)</span><br><span class="line">    at Socket.stream.socket.on (internal/child_process.js:380:11)</span><br><span class="line">    at Socket.emit (events.js:182:13)</span><br><span class="line">    at Pipe._handle.close [as _onclose] (net.js:596:12)</span><br></pre></td></tr></table></figure><p>这是错误是因为本地的博客版本与远程的版本不一致，解决方法是删除博客目录下的.deploy_git文件夹，然后克隆远程的仓库到博客目录里面，然后改名字为.deploy_git。</p><h3 id="will-not-add-file-alias"><a href="#will-not-add-file-alias" class="headerlink" title="will not add file alias"></a>will not add file alias</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fatal: will not add file alias 'categories/Python/index.html' ('categories/python/index.html' already exists in index)</span><br><span class="line"></span><br><span class="line">    at ChildProcess.&lt;anonymous&gt; (D:\hexoblog\node_modules\hexo-util\lib\spawn.js:37:17)</span><br><span class="line">    at ChildProcess.emit (events.js:182:13)</span><br><span class="line">    at ChildProcess.cp.emit (D:\hexoblog\node_modules\cross-spawn\lib\enoent.js:40:29)</span><br><span class="line">    at maybeClose (internal/child_process.js:961:16)</span><br><span class="line">    at Process.ChildProcess._handle.onexit (internal/child_process.js:248:5)</span><br></pre></td></tr></table></figure><p>解决办法，把 <code>./deploy_git/.git/config</code> 里面的 ignorecase 值改成 false</p><h3 id="兄弟站点"><a href="#兄弟站点" class="headerlink" title="兄弟站点"></a>兄弟站点</h3><p>已于 2022 年初新开兄弟站点 <a href="https://buyixiao.github.io/" target="_blank" rel="noopener">https://buyixiao.github.io/</a>，更多有趣好玩实用的 tools，欢迎来玩</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;两年多没有更新网站了，这两年，我完成了从一名大厂工程师到连续创业者的转变。
+    
+    </summary>
+    
+      <category term="hexo" scheme="https://inspurer.github.io/categories/hexo/"/>
+    
+    
+      <category term="hexo" scheme="https://inspurer.github.io/tags/hexo/"/>
+    
+      <category term="next" scheme="https://inspurer.github.io/tags/next/"/>
+    
+  </entry>
+  
+  <entry>
     <title>原创爬虫大全</title>
     <link href="https://inspurer.github.io/2020/12/03/%E5%8E%9F%E5%88%9B%E7%88%AC%E8%99%AB%E5%A4%A7%E5%85%A8/"/>
     <id>https://inspurer.github.io/2020/12/03/原创爬虫大全/</id>
     <published>2020-12-03T14:52:01.000Z</published>
-    <updated>2020-12-03T15:31:22.822Z</updated>
+    <updated>2023-06-28T01:45:29.911Z</updated>
     
     <content type="html"><![CDATA[<p>好久没有更新网站了，应该快一年了 orz，这一年，我完成了从一名学生到大厂工程师的转变。</p><p>在这期间，陆陆续续的完成了一些爬虫项目，介绍如下，代码获取方式见文末。<a id="more"></a></p><h2 id="微博爬虫"><a href="#微博爬虫" class="headerlink" title="微博爬虫"></a>微博爬虫</h2><p>一个完整爬取 <font size="4" color="red">搜索关键词的微博、用户微博以及评论</font>的爬虫，已经开源在 github 上，地址如下：</p><blockquote><p><a href="https://github.com/Python3Spiders/WeiboSuperSpider" target="_blank" rel="noopener">https://github.com/Python3Spiders/WeiboSuperSpider</a></p></blockquote><h2 id="微信公众号爬虫"><a href="#微信公众号爬虫" class="headerlink" title="微信公众号爬虫"></a>微信公众号爬虫</h2><p>1、可以爬取 <font size="4" color="red">指定公众号所有文章的标题、内容、点赞数、好看数</font></p><p>2、可以爬取 <font size="4" color="red">指定公众号所有视频并下载到本地</font></p><h2 id="知乎爬虫"><a href="#知乎爬虫" class="headerlink" title="知乎爬虫"></a>知乎爬虫</h2><p>1、可以爬取 <font size="4" color="red">指定用户或者机构的所有想法、文章、回答、视频的标题点赞数和评论数</font></p><p>2、可以爬取 <font size="4" color="red">指定问题下的所有回答，爬取指定回答下的所有评论</font></p><h2 id="链家爬虫"><a href="#链家爬虫" class="headerlink" title="链家爬虫"></a>链家爬虫</h2><p>可以爬取 <font size="4" color="red">指定城市的所有租房、成交房以及二手房数据，包含多达十个字段</font>，没有任何敏感信息，仅做数据分析用</p><h2 id="facebook-爬虫"><a href="#facebook-爬虫" class="headerlink" title="facebook 爬虫"></a>facebook 爬虫</h2><p>可以 <font size="4" color="red">爬取指定用户的帖子</font></p><h2 id="instagram-爬虫"><a href="#instagram-爬虫" class="headerlink" title="instagram 爬虫"></a>instagram 爬虫</h2><p>1、可以爬取 <font size="4" color="red">指定用户的粉丝信息，关注信息</font></p><p>2、可以 <font size="4" color="red">下载指定用户的所有图片</font></p><h2 id="youtube-爬虫"><a href="#youtube-爬虫" class="headerlink" title="youtube 爬虫"></a>youtube 爬虫</h2><p>可以爬取 <font size="4" color="red">指定视频的所有评论</font></p><h2 id="bilibili-爬虫"><a href="#bilibili-爬虫" class="headerlink" title="bilibili 爬虫"></a>bilibili 爬虫</h2><p>1、可以下载指定视频</p><p>2、可以爬取指定视频的所有评论和弹幕</p><h1 id="如何获取源码"><a href="#如何获取源码" class="headerlink" title="如何获取源码"></a>如何获取源码</h1> <font size="4" color="red">除了第一个微博爬虫，其余都没有开源，如有需要可通过关注公众号【月小水长】后台联系我。</font><p>#微信公众号爬虫、#知乎爬虫、#链家爬虫、#facebook 爬虫、#微博爬虫</p>]]></content>
     
@@ -35,7 +59,15 @@
       <category term="爬虫" scheme="https://inspurer.github.io/categories/%E7%88%AC%E8%99%AB/"/>
     
     
-      <category term="爬虫，新浪微博，微信公众号文章/视频，链家，知乎" scheme="https://inspurer.github.io/tags/%E7%88%AC%E8%99%AB%EF%BC%8C%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A%EF%BC%8C%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0-%E8%A7%86%E9%A2%91%EF%BC%8C%E9%93%BE%E5%AE%B6%EF%BC%8C%E7%9F%A5%E4%B9%8E/"/>
+      <category term="爬虫" scheme="https://inspurer.github.io/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="新浪微博" scheme="https://inspurer.github.io/tags/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A/"/>
+    
+      <category term="微信公众号文章/视频" scheme="https://inspurer.github.io/tags/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0-%E8%A7%86%E9%A2%91/"/>
+    
+      <category term="链家" scheme="https://inspurer.github.io/tags/%E9%93%BE%E5%AE%B6/"/>
+    
+      <category term="知乎" scheme="https://inspurer.github.io/tags/%E7%9F%A5%E4%B9%8E/"/>
     
   </entry>
   
@@ -484,30 +516,6 @@
       <category term="励志" scheme="https://inspurer.github.io/tags/%E5%8A%B1%E5%BF%97/"/>
     
       <category term="励志故事" scheme="https://inspurer.github.io/tags/%E5%8A%B1%E5%BF%97%E6%95%85%E4%BA%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python 自动下载图虫网图库</title>
-    <link href="https://inspurer.github.io/2018/11/14/python%E8%87%AA%E5%8A%A8%E4%B8%8B%E8%BD%BD%E5%9B%BE%E8%99%AB%E7%BD%91%E5%9B%BE%E5%BA%93/"/>
-    <id>https://inspurer.github.io/2018/11/14/python自动下载图虫网图库/</id>
-    <published>2018-11-14T12:58:11.000Z</published>
-    <updated>2019-04-09T01:34:10.816Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h1><h2 id="下载工程源码"><a href="#下载工程源码" class="headerlink" title="下载工程源码"></a>下载工程源码</h2><p><a href="https://github.com/inspurer/PythonSpider/tree/master/tuchong" target="_blank" rel="noopener">点击下载</a><br><a id="more"></a><br>或者git bash;<code>git clone git@github.com:inspurer/PythonSpider.git</code>    </p><h2 id="下载相关依赖"><a href="#下载相关依赖" class="headerlink" title="下载相关依赖"></a>下载相关依赖</h2><p>在命令行下依此输入   </p><pre><code>pip install requests   pip install pyquery   </code></pre><h2 id="打开图虫网"><a href="#打开图虫网" class="headerlink" title="打开图虫网"></a>打开图虫网</h2><p>选择你喜欢的图库链接,比如<code>https://tuchong.com/4293835/23849565/</code><br>复制并替换到tuchong_gallery.py代码里面的gallery_url,解释一下这个链接的作用,<br>前一个数字串是作者的id,后一个数字串是作者该图库的id<br>注意,在打开这个图库时,复制地址前最好不要左右浏览   </p><h2 id="运行tuchong-gallery-py"><a href="#运行tuchong-gallery-py" class="headerlink" title="运行tuchong_gallery.py"></a>运行tuchong_gallery.py</h2><p>你就可以看到在下载这个图库的图片了<br>图库保存在工程目录下,文件夹名为作者和图库的id<br>每一张图片保存在该文件夹下,格式为:<code>imageid.jpg</code>  </p><h1 id="计划更新"><a href="#计划更新" class="headerlink" title="计划更新"></a>计划更新</h1><h2 id="增加自动搜索"><a href="#增加自动搜索" class="headerlink" title="增加自动搜索"></a>增加自动搜索</h2>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;如何使用&quot;&gt;&lt;a href=&quot;#如何使用&quot; class=&quot;headerlink&quot; title=&quot;如何使用&quot;&gt;&lt;/a&gt;如何使用&lt;/h1&gt;&lt;h2 id=&quot;下载工程源码&quot;&gt;&lt;a href=&quot;#下载工程源码&quot; class=&quot;headerlink&quot; title=&quot;下载工程源码&quot;&gt;&lt;/a&gt;下载工程源码&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/inspurer/PythonSpider/tree/master/tuchong&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;点击下载&lt;/a&gt;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="https://inspurer.github.io/categories/Python/"/>
-    
-    
-      <category term="Python" scheme="https://inspurer.github.io/tags/Python/"/>
-    
-      <category term="爬虫" scheme="https://inspurer.github.io/tags/%E7%88%AC%E8%99%AB/"/>
     
   </entry>
   

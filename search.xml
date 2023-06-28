@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[站点 bug 维修记录]]></title>
+    <url>%2F2023%2F06%2F28%2F%E7%AB%99%E7%82%B9-bug-%E7%BB%B4%E4%BF%AE%E8%AE%B0%E5%BD%95%2F</url>
+    <content type="text"><![CDATA[两年多没有更新网站了，这两年，我完成了从一名大厂工程师到连续创业者的转变。 网站由于年久失修，存在了许多 bug，比如部分友链 404，阅读量统计失效等等，由于代码丢失，拖了两年才在旧电脑上找到这份代码，将所有 bug 修好后，发布此篇，以作记录。 RSA host key for github.com has changed. Could not read from remote repository123456789101112RSA host key for github.com has changed and you have requested strict checking.Host key verification failed.fatal: Could not read from remote repository.Please make sure you have the correct access rightsand the repository exists. at ChildProcess.&lt;anonymous&gt; (D:\hexoblog\node_modules\hexo-util\lib\spawn.js:37:17) at ChildProcess.emit (events.js:182:13) at ChildProcess.cp.emit (D:\hexoblog\node_modules\cross-spawn\lib\enoent.js:40:29) at maybeClose (internal/child_process.js:961:16) at Process.ChildProcess._handle.onexit (internal/child_process.js:248:5) 1、如果git config -l 没有输出，在 git 设置一下身份的名字和邮箱， 123git config --global user.name &quot;yourname&quot;git config --global user.email &quot;your@email.com&quot; yourname 必须与 github 的用户名一致 这里 your@email.com 必须与 github 登录邮箱一致 2、删除.ssh文件夹下的 known_hosts 文件(该文件主要作用是域名解析) 3、ssh-keygen -t rsa -C “your@email.com&quot;(填写github对应的邮箱) 一路回车即可，yes，无需输入 4、在 github 设置界面新增SSH key 将 id_rsa.pub 里面的内容添加到如图中的 Key 上，Title 可随意。 Host key verification failed. Could not read from remote repository 12345678910111213141516171819Host key verification failed.fatal: Could not read from remote repository.Please make sure you have the correct access rightsand the repository exists.FATAL Something's wrong. Maybe you can find the solution here: http://hexo.io/docs/troubleshooting.htmlError: Host key verification failed.fatal: Could not read from remote repository.Please make sure you have the correct access rightsand the repository exists. at ChildProcess.&lt;anonymous&gt; (D:\hexoblog\node_modules\hexo-util\lib\spawn.js:37:17) at ChildProcess.emit (events.js:182:13) at ChildProcess.cp.emit (D:\hexoblog\node_modules\cross-spawn\lib\enoent.js:40:29) at maybeClose (internal/child_process.js:961:16) at Socket.stream.socket.on (internal/child_process.js:380:11) at Socket.emit (events.js:182:13) at Pipe._handle.close [as _onclose] (net.js:596:12) 这是错误是因为本地的博客版本与远程的版本不一致，解决方法是删除博客目录下的.deploy_git文件夹，然后克隆远程的仓库到博客目录里面，然后改名字为.deploy_git。 will not add file alias1234567fatal: will not add file alias 'categories/Python/index.html' ('categories/python/index.html' already exists in index) at ChildProcess.&lt;anonymous&gt; (D:\hexoblog\node_modules\hexo-util\lib\spawn.js:37:17) at ChildProcess.emit (events.js:182:13) at ChildProcess.cp.emit (D:\hexoblog\node_modules\cross-spawn\lib\enoent.js:40:29) at maybeClose (internal/child_process.js:961:16) at Process.ChildProcess._handle.onexit (internal/child_process.js:248:5) 解决办法，把 ./deploy_git/.git/config 里面的 ignorecase 值改成 false 兄弟站点已于 2022 年初新开兄弟站点 https://buyixiao.github.io/，更多有趣好玩实用的 tools，欢迎来玩]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>next</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[原创爬虫大全]]></title>
     <url>%2F2020%2F12%2F03%2F%E5%8E%9F%E5%88%9B%E7%88%AC%E8%99%AB%E5%A4%A7%E5%85%A8%2F</url>
     <content type="text"><![CDATA[好久没有更新网站了，应该快一年了 orz，这一年，我完成了从一名学生到大厂工程师的转变。 在这期间，陆陆续续的完成了一些爬虫项目，介绍如下，代码获取方式见文末。 微博爬虫一个完整爬取 搜索关键词的微博、用户微博以及评论的爬虫，已经开源在 github 上，地址如下： https://github.com/Python3Spiders/WeiboSuperSpider 微信公众号爬虫1、可以爬取 指定公众号所有文章的标题、内容、点赞数、好看数 2、可以爬取 指定公众号所有视频并下载到本地 知乎爬虫1、可以爬取 指定用户或者机构的所有想法、文章、回答、视频的标题点赞数和评论数 2、可以爬取 指定问题下的所有回答，爬取指定回答下的所有评论 链家爬虫可以爬取 指定城市的所有租房、成交房以及二手房数据，包含多达十个字段，没有任何敏感信息，仅做数据分析用 facebook 爬虫可以 爬取指定用户的帖子 instagram 爬虫1、可以爬取 指定用户的粉丝信息，关注信息 2、可以 下载指定用户的所有图片 youtube 爬虫可以爬取 指定视频的所有评论 bilibili 爬虫1、可以下载指定视频 2、可以爬取指定视频的所有评论和弹幕 如何获取源码 除了第一个微博爬虫，其余都没有开源，如有需要可通过关注公众号【月小水长】后台联系我。 #微信公众号爬虫、#知乎爬虫、#链家爬虫、#facebook 爬虫、#微博爬虫]]></content>
@@ -8,7 +20,11 @@
         <category>爬虫</category>
       </categories>
       <tags>
-        <tag>爬虫，新浪微博，微信公众号文章/视频，链家，知乎</tag>
+        <tag>爬虫</tag>
+        <tag>新浪微博</tag>
+        <tag>微信公众号文章/视频</tag>
+        <tag>链家</tag>
+        <tag>知乎</tag>
       </tags>
   </entry>
   <entry>
